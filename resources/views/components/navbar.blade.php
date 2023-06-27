@@ -29,7 +29,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Accedi
+                            Utente non loggato
                         </a>
                         <ul class="dropdown-menu ul">
                             <li><a class="dropdown-item" href="{{ route('register') }}">Registrati</a></li>
