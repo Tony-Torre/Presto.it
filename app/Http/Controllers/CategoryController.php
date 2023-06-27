@@ -10,15 +10,15 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function category_index(){
+    public function index(){
         $categories = Category::all();
-        return view('category_index',['categories'=>$categories]);
+        return view('category.index',['categories'=>$categories]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function category_create(){
+    public function create(){
         
         return view('category_create');
     }
@@ -26,43 +26,43 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function category_store(CategoryRequest $request_cat){
+    public function store(CategoryRequest $request_cat){
 
         Category::create([
             'name' => $request_cat-> name
         ]);
-        return redirect()->route('category_index')->with('success', 'Inserimento avvenuto con successo!');
+        return redirect()->route('category.index')->with('success', 'Inserimento avvenuto con successo!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function category_show(Category $category){
-        return view ('category_show',compact('category'));
+    public function show(Category $category){
+        return view ('category.show',compact('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function category_edit(Category $category){
-        return view ('category_edit',compact('category'));
+    public function edit(Category $category){
+        return view ('category.edit',compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function category_update(CategoryRequest $request, Category $category){
+    public function update(CategoryRequest $request, Category $category){
         $category->update([
             'name'=>$request->input('name'),
         ]);
-        return redirect()->route('category_index') ->with('success','Modifica effettuata');
+        return redirect()->route('category.index') ->with('success','Modifica effettuata');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function category_destroy(Category $category){
+    public function destroy(Category $category){
         $category->delete();
-        return redirect()->route('category_index')->with('success','Canellazione effettuata');
+        return redirect()->route('category.index')->with('success','Canellazione effettuata');
     }
 }
