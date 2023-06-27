@@ -1,1 +1,7 @@
 @import 'bootstrap';
+
+:root{
+    --main-color: coral;
+    --second-color: rgb(27, 27, 162);
+    --third-color: rgb(255, 218, 185);
+}
