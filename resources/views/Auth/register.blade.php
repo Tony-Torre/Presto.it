@@ -48,8 +48,8 @@
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="password_confirmation" name="password_confirmation" type="password_confirmation" placeholder="password_confirmation">
-                                <label for="author">password_confirmation</label>
+                                <input class="form-control" id="password_confirmation" name="password_confirmation" type="password" placeholder="password_confirmation">
+                                <label for="author">Conferma la tua password</label>
                                 @error('author')
                                 <span class="text-danger">
                                     Autore obbligatorio!

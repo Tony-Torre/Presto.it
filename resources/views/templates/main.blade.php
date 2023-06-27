@@ -12,13 +12,9 @@
 
 <body>
 
-    <main class="flex-shrink-0">
+    <x-navbar />
+    {{ $slot }}
 
-      <x-navbar />
-
-        {{ $slot }}
-
-    </main>
 </body>
 
 </html>
