@@ -11,9 +11,11 @@
 </head>
 
 <body>
-
+    
     <x-navbar />
-    {{ $slot }}
+    <div class="min-vh-100">
+        {{ $slot }}
+    </div>
     @livewireScripts
 </body>
 </html>
