@@ -1,10 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        
-        
+    <div class="container-fluid">  
         <a class="navbar-brand" href="#"><img src="Presto.it.jpg" alt=""
-            height="40rem"></a>
-            
+            height="40rem"></a>  
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -12,11 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    
-                    
-                    
-                    <a class="nav-link active" aria-current="page" href="{{route('home')}}">Presto.it</a>
-                    
+                    <a class="nav-link active" aria-current="page" href="{{route('home')}}">Presto.it</a>  
                 </li>
                 @auth
                 <li class="nav-item dropdown">
@@ -25,22 +18,15 @@
                     Annunci
                 </a>
                 <ul class="dropdown-menu">
-                    
                     <li><a class="dropdown-item " href="{{ route('article.create') }}">Crea un annncio</a></li>
-                    
                     <li><a class="dropdown-item " href="{{ route('article.index') }}">Elenco annunci</a></li>
                 </ul>
                 @else
                 <li class="nav-item">
-                    
-                    
-                    
                     <a class="nav-link active" aria-current="page" href="{{route('article.index')}}">Annunci</a>
-                    
                 </li>
                 @endauth
-            </li>
-            
+            </li>   
         </ul>
     </div>
     <div class="d-flex justify-content-end">
@@ -69,8 +55,7 @@
         <li><a class="dropdown-item" href="{{ route('register') }}">Registrati</a></li>
         <li><a class="dropdown-item" href="{{ route('login') }}">Accedi</a></li>
     </ul>
-</li>
-@endauth
-
-</div>
+    </li>
+    @endauth
+    </div>
 </nav>

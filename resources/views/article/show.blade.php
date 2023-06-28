@@ -7,6 +7,7 @@
       <h5 class="card-title">{{$article['title']}}</h5>
       <p class="card-text">{{$article['description']}}</p>
       <p class="card-text">{{$article->category->name}}</p>
+      <p class="card-text">{{$article->user->name}}</p>
       <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>

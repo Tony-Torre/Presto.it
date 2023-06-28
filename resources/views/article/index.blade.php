@@ -8,8 +8,8 @@
               <img src="..." class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{$article['title']}}</h5>
-                <p class="card-text">{{$article['description']}}</p>
-                <p class="card-text">{{$article->category->name}}</p>
+                <p class="card-text">Descrizione:{{$article['description']}}</p>
+                <p class="card-text">Categoria:{{$article->category->name}}</p>
                 @auth
                   <a href="{{route('article.edit',['article'=>$article])}}"><button>Modifica</button></a>
                 @endauth 

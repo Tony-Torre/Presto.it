@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,7 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [PageController::class, 'home'])->name('home');
 
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/article/create', [ArticleController::class, 'create'])->middleware('auth')->name('article.create');
