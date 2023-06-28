@@ -5,9 +5,11 @@ namespace App\Http\Livewire;
 use App\Models\Article;
 use Livewire\Component;
 
-class ArticleCreateForm extends Component
+class ArticleEditForm extends Component
 {
+
     public $title, $price, $description, $category;
+    public Article $article;
 
     protected $rules = [
         'title'=> 'required|string',
@@ -16,26 +18,27 @@ class ArticleCreateForm extends Component
         'category'=> '',
         // 'image'=> 'string',
     ];
-    
-    public function update($propertyName){
-        $this->validateOnly($propertyName);
+
+    public function mount(){
+        $this->title=$this->article->title;
+        $this->price=$this->article->price;
+        $this->description=$this->article->description;
+        $this->category=$this->article->category;
     }
-    
-    public function store(){
+
+    public function update(){
         $this->validate();
-        Article::create([
+        $this->article->update([
             'title' => $this->title,
             'price' => $this->price,
             'description' => $this->description,
             'category' => $this->category="",
         ]);
-        $this->reset(['title','price','description','category']);
-        session()->flash('article', 'Articolo aggiunto correttamente');
-       
+        session()->flash('article', 'Articolo modificato con successo');
     }
-    
+
     public function render()
     {
-        return view('livewire.article-create-form');
+        return view('livewire.article-edit-form');
     }
 }

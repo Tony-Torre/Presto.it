@@ -20,12 +20,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
-Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
-Route::POST('/article/store', [ArticleController::class, 'store'])->name('article.store');
-Route::get('/article/show', [ArticleController::class, 'show'])->name('article.show');
-Route::get('/article/edit', [ArticleController::class, 'edit'])->name('article.edit');
-Route::PUT('/article/update', [ArticleController::class, 'update'])->name('article.update');
-Route::DELETE('/article/destroy', [ArticleController::class, 'destroy'])->name('article.destroy');
+Route::get('/article/create', [ArticleController::class, 'create'])->middleware('auth')->name('article.create');
+Route::get('/article/{article}/show', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->middleware('auth')->name('article.edit');
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/crea', [CategoryController::class, 'create'])->name('category.create');

@@ -1,6 +1,6 @@
 <div>
-    <h2>Inserisci il tuo articolo!</h2>
-    <form wire:submit.prevent="store">
+    <h2>Modifica il tuo articolo!</h2>
+    <form wire:submit.prevent="update">
         @csrf
         @if (session()->has('article'))
         <div class="alert alert-success">
@@ -41,6 +41,6 @@
             <label for="image" class="form-label">Immagine dell'articolo</label>
             <input type="file" id="title" class="form-control" wire:model="image" placeholder="Immagine">
         </div> --}}
-        <button type="submit" class="btn btn-primary">Crea</button>
+        <button type="submit" class="btn btn-primary">Modifica</button>
     </form>
 </div>

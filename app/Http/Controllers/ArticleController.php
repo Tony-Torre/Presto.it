@@ -12,7 +12,8 @@ class ArticleController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   
+
         return view('article.index');
     }
 
@@ -29,14 +30,14 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('article.show');
+        return view('article.show', ['article' => $article]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Article $article)
-    {
-        return view('article.edit');
+    {   
+        return view('article.edit', ['article'=>$article]);
     }
 }

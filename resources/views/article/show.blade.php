@@ -1,0 +1,1 @@
+<span>{{$article['title']}}</span>
