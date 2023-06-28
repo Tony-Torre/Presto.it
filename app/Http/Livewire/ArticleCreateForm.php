@@ -3,17 +3,19 @@
 namespace App\Http\Livewire;
 
 use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class ArticleCreateForm extends Component
 {
-    public $title, $price, $description, $category_id;
+    public $title, $price, $description, $category_id, $user_id;
 
     protected $rules = [
         'title'=> 'required|string',
         'price'=> 'required|numeric',
         'description'=> 'required|string',
-        'category_id'=> '',
+        'category_id'=> 'string',
+        'user_id'=> '',
         // 'image'=> 'string',
     ];
     
@@ -28,6 +30,7 @@ class ArticleCreateForm extends Component
             'price' => $this->price,
             'description' => $this->description,
             'category_id' => $this->category_id,
+            'user_id' => Auth::user()->id,
         ]);
         $this->reset(['title','price','description','category_id']);
         session()->flash('article', 'Articolo aggiunto correttamente');

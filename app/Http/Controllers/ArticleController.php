@@ -44,8 +44,9 @@ class ArticleController extends Controller
 
 
     public function search(Request $request){
-        $search = Article::where('title','like','%'. $request->search.'%')->get();
-        return view('article.index',['article'=>$search]);
+        $search = Article::where('title','like','%' . $request->search_article .'%')->get();
+        
+        return view('article.index',['articles'=>$search]);
 
     }
 }
