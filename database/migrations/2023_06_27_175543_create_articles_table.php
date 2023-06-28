@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('title');
             $table->decimal('price',8,2); //decimal = munero decimale, 8= numeri, 2 di questi decimali 
             $table->string('description');
-            $table->string('category')->nullable();
             $table->timestamps();
         });
     }

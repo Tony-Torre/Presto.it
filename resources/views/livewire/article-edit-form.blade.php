@@ -29,11 +29,10 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="category" class="form-label">Categoria</label>
-            <select wire:model.defer="category" id="category">
-                <option value="" selected>Seleziona la Categoria</option>
+            <label for="category_id" class="form-label">Categoria</label>
+            <select wire:model.defer="category_id" id="category_id">
                 @foreach ($categories as $category)
-                    <option value="{{$category['id']}}">{{$category['name']}}</option>
+                    <option value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach
             </select>
         </div>

@@ -7,13 +7,13 @@ use Livewire\Component;
 
 class ArticleCreateForm extends Component
 {
-    public $title, $price, $description, $category;
+    public $title, $price, $description, $category_id;
 
     protected $rules = [
         'title'=> 'required|string',
         'price'=> 'required|numeric',
         'description'=> 'required|string',
-        'category'=> '',
+        'category_id'=> '',
         // 'image'=> 'string',
     ];
     
@@ -27,9 +27,9 @@ class ArticleCreateForm extends Component
             'title' => $this->title,
             'price' => $this->price,
             'description' => $this->description,
-            'category' => $this->category="",
+            'category_id' => $this->category_id,
         ]);
-        $this->reset(['title','price','description','category']);
+        $this->reset(['title','price','description','category_id']);
         session()->flash('article', 'Articolo aggiunto correttamente');
        
     }

@@ -1,11 +1,12 @@
 <x-main>
+    <div>I tuoi articoli</div>
     <h1 class="text-center">I nostri articoli</h1>
-    <form action="{{route('article_serch')}}" method="POST">
+    <form action="{{route('article.search')}}" method="POST">
         @method('POST')
         @csrf
         <div class="row">
             <div class="col-md-auto autocomplete">
-                <input type="search" placeholder="Cerca libro" id="article_serch" name="article_serch">
+                <input type="search" placeholder="Cerca libro" id="search" name="search">
             </div>
             <div class="col-md-auto">
                 <div class="d-grid gap-3">

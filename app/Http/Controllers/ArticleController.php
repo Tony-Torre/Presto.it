@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -13,8 +14,8 @@ class ArticleController extends Controller
      */
     public function index()
     {   
-
-        return view('article.index');
+        $users=User::all();
+        return view('article.index',compact('users'));
     }
 
     /**
@@ -41,10 +42,8 @@ class ArticleController extends Controller
         return view('article.edit', ['article'=>$article]);
     }
 
-    public function article_serch(Request $request){
-        $article_serch = Article::where('title', $request->serch)->get();
-        //$book_serch = Book::where('category', $request->book_serch)->get();
-        //$book_serch = Book::where('author', $request->book_serch)->get();
-        return view('article.index',['article'=>$article_serch]);
+    public function search(Request $request){
+        $search = Article::where('title', $request->search)->get();
+        return view('article.index',['article'=>$search]);
     }
 }
