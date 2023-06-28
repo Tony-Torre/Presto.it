@@ -9,14 +9,14 @@
             </div>
             <div class="col-md-auto">
                 <div class="d-grid gap-3">
-                    <button class="btn btn-primary btn-lg p-2" type="submit" style='width: 100px; height: 40px;'>Ricerca</button>
+                    <button class="btn btn-light btn-sm p-2" type="submit" style='width: 100px; height: 40px; border-color: rgb(27,27,162)'>Ricerca</button>
                 </div>
             </div>
         </div>
     </form>
     <ul>
     @foreach ($articles as $article)
-        <li><span>{{$article['title']}} <a href="{{route('article.edit',['article'=>$article])}}"><button>Modifica</button></a> <a href="{{route('article.show',['article'=>$article])}}"><button>Visualizzalo</button></a></span></li>
+        <li><span>{{$article['title']}} <a href="{{route('article.edit',['article'=>$article])}}"><button class="btn btn-light btn-sm" style="border-color: rgb(27,27,162)">Modifica</button></a> <a href="{{route('article.show',['article'=>$article])}}"><button class="btn btn-light btn-sm" style="border-color: rgb(27,27,162)">Visualizzalo</button></a></span></li>
         
     @endforeach
     </ul>
