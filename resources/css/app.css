@@ -14,3 +14,11 @@
     background: linear-gradient(to right, #ff7f50, #ffdab9);
    }
 
+   a{
+    text-decoration: none;
+    color:var(--second-color)
+
+   }
+   button{
+    color:var(--second-color)
+   }
