@@ -13,7 +13,7 @@
                             </ul>
                         </div>
                         @endif
-                        <form action="{{route('category.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('category.store')}}" method="POST">
                             @method('POST')
                             @csrf
                             <div class="form-floating mb-3">

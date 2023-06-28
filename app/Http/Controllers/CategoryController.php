@@ -26,10 +26,10 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CategoryRequest $request_cat){
+    public function store(CategoryRequest $request){
 
         Category::create([
-            'name' => $request_cat-> name
+            'name' => $request->name,
         ]);
         return redirect()->route('category.index')->with('success', 'Inserimento avvenuto con successo!');
     }

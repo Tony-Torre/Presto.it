@@ -4,7 +4,7 @@
             <div class=" rounded-3 py-5 px-4 px-md-5 mb-5">
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6">
-                        <form action="{{route('category.update',['category'=>$category->id])}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('category.update',['category'=>$category])}}" method="POST">
                             @method('PUT')
                             @csrf
                             <div class="form-floating mb-3">
