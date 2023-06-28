@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-auto">
                 <div class="d-grid gap-3">
-                    <button class="btn btn-primary btn-lg p-2" type="submit" style='width: 100px; height: 40px;'>Ricerca</button>
+                    <button class="btn btn-light btn-sm p-2" type="submit" style='width: 100px; height: 40px; border-color: rgb(27,27,162)'>Ricerca</button>
                 </div>
             </div>
         </div>
@@ -28,6 +28,7 @@
               </div>
             </div>
           </div>
+
     @endforeach
     </div>
 </x-main>
