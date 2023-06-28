@@ -9,9 +9,11 @@
 </div>
 <div class="container text-center">
     <div class="row">
-
-Ciao sono le cateogrie
-
+    @foreach($categories as $category)
+            <div class="col-md-auto">
+                <x-card_category :$category/>
+            </div>
+        @endforeach
     </div>
 </div>
 

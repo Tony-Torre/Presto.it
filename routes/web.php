@@ -15,7 +15,7 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('home');
 })->name('home');
 
@@ -28,9 +28,9 @@ Route::PUT('/article/update', [ArticleController::class, 'update'])->name('artic
 Route::DELETE('/article/destroy', [ArticleController::class, 'destroy'])->name('article.destroy');
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
-Route::get('/category/crea', [CategoryController::class, 'create'])->name('category.create');
-Route::post('/category/salva', [CategoryController::class, 'store'])->name('category.store');
-Route::get('/category/{category}/dettagli', [CategoryController::class, 'show'])->name('category.show');
-Route::get('/category/{category}/modifica', [CategoryController::class, 'edit'])->name('category.edit');
+Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
+Route::get('/category/{category}/show', [CategoryController::class, 'show'])->name('category.show');
+Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
 Route::put('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
