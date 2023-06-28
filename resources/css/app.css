@@ -5,3 +5,7 @@
     --second-color: rgb(27, 27, 162);
     --third-color: rgb(255, 218, 185);
 }
+
+.background {
+    background: linear-gradient(to right, #ff7f50, #ffdab9);
+   }
