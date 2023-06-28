@@ -34,7 +34,7 @@
         </div>
         <div class="d-flex justify-content-end">
             @auth
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" style="list-style-type: none">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Benvenuto {{ Auth::user()->name }}
