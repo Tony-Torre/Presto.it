@@ -24,6 +24,8 @@ Route::get('/article/create', [ArticleController::class, 'create'])->middleware(
 Route::get('/article/{article}/show', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->middleware('auth')->name('article.edit');
 
+Route::post('/article/serch', [ArticleController::class, 'article_serch'])->name('article_serch');
+
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/create', [CategoryController::class, 'create'])->middleware('auth')->name('category.create');
 Route::POST('/category/store', [CategoryController::class, 'store'])->name('category.store');

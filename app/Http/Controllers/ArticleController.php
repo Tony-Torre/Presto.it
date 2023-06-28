@@ -40,4 +40,11 @@ class ArticleController extends Controller
     {   
         return view('article.edit', ['article'=>$article]);
     }
+
+    public function article_serch(Request $request){
+        $article_serch = Article::where('title','like','%'.$request->article_serch.'%')->get();
+        //$book_serch = Book::where('category', $request->book_serch)->get();
+        //$book_serch = Book::where('author', $request->book_serch)->get();
+        return view('article.index',['articles'=>$article_serch]);
+    }
 }
