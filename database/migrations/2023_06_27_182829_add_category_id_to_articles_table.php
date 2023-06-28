@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('categories', function (Blueprint $table) {
+        Schema::table('articles', function (Blueprint $table) {
             
-            $table->unsignedBigInteger('article_id');
-            $table->foreign('article_id')
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')
                 ->references('id')
-                ->on('articles');
+                ->on('categories')->onDelete('SET NULL');
 
         });
     }
@@ -26,10 +26,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('categories', function (Blueprint $table) {
+        Schema::table('articles', function (Blueprint $table) {
     
-            $table->dropForeign(['article_id']);
-            $table->dropColumn(['article_id']);
+            $table->dropForeign(['category_id']);
+            $table->dropColumn(['category_id']);
 
         });
     }

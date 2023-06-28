@@ -27,9 +27,9 @@ Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->middl
 Route::post('/article/serch', [ArticleController::class, 'article_serch'])->name('article_serch');
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
-Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
-Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
+Route::get('/category/create', [CategoryController::class, 'create'])->middleware('auth')->name('category.create');
+Route::POST('/category/store', [CategoryController::class, 'store'])->name('category.store');
 Route::get('/category/{category}/show', [CategoryController::class, 'show'])->name('category.show');
-Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
+Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->middleware('auth')->name('category.edit');
 Route::put('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
