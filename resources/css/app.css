@@ -9,3 +9,7 @@
 .background {
     background: linear-gradient(to right, #ff7f50, #ffdab9);
    }
+
+   body{
+    background: linear-gradient(to right, #ff7f50, #ffdab9);
+   }
