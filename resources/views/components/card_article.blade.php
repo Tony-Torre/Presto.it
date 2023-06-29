@@ -1,6 +1,6 @@
 <div class="col">
     <div class="card">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="https://unsplash.it/400" class="card-img-top" alt="immagine">
       <div class="card-body">
         <h5 class="card-title">{{$article['title']}}</h5>
         <p class="card-text">Descrizione:{{$article['description']}}</p>
