@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import './footer.css';
 
 :root{
     --main-color: coral;
@@ -7,11 +8,12 @@
 }
 
 .background {
-    background: linear-gradient(to right, #ff7f50, #ffdab9);
+    background: linear-gradient(to left, #ff7f50, #ffdab9);
+      overflow: hidden;
    }
 
    body{
-    background: linear-gradient(to right, #ff7f50, #ffdab9);
+    background: linear-gradient(to left, #ff7f50, #ffdab9);
    }
 
    a{
@@ -22,3 +24,16 @@
    button{
     color:var(--second-color)
    }
+
+
+   .dropdown:hover>.dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+      pointer-events: none;
+  }
+
+  .cash_cursor{
+    cursor: url('http://www.rw-designer.com/cursor-extern.php?id=83573'),default;}
