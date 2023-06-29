@@ -7,11 +7,11 @@
 }
 
 .background {
-    background: linear-gradient(to right, #ff7f50, #ffdab9);
+    background: linear-gradient(to left, #ff7f50, #ffdab9);
    }
 
    body{
-    background: linear-gradient(to right, #ff7f50, #ffdab9);
+    background: linear-gradient(to left, #ff7f50, #ffdab9);
    }
 
    a{
@@ -32,3 +32,6 @@
     /*Without this, clicking will make it sticky*/
       pointer-events: none;
   }
+
+  .cash_cursor{
+    cursor: url('http://www.rw-designer.com/cursor-extern.php?id=83573'),default;}
