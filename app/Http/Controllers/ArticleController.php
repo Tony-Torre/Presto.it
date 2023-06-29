@@ -15,7 +15,8 @@ class ArticleController extends Controller
     public function index()
     {   
         $users=User::all();
-        return view('article.index',compact('users'));
+        $order_desc= Article::orderBy('created_at', 'desc')->get();
+        return view('article.index',compact('users'),['articles'=>$order_desc]);
     }
 
     /**
@@ -44,7 +45,7 @@ class ArticleController extends Controller
 
 
     public function search(Request $request){
-        $search_article = Article::where('category_id', $request->search_category)
+        $search_article = Article::where('category_id','like','%' . $request->search_category .'%')
         ->where('title','like','%' . $request->search_article .'%')->get();
         return view('article.index',['articles'=>$search_article]);
 
