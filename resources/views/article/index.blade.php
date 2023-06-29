@@ -17,8 +17,6 @@
               </div>
             </div>
           </div>
-
-    
     @endforeach
     </div>
 </x-main>
