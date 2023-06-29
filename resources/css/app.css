@@ -3,31 +3,45 @@
 @import './navbar.css';
 
 :root{
-    --main-color: coral;
-    --second-color: rgb(27, 27, 162);
-    --third-color: rgb(255, 218, 185);
+  --main-color: coral;
+  --second-color: rgb(27, 27, 162);
+  --third-color: rgb(255, 218, 185);
 }
 
 .background {
-    background: linear-gradient(to left, #ff7f50, #ffdab9);
-      overflow: hidden;
-   }
+  background: linear-gradient(to left, #ff7f50, #ffdab9);
+  overflow: hidden;
+}
 
-   body{
-    background: #CE5937;
-background: -moz-linear-gradient(top, coral 0%, rgb(255, 218, 185) 100%);
-background: -webkit-linear-gradient(top, coral 0%, rgb(255, 218, 185) 100%);
-background: linear-gradient(to bottom, coral 0%, rgb(255, 218, 185) 100%);
-   }
+body{
+  background: #CE5937;
+  background: -moz-linear-gradient(top, coral 0%, rgb(255, 218, 185) 100%);
+  background: -webkit-linear-gradient(top, coral 0%, rgb(255, 218, 185) 100%);
+  background: linear-gradient(to bottom, coral 0%, rgb(255, 218, 185) 100%);
+}
 
-   a{
-    text-decoration: none;
-    color:var(--second-color)
+a{
+  text-decoration: none;
+  color:var(--second-color)
+  
+}
+button{
+  color:var(--second-color)
+}
 
-   }
-   button{
-    color:var(--second-color)
-   }
+.cash_cursor{
+  cursor: url("http://127.0.0.1:8000/img/coin.png"),pointer;}
 
-  .cash_cursor{
-    cursor: url("http://127.0.0.1:8000/img/coin.png"),pointer;}
+.background_white{
+  background-color: var(--third-color);
+}
+
+.background_blue{
+  background-color: var(--second-color);
+  color: var(--third-color);
+}
+
+.position_sticky{
+  position: sticky;
+  top: 0;
+}
