@@ -21,12 +21,13 @@
                     <li><a class="dropdown-item " href="{{ route('article.create') }}">Crea un annncio</a></li>
                     <li><a class="dropdown-item " href="{{ route('article.index') }}">Elenco annunci</a></li>
                 </ul>
+                
                 @else
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{route('article.index')}}">Annunci</a>
                 </li>
-                @endauth
-            </li>   
+            </li>
+            @endauth  
         </ul>
     </div>
     <div class="d-flex justify-content-end">
