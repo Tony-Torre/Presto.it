@@ -3,7 +3,7 @@
     <h1>{{$category['name']}}</h1>
 
     @forelse ($category->articles as $article)
-        <div>ciao</div>
+        {{$article['title']}}
     @empty
         <div>ciao</div>
     @endforelse
