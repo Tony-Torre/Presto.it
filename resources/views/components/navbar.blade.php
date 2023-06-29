@@ -26,6 +26,16 @@
                     <a class="nav-link active" aria-current="page" href="{{route('article.index')}}">Annunci</a>
                 </li>
                 @endauth
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Categorie
+                </a>
+                <ul class="dropdown-menu">
+                    @foreach ($categories as $category)
+                    <li><a class="dropdown-item " href="{{ route('category.show', ['category'=>$category]) }}">{{$category->name}}</a></li>
+                    @endforeach
+                </ul>
             </li>   
         </ul>
     </div>
