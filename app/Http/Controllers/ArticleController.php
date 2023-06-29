@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -13,8 +14,9 @@ class ArticleController extends Controller
      */
     public function index()
     {   
-
-        return view('article.index');
+        $users=User::all();
+        $order_desc= Article::orderBy('created_at', 'desc')->get();
+        return view('article.index',compact('users'),['articles'=>$order_desc]);
     }
 
     /**
@@ -41,10 +43,11 @@ class ArticleController extends Controller
         return view('article.edit', ['article'=>$article]);
     }
 
-    public function article_serch(Request $request){
-        $article_serch = Article::where('title','like','%'.$request->article_serch.'%')->get();
-        //$book_serch = Book::where('category', $request->book_serch)->get();
-        //$book_serch = Book::where('author', $request->book_serch)->get();
-        return view('article.index',['articles'=>$article_serch]);
+
+    public function search(Request $request){
+        $search_article = Article::where('category_id','like','%' . $request->search_category .'%')
+        ->where('title','like','%' . $request->search_article .'%')->get();
+        return view('article.index',['articles'=>$search_article]);
+
     }
 }

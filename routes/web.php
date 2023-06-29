@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +16,13 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [PageController::class, 'home'])->name('home');
 
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/article/create', [ArticleController::class, 'create'])->middleware('auth')->name('article.create');
 Route::get('/article/{article}/show', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->middleware('auth')->name('article.edit');
-
-Route::post('/article/serch', [ArticleController::class, 'article_serch'])->name('article_serch');
+Route::post('/article/search', [ArticleController::class, 'search'])->name('article.search');
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/create', [CategoryController::class, 'create'])->middleware('auth')->name('category.create');

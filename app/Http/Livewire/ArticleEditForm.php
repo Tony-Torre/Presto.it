@@ -8,14 +8,14 @@ use Livewire\Component;
 class ArticleEditForm extends Component
 {
 
-    public $title, $price, $description, $category;
+    public $title, $price, $description, $category_id;
     public Article $article;
 
     protected $rules = [
         'title'=> 'required|string',
         'price'=> 'required|numeric',
         'description'=> 'required|string',
-        'category'=> '',
+        'category_id'=> 'string',
         // 'image'=> 'string',
     ];
 
@@ -23,7 +23,7 @@ class ArticleEditForm extends Component
         $this->title=$this->article->title;
         $this->price=$this->article->price;
         $this->description=$this->article->description;
-        $this->category=$this->article->category;
+        $this->category_id=$this->article->category_id;
     }
 
     public function update(){
@@ -32,7 +32,7 @@ class ArticleEditForm extends Component
             'title' => $this->title,
             'price' => $this->price,
             'description' => $this->description,
-            'category' => $this->category="",
+            'category_id' => $this->category_id,
         ]);
         session()->flash('article', 'Articolo modificato con successo');
     }
