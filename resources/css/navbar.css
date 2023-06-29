@@ -1,0 +1,18 @@
+:root{
+    --main-color: coral;
+    --second-color: rgb(27, 27, 162);
+    --third-color: rgb(255, 218, 185);
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+.nav_color{
+    background: var(--main-color) !important;
+}

@@ -11,7 +11,7 @@ class ArticleCreateForm extends Component
     public $title, $price, $description, $category_id, $user_id;
 
     protected $rules = [
-        'title'=> 'required|string',
+        'title'=> 'required|string|max:225',
         'price'=> 'required|numeric',
         'description'=> 'required|string',
         'category_id'=> 'string',
@@ -19,7 +19,7 @@ class ArticleCreateForm extends Component
         // 'image'=> 'string',
     ];
     
-    public function update($propertyName){
+    public function updated($propertyName){
         $this->validateOnly($propertyName);
     }
     
@@ -37,6 +37,13 @@ class ArticleCreateForm extends Component
        
     }
     
+    public function messages(){
+        return [
+            'title.max' => 'Devi inserire una categoria di massimo 255 caratteri',
+            'name.min' => 'Devi inserire una categoria di minimo 2 caratteri',
+            'name.required' => 'Devi inserire la categoria',
+        ];
+    }
     public function render()
     {
         return view('livewire.article-create-form');

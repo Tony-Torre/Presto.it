@@ -12,7 +12,7 @@ class ArticleEditForm extends Component
     public Article $article;
 
     protected $rules = [
-        'title'=> 'required|string',
+        'title'=> 'required|string|max:225',
         'price'=> 'required|numeric',
         'description'=> 'required|string',
         'category_id'=> 'string',
@@ -24,6 +24,10 @@ class ArticleEditForm extends Component
         $this->price=$this->article->price;
         $this->description=$this->article->description;
         $this->category_id=$this->article->category_id;
+    }
+
+    public function updated($propertyName){
+        $this->validateOnly($propertyName);
     }
 
     public function update(){

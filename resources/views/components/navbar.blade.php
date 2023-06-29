@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary nav_color">
     <div class="container-fluid">  
         <a class="navbar-brand" href="#"><img src="Presto.it.jpg" alt=""
             height="40rem"></a>  
