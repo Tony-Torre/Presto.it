@@ -12,7 +12,7 @@
 
 <body>
     
-    <x-nav />
+    <x-navbar />
     {{ $slot }}
     @livewireScripts
     
