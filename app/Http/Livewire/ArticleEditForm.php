@@ -15,7 +15,7 @@ class ArticleEditForm extends Component
         'title'=> 'required|string|max:225',
         'price'=> 'required|numeric',
         'description'=> 'required|string',
-        'category_id'=> 'string',
+        'category_id'=> 'integer',
         // 'image'=> 'string',
     ];
 
@@ -26,9 +26,9 @@ class ArticleEditForm extends Component
         $this->category_id=$this->article->category_id;
     }
 
-    public function updated($propertyName){
-        $this->validateOnly($propertyName);
-    }
+   // public function updated($propertyName){
+   //     $this->validateOnly($propertyName);
+   // }
 
     public function update(){
         $this->validate();
