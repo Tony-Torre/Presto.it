@@ -1,8 +1,8 @@
 <x-main>
   
-  <div class="container background_white rounded p-0 w-75">
+  <div class="container background_white rounded p-0 w-75 mt-5">
     <div class="row">
-      <div id="carouselExampleIndicators" class="carousel slide col-12 col-md-5 mt-5 rounded">
+      <div id="carouselExampleIndicators" class="carousel slide col-12 col-md-6 mt-5 rounded">
         <div class="carousel-indicators rounded">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -10,7 +10,7 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://unsplash.it/400" class="d-block w-100 rounded" alt="Immagine1">
+            <img src="https://unsplash.it/600" class="d-block w-100 rounded" alt="Immagine1">
           </div>
           <div class="carousel-item">
             <img src="https://unsplash.it/400" class="d-block w-100 rounded" alt="Immagine2">
@@ -28,7 +28,7 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="col-md-7 mt-5" >
+      <div class="col-md-6 mt-5" >
         <span class="background_blue rounded p-1">{{$article->category->name}}</span>
         <h3 class="mt-5">{{$article->title}}</h3>
         <span>{{$article->description}}</span>

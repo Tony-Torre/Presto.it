@@ -6,6 +6,7 @@
 
 .dropdown:hover>.dropdown-menu {
     display: block;
+    background-color: var(--main-color);
 }
 
 .dropdown>.dropdown-toggle:active {
@@ -15,4 +16,6 @@
 
 .nav_color{
     background: var(--main-color) !important;
+    width: 75%;
+    margin: auto;
 }

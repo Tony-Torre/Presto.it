@@ -14,10 +14,7 @@
 }
 
 body{
-  background: #CE5937;
-  background: -moz-linear-gradient(top, coral 0%, rgb(255, 218, 185) 100%);
-  background: -webkit-linear-gradient(top, coral 0%, rgb(255, 218, 185) 100%);
-  background: linear-gradient(to bottom, coral 0%, rgb(255, 218, 185) 100%);
+  background-color: var(--third-color);
 }
 
 a{
