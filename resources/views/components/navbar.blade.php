@@ -39,7 +39,7 @@
             </li>   
         </ul>
     </div>
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end col-12 col-sm-12 col-md-8">
         @auth
         <li class="nav-item dropdown" style="list-style-type: none">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

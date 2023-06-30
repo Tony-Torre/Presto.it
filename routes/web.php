@@ -4,6 +4,9 @@ use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PageController;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\SocialiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +34,6 @@ Route::get('/category/{category}/show', [CategoryController::class, 'show'])->na
 Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->middleware('auth')->name('category.edit');
 Route::put('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+Route::get('/auth/redirect', [SocialiteController::class, 'login'])->name('socialite.login');
+Route::get('/auth/callback', [SocialiteController::class, 'callback']);
