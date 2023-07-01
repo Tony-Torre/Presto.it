@@ -12,9 +12,9 @@ class ArticleEditForm extends Component
     public Article $article;
 
     protected $rules = [
-        'title'=> 'required|string|max:225',
-        'price'=> 'required|numeric',
-        'description'=> 'required|string',
+        'title'=> 'required|string|max:225|min:5',
+        'price'=> 'required|decimal:2',
+        'description'=> 'required|string|max:225|min:5',
         'category_id'=> 'integer',
         // 'image'=> 'string',
     ];
@@ -39,6 +39,22 @@ class ArticleEditForm extends Component
             'category_id' => $this->category_id,
         ]);
         session()->flash('article', 'Articolo modificato con successo');
+    }
+
+    public function messages(){
+        return [
+            'title.max' => 'Inserisci massimo 255 caratteri',
+            'title.min' => 'Inserisci almeno 5 caratteri',
+            'title.required' => 'Nome articolo obbligatorio',
+            'name.min' => 'Devi inserire una categoria di minimo 2 caratteri',
+            'name.required' => 'Devi inserire la categoria',
+            'price.decimal' => 'Inserire il prezzo con i centesimi',
+            'price.required' => 'Prezzo obbligatorio',
+            'description.min' => 'Inserisci almeno 5 caratteri',
+            'description.max' => 'Inserisci massimo 255 caratteri',
+            'description.required' => 'Descizione obbligatoria',
+            'description.string' => 'La descrizione deve essere composta di lettere'
+        ];
     }
 
     public function render()

@@ -7,7 +7,9 @@ use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\SocialiteController;
+
 use App\Http\Controllers\RevisorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,8 @@ Route::get('/article/create', [ArticleController::class, 'create'])->middleware(
 Route::get('/article/{article}/show', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->middleware('auth')->name('article.edit');
 Route::post('/article/search', [ArticleController::class, 'search'])->name('article.search');
+
+Route::get('/article/my', [ArticleController::class, 'my_index'])->name('my.index');
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/create', [CategoryController::class, 'create'])->middleware('auth')->name('category.create');

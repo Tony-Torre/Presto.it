@@ -9,23 +9,23 @@
         @endif
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
-            <input type="text" id="title" wire:model="title" placeholder="Titolo" class="form-control @error('title') is-invalid @enderror">
+            <input type="text" id="title" wire:model="title" placeholder="Titolo" value="{{old('title')}} class="form-control @error('title') is-invalid @enderror">
             @error('title')
-            <span class="text-danger">Inserisci il titolo</span>
+            <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label">Prezzo</label>
-            <input type="number" id="price" class="form-control @error('price') is-invalid @enderror" wire:model="price" placeholder="Prezzo">
+            <label for="price" class="form-label">Prezzo </label>
+            <input type="number" min="0"step="0.01" id="price" value="{{old('price')}} class="form-control @error('price') is-invalid @enderror" wire:model="price" placeholder="Prezzo 0.00">
             @error('price')
-            <span class="text-danger">Inserisci il prezzo</span>
+            <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Inserisci una breve descrizione</label>
-            <input type="text" id="description" class="form-control @error('description') is-invalid @enderror" wire:model="description" placeholder="Descrizione">
+            <input type="text" id="description" value="{{old('description')}}class="form-control @error('description') is-invalid @enderror" wire:model="description" placeholder="Descrizione">
             @error('description')
-            <span class="text-danger">Inserisci la descrizione</span>
+            <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
         <div class="mb-3">
@@ -36,6 +36,9 @@
                     <option value="{{$category['id']}}">{{$category['name']}}</option>
                 @endforeach
             </select>
+            @error('category_id')
+            <span class="text-danger">Scegliere una categoria</span>
+            @enderror
         </div>
         {{-- <div class="mb-3">
             <label for="image" class="form-label">Immagine dell'articolo</label>
