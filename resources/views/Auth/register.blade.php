@@ -1,74 +1,44 @@
 <x-main>
-    <section class="py-5">
-        <div class="container px-5">
-            <div class=" rounded-3 py-5 px-4 px-md-5 mb-5">
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-8 col-xl-6">
-                        @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
-                        <form action="{{route('register')}}" method="POST" enctype="multipart/form-data">
-                            @method('POST')
-                            @csrf
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" name="name" type="name" value="{{old('name')}}"
-                                    placeholder="Inserisci il tuo nome">
-                                <label for="title">Inserisci il tuo nome</label>
-                                @error('name')
-                                <span class="text-danger">
-                                    Devi inserire il tuo nome!
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" name="email" type="email"
-                                    value="{{old('email')}}" placeholder="email">
-                                <label for="author">email</label>
-                                @error('author')
-                                <span class="text-danger">
-                                    Autore obbligatorio!
-                                </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="password" name="password" type="password" placeholder="Password">
-                                <label for="author">Password</label>
-                                @error('author')
-                                <span class="text-danger">
-                                    Autore obbligatorio!
-                                </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="password_confirmation" name="password_confirmation" type="password" placeholder="password_confirmation">
-                                <label for="author">Conferma la tua password</label>
-                                @error('author')
-                                <span class="text-danger">
-                                    Autore obbligatorio!
-                                </span>
-                                @enderror
-                            </div>
-
-                            <div class="d-grid gap-3">
-                                <button class="btn btn-primary btn-lg p-2" type="submit">Registrati</button>
-                            </div>
-                            <div class="d-grid gap-3">
-                                <button class="btn btn-outline-primary btn-lg p-2">
-                                    <a href="{{route('login')}}">Sei già registrato?</a>    
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+    <h1 class="text-center mt-5">Registrati</h1>
+    <div class="p-5 container mt-5 shadow_color w-75 text-center">
+        <form action="{{route('register')}}" method="POST">
+            @method('POST')
+            @csrf
+            <div class="mb-3">
+                <label for="name" class="form-label">Username</label>
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+                @error('name')
+                <span class="text-danger">
+                    Username obbligatorio!
+                </span>
+                @enderror
             </div>
-        </div>
-    </section>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email">
+                @error('email')
+                <span class="text-danger">
+                    Email obbligatoria!
+                </span>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
+                @error('password')
+                <span class="text-danger">
+                    Password obbligatoria!
+                </span>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="password_confirmation" class="form-label">Conferma password</label>
+                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password_confirmation" name="password_confirmation">
+            </div>
+            <button type="submit" class="btn btn_orange">Registrati</button>
+        </form>
+        <p>Hai già un account? 
+            <a href="{{route('login')}}">Accedi qui</a>
+        </p>
+    </div>
 </x-main>

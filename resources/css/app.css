@@ -1,11 +1,11 @@
 @import 'bootstrap';
-@import './footer.css';
 @import './navbar.css';
 
 :root{
-  --main-color: coral;
-  --second-color: rgb(27, 27, 162);
-  --third-color: rgb(255, 218, 185);
+  --main-color: #06145a;
+  --second-color: #eb6841;
+  --third-color: #c51926;
+  --shadow-color:  #bcbcbc;
 }
 
 .background {
@@ -13,32 +13,73 @@
   overflow: hidden;
 }
 
-body{
-  background-color: var(--third-color);
-}
-
 a{
   text-decoration: none;
   color:var(--second-color)
   
 }
-button{
-  color:var(--second-color)
+.btn_orange{
+  background-color: white !important;
+  color:var(--second-color) !important;
+  border: 1px solid var(--second-color) !important;
+}
+.btn_orange:hover{
+  background-color: var(--second-color) !important;
+  color: white !important;
+}
+
+.color_white:hover{
+  color: white;
+}
+
+h1{
+  color: var(--main-color);
 }
 
 .cash_cursor{
   cursor: url("http://127.0.0.1:8000/img/coin.png"),pointer;}
 
-.background_white{
-  background-color: var(--third-color);
+.btn_red{
+  background-color: var(--third-color) !important;
+  color: white !important;
+  border: 1px solid var(--third-color) !important;
+}
+.btn_red:hover{
+  background-color: white !important;
+  color: var(--third-color) !important;
+}
+
+.sticky_nav{
+  background-color: var(--main-color);
+  color: var(--second-color);
 }
 
 .background_blue{
-  background-color: var(--second-color);
-  color: var(--third-color);
+  background-color: var(--main-color);
+  color: var(--second-color);
 }
 
-.position_sticky{
-  position: sticky;
-  top: 0;
+.font_size_big{
+  font-size: large;
+}
+
+.shadow_color{
+  box-shadow: 5px 5px 15px 5px var(--shadow-color);
+}
+
+
+.footer {
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background-color: var(--main-color);
+  color: white;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
+  align-items: center;
+  gap: 0.2rem;
 }

@@ -1,13 +1,8 @@
-<x-main>
-<div class="container text-center">
-    <div class="row">
+<x-main> 
+    <h1 class="mt-5 text-center"> I miei articoli</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4 w-75 mt-5 m-auto">
         @foreach($articles as $article)
-            <!-- <li> -->
-            <div class="col-md-auto">
                 <x-card_article :$article/>
-            </div>
-            <!--  </li> -->
         @endforeach
     </div>
-</div>
 </x-main>

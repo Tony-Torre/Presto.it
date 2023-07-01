@@ -29,7 +29,7 @@
                                 Zona Revisore
                                 <span
                                     class="position-absolute top-0 start-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    {{ App\models\Announcement::toBeRevisionedCount() }}
+                              
                                     <span class="visually-hidden">unread Messages</span>
                                 </span></a>
                         </li>
@@ -65,7 +65,8 @@
                         <li><a class="dropdown-item" href="#"
                                 onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
                         </li>
-                        <form id="form-logout" method="POST" action="{{ route('logout') }}" class="d-none">@csrf
+                        <form id="form-logout" method="POST" action="{{ route('logout') }}" class="d-none">
+                            @csrf
                         </form>
                     </ul>
                 </li>

@@ -1,12 +1,12 @@
 :root{
-    --main-color: coral;
-    --second-color: rgb(27, 27, 162);
-    --third-color: rgb(255, 218, 185);
-}
+    --main-color: #06145a;
+    --second-color: #eb6841;
+    --third-color: #c51926;
+    --shadow-color:  #bcbcbc;
+  }
 
 .dropdown:hover>.dropdown-menu {
     display: block;
-    background-color: var(--main-color);
 }
 
 .dropdown>.dropdown-toggle:active {
@@ -15,7 +15,16 @@
 }
 
 .nav_color{
-    background: var(--main-color) !important;
+    background: var(--main-color);
     width: 75%;
     margin: auto;
 }
+
+.bold:hover{
+    font-weight: bold;
+}
+
+.position_sticky{
+    position: sticky;
+    top: 0;
+  }

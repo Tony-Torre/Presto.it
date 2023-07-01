@@ -1,6 +1,6 @@
 <x-main>
   
-  <div class="container background_white rounded p-0 w-75 mt-5">
+  <div class="container rounded p-0 w-75 mt-5">
     <div class="row">
       <div id="carouselExampleIndicators" class="carousel slide col-12 col-md-6 mt-5 rounded">
         <div class="carousel-indicators rounded">
@@ -28,8 +28,10 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="col-md-6 mt-5" >
-        <span class="background_blue rounded p-1">{{$article->category->name}}</span>
+      <div class="col-md-6 mt-5 d-flex flex-column align-items-around justify-content-around">
+        <div>
+          <span class="background_blue rounded p-1 text-white">{{$article->category->name}}</span>
+        </div>
         <h3 class="mt-5">{{$article->title}}</h3>
         <span>{{$article->description}}</span>
         <h2 style="color: rgb(0, 167, 0)">€{{$article->price}}</h2>
