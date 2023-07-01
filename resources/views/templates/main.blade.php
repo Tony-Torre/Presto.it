@@ -12,14 +12,13 @@
 
 <body>
     
-    <x-navbar />
+    <x-nav />
 
     <div class="min-vh-100">
 
         {{ $slot }} 
 
     </div>
-    
     <x-footer />
 
     @livewireScripts

@@ -44,7 +44,9 @@
                                     <a href="{{route('register')}}">Non sei registrato?</a> </button>
                             </div>
                         </form>
-                        <a href="{{ route('socialite.login') }}" class="btn btn-dark">Accedi con GitHub</a>
+                        <button class="btn btn-dark">
+                            <a href="{{ route('socialite.login') }}" >Accedi con GitHub</a>
+                        </button>
                     </div>
                 </div>
             </div>
