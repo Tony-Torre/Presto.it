@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md nav_color" style="width:100%">
 <div class="container-fluid">
-<a class="navbar-brand" href="{{route('home')}}"><img src="Presto.it.jpg" alt="Presto.it"height="40rem"></a> 
+<a class="navbar-brand" href="{{route('home')}}"><img src="Presto.it.jpg" alt=""height="40rem"></a> 
 <a class="navbar-brand" href="{{route('home')}}">Presto.it</a>
 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
 <div class="navbar-toggler-icon">
@@ -50,7 +50,7 @@
             Benvenuto {{ Auth::user()->name }}
         </a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Profilo</a></li>
+            <li><a class="dropdown-item" href="{{route('my.index')}}">Miei annunci</a></li>
             <li><a class="dropdown-item" href="#"
                 onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
             </li>

@@ -6,6 +6,7 @@ use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -43,6 +44,14 @@ class ArticleController extends Controller
         return view('article.edit', ['article'=>$article]);
     }
 
+    public function my_index(){
+        if(Auth::user()){
+            $articles = Article::where('user_id',Auth::user()->id)->get();
+        }else{
+            $articles = Article::all();
+        }
+        return view('my.index',['articles'=>$articles]);
+    }
 
     public function search(Request $request){
         $search_article = Article::where('category_id','like','%' . $request->search_category .'%')
