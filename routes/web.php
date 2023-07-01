@@ -43,7 +43,7 @@ Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->n
 Route::get('/auth/redirect', [SocialiteController::class, 'login'])->name('socialite.login');
 Route::get('/auth/callback', [SocialiteController::class, 'callback']);
 
-Route::get('revisor/home', [RevisorController::class, 'index'])->name('revisor.index');
+Route::get('/revisor/home', [RevisorController::class, 'index'])->name('revisor.index');
 Route::patch('/accetta/annuncio/{announcement}', [RevisorController::class, 'acceptAnnouncement'])->name('revisor.accept_announcement');
 Route::patch('/rifiuta/annuncio/{announcement}', [RevisorController::class, 'rejectAnnouncement'])->name('revisor.reject_announcement');
 
