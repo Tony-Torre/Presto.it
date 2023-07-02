@@ -2,8 +2,8 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="{{route('home')}}"><img src="Presto.it.jpg" alt=""height="40rem"></a> 
         <a class="navbar-brand text-white bold" href="{{route('home')}}">Presto.it</a>
-        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
-            <div class="navbar-toggler-icon">
+        <button class="navbar-toggler collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
+            <div class="navbar-toggler-icon bg-light">
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -51,8 +51,8 @@
             </a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{route('my.index')}}">Miei annunci</a></li>
-                <li><a class="dropdown-item" href="#"
-                    onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
+                <li><a class="dropdown-item" href="{{route('logout')}}"
+                    onclick="event.preventDefault(); document.querySelector('form-logout').submit();">Logout</a>
             </li>
             <form id="form-logout" method="POST" action="{{ route('logout') }}" class="d-none">
                 @csrf
