@@ -14,7 +14,7 @@ class ArticleCreateForm extends Component
         'title'=> 'required|string|max:225|min:5',
         'price'=> 'required|decimal:2',
         'description'=> 'required|string|max:225|min:5',
-        'category_id'=> 'string',
+        'category_id'=> 'integer',
         'user_id'=> '',
         // 'image'=> 'string',
     ];
@@ -42,14 +42,13 @@ class ArticleCreateForm extends Component
             'title.max' => 'Inserisci massimo 255 caratteri',
             'title.min' => 'Inserisci almeno 5 caratteri',
             'title.required' => 'Nome articolo obbligatorio',
-            'name.min' => 'Devi inserire una categoria di minimo 2 caratteri',
-            'name.required' => 'Devi inserire la categoria',
             'price.decimal' => 'Inserire il prezzo con i centesimi',
             'price.required' => 'Prezzo obbligatorio',
             'description.min' => 'Inserisci almeno 5 caratteri',
             'description.max' => 'Inserisci massimo 255 caratteri',
             'description.required' => 'Descizione obbligatoria',
-            'description.string' => 'La descrizione deve essere composta di lettere'
+            'description.string' => 'La descrizione deve essere composta di lettere',
+            'category_id.integer'=>'Seleziona una categoria',
         ];
     }
     public function render()

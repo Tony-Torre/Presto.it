@@ -1,5 +1,5 @@
 <div>
-    <h2 class="mt-5 text-center">Modifica il tuo articolo!</h2>
+    <h1 class="mt-5 text-center">Modifica il tuo articolo!</h1>
     <div class="p-5 container mt-5 shadow_color w-75 text-center">
     <form wire:submit.prevent="update">
         @csrf
@@ -31,7 +31,7 @@
         </div>
         <div class="mb-3">
             <label for="category_id" class="form-label">Categoria</label>
-            <select wire:model="category_id" id="category_id" class="form-select mb-3 capitalize" >
+            <select wire:model="category_id" id="category_id" class="form-select mb-3 capitalize @error('category_id') is-invalid @enderror" >
                 @foreach ($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach

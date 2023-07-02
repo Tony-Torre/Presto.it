@@ -7,11 +7,11 @@
         <span class="background_blue text-white rounded p-1 ">{{$article->category->name}}</span>
         <span style="color: rgb(0, 167, 0)" class="rounded p-1 ">€{{$article->price}}</span>
       </div>
-      @auth
-      <a href="{{route('article.edit',['article'=>$article])}}">
+      @if (Auth::user()==$article->user)
+        <a href="{{route('article.edit',['article'=>$article])}}">
         <button class="btn btn_red">Modifica</button>
       </a>
-      @endauth 
+      @endif
       <a href="{{route('article.show',['article'=>$article])}}">
         <button class="btn btn_orange">Dettagli</button>
       </a>

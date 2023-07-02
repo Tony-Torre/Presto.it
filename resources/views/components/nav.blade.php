@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md nav_color shadow_color" style="width:100%">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{route('home')}}"><img src="Presto.it.jpg" alt=""height="40rem"></a> 
-        <a class="navbar-brand text-white" href="{{route('home')}}">Presto.it</a>
+        <a class="navbar-brand text-white bold" href="{{route('home')}}">Presto.it</a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
             <div class="navbar-toggler-icon">
                 <div class="hamburger">
@@ -25,7 +25,7 @@
                 </ul>
                 @else
                 <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="{{route('article.index')}}">Annunci</a>
+                    <a class="nav-link text-white bold" aria-current="page" href="{{route('article.index')}}">Annunci</a>
                 </li>
                 @endauth
                 <li class="nav-item dropdown">
@@ -61,9 +61,9 @@
         </li>
         @else
         <li class="nav-item dropdown " style="list-style-type: none">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link dropdown-toggle text-white bold" href="#" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Utente non loggato
+            Benvenuto utente
         </a>
         <ul class="dropdown-menu ul ">
             <li><a class="dropdown-item" href="{{ route('register') }}">Registrati</a></li>

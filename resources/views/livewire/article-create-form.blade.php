@@ -1,5 +1,5 @@
 <div>
-    <h2 class="text-center mt-5">Inserisci il tuo articolo!</h2>
+    <h1 class="text-center mt-5">Inserisci il tuo articolo!</h1>
     <div class="p-5 container mt-5 shadow_color w-75 text-center">
         <form wire:submit.prevent="store">
             @csrf
@@ -31,7 +31,7 @@
             </div>
             <div class="mb-3">
                 <label for="category_id" class="form-label">Categoria</label>
-                <select class="form-select mb-3 capitalize" aria-label="Default select example" id="category_id" wire:model="category_id">
+                <select class="form-select mb-3 capitalize @error('category_id') is-invalid @enderror" aria-label="Default select example" id="category_id" wire:model="category_id">
                 <option selected> Seleziona la categoria </option>
                 @foreach ($categories as $category)
                 <option value="{{ $category->id }}" class="capitalize">
