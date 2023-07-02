@@ -24,6 +24,10 @@
             </div>
             <button type="submit" class="btn btn_orange">Accedi</button>
         </form>
+        <div class="my-3">
+            <span>OPPURE</span>
+        </div>
+        <a href="{{ route('socialite.login') }}" class="btn btn-dark">Accedi con GitHub</a>
         <p>Non hai ancora un account? 
             <a href="{{route('register')}}">Registrati qui</a>
         </p>

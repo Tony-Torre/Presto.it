@@ -70,5 +70,5 @@
                 </div>
             </div>
         </div>
-        @endif
+    @endif
 </x-main>
