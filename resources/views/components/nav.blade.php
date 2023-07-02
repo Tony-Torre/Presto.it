@@ -51,8 +51,8 @@
             </a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{route('my.index')}}">Miei annunci</a></li>
-                <li><a class="dropdown-item" href="#"
-                    onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
+                <li><a class="dropdown-item" href="{{route('logout')}}"
+                    onclick="event.preventDefault(); document.querySelector('form-logout').submit();">Logout</a>
             </li>
             <form id="form-logout" method="POST" action="{{ route('logout') }}" class="d-none">
                 @csrf
