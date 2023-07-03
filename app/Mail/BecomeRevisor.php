@@ -28,7 +28,7 @@ class BecomeRevisor extends Mailable
      */
     public function build(){
         
-        return $this->from('Ciao@noreplay.com')->view('mail.become_revisor');
+        return $this->from('Ciao@noreplay.com');
     }
 
     public function envelope(): Envelope
@@ -44,7 +44,7 @@ class BecomeRevisor extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail.become_revisor',
         );
     }
 
