@@ -17,6 +17,8 @@ class ArticleController extends Controller
     {   
         $users=User::all();
         $order_desc= Article::orderBy('created_at', 'desc')->get();
+        // $order_desc->paginate(6);
+
         return view('article.index',compact('users'),['articles'=>$order_desc]);
     }
     

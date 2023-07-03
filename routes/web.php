@@ -7,7 +7,7 @@ use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\SocialiteController;
-
+use App\Models\Article;
 use App\Http\Controllers\RevisorController;
 
 
@@ -44,8 +44,8 @@ Route::get('/auth/redirect', [SocialiteController::class, 'login'])->name('socia
 Route::get('/auth/callback', [SocialiteController::class, 'callback']);
 
 Route::get('/revisor/home', [RevisorController::class, 'index'])->name('revisor.index');
-Route::patch('/accetta/annuncio/{announcement}', [RevisorController::class, 'acceptAnnouncement'])->name('revisor.accept_announcement');
-Route::patch('/rifiuta/annuncio/{announcement}', [RevisorController::class, 'rejectAnnouncement'])->name('revisor.reject_announcement');
+Route::patch('/accetta/article/{article}', [RevisorController::class, 'acceptArticle'])->name('revisor.accept_article');
+Route::patch('/rifiuta/article/{article}', [RevisorController::class, 'rejectArticle'])->name('revisor.reject_article');
 
 
 

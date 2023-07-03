@@ -13,7 +13,7 @@
                     <a class="nav-link dropdown-toggle text-white bold" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">Annunci</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('article.create') }}">Crea un annncio</a></li>
+                        <li><a class="dropdown-item" href="{{ route('article.create') }}">Crea un annucio</a></li>
                         <li><a class="dropdown-item " href="{{ route('article.index') }}">Elenco annunci</a></li>
                     </ul>
                 </li>
@@ -40,6 +40,9 @@
                         <a class="nav-link dropdown-toggle text-white bold" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">Benvenuto {{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu">
+                            @if (Auth::user()->is_revisor)
+                            <li><a class="dropdown-item" href="{{route('revisor.index')}}">Hai {{app\Models\Article::toBeRevisionedCount()}} articoli da revisionare</a></li>
+                            @endif
                             <li><a class="dropdown-item" href="{{route('my.index')}}">Miei annunci</a></li>
                             <li><a class="dropdown-item" href="{{route('logout')}}"onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
                             <form id="form-logout" method="POST" action="{{ route('logout') }}" class="d-none">

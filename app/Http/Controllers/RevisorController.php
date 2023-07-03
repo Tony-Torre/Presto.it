@@ -2,24 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Announcement;
-
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class RevisorController extends Controller
 {
     public function index(){
-        $accouncement_to_check = Announcement::where('is_accepted', null)->first();
-        return view('revisor.index', compact('accouncement_to_check'));
+        $article_to_check = Article::where('is_accepted', null)->first();
+        return view('revisor.index', compact('article_to_check'));
     }
 
-    public function acceptAnnouncement(Announcement $announcement) {
-        $announcement->setAccepted(true);
+    public function acceptArticle(Article $article) {
+        $article->setAccepted(true);
         return redirect()->back()->with('message', 'Complimenti, hai accettato l\'annuncio');
     }
 
-    public function rejectAnnouncement(Announcement $announcement) {
-        $announcement->setAccepted(false);
+    public function rejectArticle(Article $article) {
+        $article->setAccepted(false);
         return redirect()->back()->with('message', 'Complimenti, hai rifiutato l\'annuncio');
     }
 }
