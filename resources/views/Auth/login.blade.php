@@ -1,22 +1,12 @@
 <x-main>
     <h1 class="text-center mt-5 ">Accedi</h1>
     <div class="p-5 container mt-5 shadow_color w-75 text-center">
-        <form class="p-5 shadow" action="{{ route('login') }}" method="POST">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            
+        <form action="{{route('login')}}" method="POST">
+            @method('POST')
             @csrf
-
             <div class="mb-3">
-                <label for="email" class="form-label">Email utente</label>
-                <input type="email" name="email" class="form-control" id="email" required placeholder="Inserisci la tua Email">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email">
                 @error('email')
                 <span class="text-danger">
                     Email obbligatorio!
@@ -37,7 +27,7 @@
         <div class="my-3">
             <span>OPPURE</span>
         </div>
-        <a href="{{ route('socialite.login') }}" class="btn btn-dark"><span>Accedi con GitHub</span> <i class="fa-brands fa-github"></i></a>
+        <a href="{{ route('socialite.login') }}" class="btn btn-dark mb-3"><span>Accedi con GitHub</span> <i class="fa-brands fa-github"></i></a>
         <p>Non hai ancora un account? 
             <a href="{{route('register')}}">Registrati qui</a>
         </p>

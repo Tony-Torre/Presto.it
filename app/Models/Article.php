@@ -26,7 +26,7 @@ class Article extends Model
         return true;
     }
 
-    public function set
+
 
 
     public static function toBeRevisionedCount () {

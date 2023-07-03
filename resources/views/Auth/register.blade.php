@@ -1,23 +1,17 @@
 <x-main>
     <h1 class="text-center mt-5">Registrati</h1>
     <div class="p-5 container mt-5 shadow_color w-75 text-center">
-        <form class="p-5 shadow" action="{{ route('register') }}" method="POST">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            
+        <form action="{{route('register')}}" method="POST">
+            @method('POST')
             @csrf
-
             <div class="mb-3">
                 <label for="name" class="form-label">Nome utente</label>
-                <input type="text" name="name" class="form-control" id="name" required value="{{ old('name') }}"
-                placeholder="Inserisci nome utente">
+                <input type="text" name="name" class="form-control" id="name" required value="{{ old('name') }}"placeholder="Inserisci nome utente">
+                @error('name')
+                <span class="text-danger">
+                    Nome obbligatorio!
+                </span>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email utente</label>
@@ -31,7 +25,7 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
+                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Inserisci la password">
                 @error('password')
                 <span class="text-danger">
                     Password obbligatoria!
@@ -40,7 +34,7 @@
             </div>
             <div class="mb-3">
                 <label for="password_confirmation" class="form-label">Conferma password</label>
-                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password_confirmation" name="password_confirmation">
+                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password_confirmation" name="password_confirmation" placeholder="Conferma la password">
             </div>
             <button type="submit" class="btn btn_orange">Registrati</button>
         </form>
