@@ -43,9 +43,9 @@ Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->n
 Route::get('/auth/redirect', [SocialiteController::class, 'login'])->name('socialite.login');
 Route::get('/auth/callback', [SocialiteController::class, 'callback']);
 
-Route::get('/revisor/home', [RevisorController::class, 'index'])->name('revisor.index');
-Route::patch('/accetta/article/{article}', [RevisorController::class, 'acceptArticle'])->name('revisor.accept_article');
-Route::patch('/rifiuta/article/{article}', [RevisorController::class, 'rejectArticle'])->name('revisor.reject_article');
+Route::get('/revisor/home', [RevisorController::class, 'index'])->middleware('isRevisor')->name('revisor.index');
+Route::patch('/accetta/article/{article}', [RevisorController::class, 'acceptArticle'])->middleware('isRevisor')->name('revisor.accept_article');
+Route::patch('/rifiuta/article/{article}', [RevisorController::class, 'rejectArticle'])->middleware('isRevisor')->name('revisor.reject_article');
 
 
 

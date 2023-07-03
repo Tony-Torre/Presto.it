@@ -44,8 +44,8 @@ class ArticleController extends Controller
     */
     public function edit(Article $article)
     {   
-        if(Auth::user()!=$article->user()){
-           abort(401);
+        if(Auth::user()->id!=$article->user_id ?? null){
+           return abort(401);
         }
         return view('article.edit', ['article'=>$article]);
     }
