@@ -27,7 +27,7 @@
         <div class="my-3">
             <span>OPPURE</span>
         </div>
-        <a href="{{ route('socialite.login') }}" class="btn btn-dark">Accedi con GitHub</a>
+        <a href="{{ route('socialite.login') }}" class="btn btn-dark"><span>Accedi con GitHub</span> <i class="fa-brands fa-github"></i></a>
         <p>Non hai ancora un account? 
             <a href="{{route('register')}}">Registrati qui</a>
         </p>
