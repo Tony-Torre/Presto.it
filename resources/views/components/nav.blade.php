@@ -17,6 +17,19 @@
                         <li><a class="dropdown-item " href="{{ route('article.index') }}">Elenco annunci</a></li>
                     </ul>
                 </li>
+                @if (Auth::user()->is_revisor)
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-success tbn-sm position-relative" aria-current="page"
+                                href="{{ route('revisor.index') }}">
+                                Zona Revisore
+                                <span
+                                    class="position-absolute top-0 start-0 start-100 translate-middle badge rounded-pill bg-danger">
+                              {{App\Models\Announcement::toBeRevisionedCount()}}
+                                    <span class="visually-hidden">unread Messages</span>
+                                </span>
+                            </a>
+                        </li>
+                    @endif
                 @else
                 <li class="nav-item">
                     <a class="nav-link text-white bold" aria-current="page" href="{{route('article.index')}}">Annunci</a>
