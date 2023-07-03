@@ -1,21 +1,28 @@
 <x-main>
     <h1 class="text-center mt-5">Registrati</h1>
     <div class="p-5 container mt-5 shadow_color w-75 text-center">
-        <form action="{{route('register')}}" method="POST">
-            @method('POST')
+        <form class="p-5 shadow" action="{{ route('register') }}" method="POST">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            
             @csrf
+
             <div class="mb-3">
-                <label for="name" class="form-label">Username</label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
-                @error('name')
-                <span class="text-danger">
-                    Username obbligatorio!
-                </span>
-                @enderror
+                <label for="name" class="form-label">Nome utente</label>
+                <input type="text" name="name" class="form-control" id="name" required value="{{ old('name') }}"
+                placeholder="Inserisci nome utente">
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email">
+                <label for="email" class="form-label">Email utente</label>
+                <input type="email" name="email" class="form-control" id="email" required value="{{ old('email') }}"
+                placeholder="Inserisci la tua email">
                 @error('email')
                 <span class="text-danger">
                     Email obbligatoria!
