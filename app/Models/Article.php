@@ -26,9 +26,6 @@ class Article extends Model
         return true;
     }
 
-
-
-
     public static function toBeRevisionedCount () {
         return Article::where('is_accepted', null)->count();
     }

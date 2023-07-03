@@ -4,7 +4,11 @@
             {{ $article_to_check ? "Ecco l'annuncio da revisionare" : 'Non ci sono annunci da revisionare' }}
         </h1>
     </div>
-    
+    @if (session()->has('message'))
+            <h5 class="alert alert-success w-25 mt-3 m-auto text-center">
+                {{ session('message') }}
+            </h5>
+            @endif
     @if ($article_to_check)
     <div class="container background_white rounded p-0 w-75 mt-5">
         <div class="row">

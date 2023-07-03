@@ -16,7 +16,8 @@ class ArticleController extends Controller
     public function index()
     {   
         $users=User::all();
-        $order_desc= Article::orderBy('created_at', 'desc')->get();
+        $order_desc= Article::where('is_accepted',1)->orderBy('created_at', 'desc')->get();
+        
         // $order_desc->paginate(6);
 
         return view('article.index',compact('users'),['articles'=>$order_desc]);
@@ -34,7 +35,7 @@ class ArticleController extends Controller
     * Display the specified resource.
     */
     public function show(Article $article)
-    {
+    {   
         return view('article.show', ['article' => $article]);
     }
     
