@@ -42,20 +42,20 @@ Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->mi
 Route::put('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
-Route::get('/auth/redirect', [SocialiteController::class, 'login'])->name('socialite.login');
-Route::get('/auth/callback', [SocialiteController::class, 'callback']);
-
+// Zona revisor
 Route::get('/revisor/home', [RevisorController::class, 'index'])->middleware('isRevisor')->name('revisor.index');
 Route::patch('/accetta/article/{article}', [RevisorController::class, 'acceptArticle'])->middleware('isRevisor')->name('revisor.accept_article');
 Route::patch('/rifiuta/article/{article}', [RevisorController::class, 'rejectArticle'])->middleware('isRevisor')->name('revisor.reject_article');
 
+// Richiesta revisor
 Route::get('/richiesta/revisore',[RevisorController::class,'becomeRevisor'])->middleware('auth')->name('become.revisor');
 Route::get('/rendi/revisore/{user}',[RevisorController::class, 'makeRevisor'])->name('make.revisor');
 
+//Socialite
 Route::get('/auth/google', [SocialiteController::class, 'loginGoogle'])->name('google.login');
-
 Route::get('/auth/google/callback', [SocialiteController::class, 'callbackGoogle']);
-
+Route::get('/auth/redirect', [SocialiteController::class, 'login'])->name('socialite.login');
+Route::get('/auth/callback', [SocialiteController::class, 'callback']);
 
 
 
