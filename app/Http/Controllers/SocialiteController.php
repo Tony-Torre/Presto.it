@@ -28,4 +28,24 @@ class SocialiteController extends Controller
     return redirect('/');
     
     }
+
+    public function loginGoogle()
+    {
+    return Socialite::driver('google')->redirect();
+    }
+
+    public function callbackGoogle()
+    {
+    $googlehubUser = Socialite::driver('google')->user();
+    $user = User::updateOrCreate([
+        'email' => $googlehubUser->email,
+        ], [
+        'name' => $googlehubUser->name,
+        'email' => $googlehubUser->email,
+        'password' => Hash::make($googlehubUser->token),
+        ]);
+    Auth::login($user);
+    return redirect('/');
+    
+    }
 }
