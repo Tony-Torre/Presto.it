@@ -25,9 +25,10 @@
             <button type="submit" class="btn btn_orange">Accedi</button>
         </form>
         <div class="my-3">
-            <span>OPPURE</span>
+            <span>OPPURE ACCEDI TRAMITE</span>
         </div>
-        <a href="{{ route('socialite.login') }}" class="btn btn-dark mb-3"><span>Accedi con GitHub</span> <i class="fa-brands fa-github"></i></a>
+        <a href="{{ route('socialite.login') }}" class="btn btn-dark m-2 "><span>GitHub</span> <i class="fa-brands fa-github"></i></a>
+        <a href="{{ route('google.login') }}" class="btn btn-light m-2 "><span>Google</span> <i class="fa-brands fa-google"></i></a>
         <p>Non hai ancora un account? 
             <a href="{{route('register')}}">Registrati qui</a>
         </p>

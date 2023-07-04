@@ -37,4 +37,10 @@ return [
         'redirect' => 'http://127.0.0.1:8000/auth/callback',
     ],
 
+    'google' => [
+        'client_id' => '437483953480-0olaajjr8ntmorfmmms8fnca7t93vi26.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => 'http://127.0.0.1:8000/auth/google/callback',
+    ],
+
 ];
