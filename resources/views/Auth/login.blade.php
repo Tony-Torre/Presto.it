@@ -9,7 +9,7 @@
                 <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email">
                 @error('email')
                 <span class="text-danger">
-                    Email obbligatorio!
+                    Email o password sbagliata!
                 </span>
                 @enderror
             </div>
@@ -18,7 +18,7 @@
                 <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
                 @error('password')
                 <span class="text-danger">
-                    Password obbligatoria!
+                    Email o password sbagliata!
                 </span>
                 @enderror
             </div>
