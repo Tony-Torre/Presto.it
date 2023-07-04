@@ -57,5 +57,7 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'callbackGoogle
 Route::get('/auth/redirect', [SocialiteController::class, 'login'])->name('socialite.login');
 Route::get('/auth/callback', [SocialiteController::class, 'callback']);
 
+Route::get('/ricerca/annuncio' , [PageController::class, 'searchArticle'])->name('search.article');
+
 
 
