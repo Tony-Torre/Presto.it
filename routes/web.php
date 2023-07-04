@@ -53,9 +53,4 @@ Route::get('/richiesta/revisore',[RevisorController::class,'becomeRevisor'])->mi
 Route::get('/rendi/revisore/{user}',[RevisorController::class, 'makeRevisor'])->name('make.revisor');
 
 Route::get('/auth/google', [SocialiteController::class, 'loginGoogle'])->name('google.login');
-
 Route::get('/auth/google/callback', [SocialiteController::class, 'callbackGoogle']);
-
-
-
-
