@@ -1,5 +1,5 @@
 <div class="w-50 m-auto shadow_color rounded sticky_nav position_sticky mb-5">
-    {{-- <form action="{{route('article.search')}}" method="POST" class="mt-5 ">
+    <form action="{{route('article.search')}}" method="POST" class="mt-5 ">
         @method('POST')
         @csrf
         <div class="container background_white rounded p-3 background_blue">
@@ -30,9 +30,5 @@
                 </div>
             </div>
         </div>
-    </form> --}}
-    <form action="{{route('search.article')}}" method='GET'>
-        <input name="searched" type="search" placeholder="Ricerca" id="searched">
-        <button class="btn btn_orange" type="submit">Ricerca</button>
     </form>
 </div>

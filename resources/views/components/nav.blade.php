@@ -7,7 +7,7 @@
             </div>
         </button>
         <div class="collapse navbar-collapse" id="navbar-content">
-            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mr-auto mb-0 mb-lg-0">
                 @auth
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white bold" href="#" role="button" data-bs-toggle="dropdown"
@@ -51,7 +51,13 @@
                         </ul>
                     </li>
                     @else
-                    <li class="nav-item dropdown " style="list-style-type: none">
+                    <li class="nav-item dropdown mx-3" style="list-style-type: none">
+                        <form action="{{route('search.article')}}" method='GET' class="d-flex align-item-center justify-content-center">
+                            <input name="searched" type="search" placeholder="Ricerca" id="searched" class="form-control mx-1">
+                            <button class="btn btn_orange" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </li>
+                    <li class="nav-item dropdown" style="list-style-type: none">
                         <a class="nav-link dropdown-toggle text-white bold" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">Benvenuto utente</a>
                         <ul class="dropdown-menu ul ">
