@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
+use Laravel\Socialite\Two\GoogleProvider;
 
 class SocialiteController extends Controller
 {
@@ -32,6 +33,7 @@ class SocialiteController extends Controller
     public function loginGoogle()
     {
     return Socialite::driver('google')->redirect();
+      //  return Socialite::buildProvider(GoogleProvider::class, config('Services.google'))->redirect();
     }
 
     public function callbackGoogle()
