@@ -31,7 +31,13 @@
                         <li><a class="dropdown-item " href="{{ route('category.show', ['category'=>$category]) }}">{{$category->name}}</a></li>
                         @endforeach
                     </ul>
-                </li>   
+                </li> 
+                <li class="nav-item dropdown mx-3" style="list-style-type: none">
+                    <form action="{{route('search.article')}}" method='GET' class="d-flex align-item-center justify-content-center">
+                        <input name="searched" type="search" placeholder="Ricerca" id="searched" class="form-control me-1">
+                        <button class="btn btn_orange" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </li>  
             </ul>
             <div class="d-flex ms-auto">
                 <div class="input-group">
@@ -51,12 +57,6 @@
                         </ul>
                     </li>
                     @else
-                    <li class="nav-item dropdown mx-3" style="list-style-type: none">
-                        <form action="{{route('search.article')}}" method='GET' class="d-flex align-item-center justify-content-center">
-                            <input name="searched" type="search" placeholder="Ricerca" id="searched" class="form-control mx-1">
-                            <button class="btn btn_orange" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </form>
-                    </li>
                     <li class="nav-item dropdown" style="list-style-type: none">
                         <a class="nav-link dropdown-toggle text-white bold" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">Benvenuto utente</a>
