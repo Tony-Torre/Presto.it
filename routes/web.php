@@ -59,5 +59,6 @@ Route::get('/auth/callback', [SocialiteController::class, 'callback']);
 
 Route::get('/ricerca/annuncio' , [PageController::class, 'searchArticle'])->name('search.article');
 
+Route::get('/revisor/ripensa', [RevisorController::class, 'ripensa'])->middleware('isRevisor')->name('revisor.ripensa');
 
 

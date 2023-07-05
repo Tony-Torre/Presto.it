@@ -57,6 +57,9 @@
                             @else
                                 Non ci sono articoli da revisionare
                     @endif
+                    <li>
+                        <a class="dropdown-item" href="{{ route('revisor.ripensa') }}"> Ripensaci</a>
+                    </li>
                 </ul>
                 </li>
                 @endif
