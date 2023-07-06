@@ -44,8 +44,9 @@ Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->n
 
 // Zona revisor
 Route::get('/revisor/home', [RevisorController::class, 'index'])->middleware('isRevisor')->name('revisor.index');
-Route::get('/revisor/ripensa', [RevisorController::class, 'ripensa'])->middleware('isRevisor')->name('revisor.ripensa');
+Route::get('/revisor/remake', [RevisorController::class, 'remake'])->middleware('isRevisor')->name('revisor.remake');
 Route::get('/revisor/list', [RevisorController::class, 'list'])->middleware('isRevisor')->name('revisor.list');
+Route::get('/revisor/review/{article}', [RevisorController::class, 'review'])->middleware('isRevisor')->name('revisor.review');
 Route::patch('/accetta/article/{article}', [RevisorController::class, 'acceptArticle'])->middleware('isRevisor')->name('revisor.accept_article');
 Route::patch('/rifiuta/article/{article}', [RevisorController::class, 'rejectArticle'])->middleware('isRevisor')->name('revisor.reject_article');
 Route::patch('/sospendi/article/{article}', [RevisorController::class, 'nullArticle'])->middleware('isRevisor')->name('revisor.null_article');

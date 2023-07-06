@@ -63,7 +63,7 @@
                 <form action="{{ route('revisor.null_article', ['article' => $article_to_check]) }}" method="POST">
                     @csrf
                     @method('PATCH')
-                    <button type="submit" class="btn btn-secondary shadow"> <i class="fa-solid fa-xmark" style="color: #ffffff;"></i> Sospendi</button>
+                    <button type="submit" class="btn btn-secondary shadow"> <i class="fa-solid fa-pause" style="color: #ffffff;"></i> Sospendi</button>
                 </form>
             </div>
             <div class="col-md-4 mt-5 d-flex align-item-center justify-content-center">
@@ -75,6 +75,5 @@
             </div>
         </div>
     </div>
-</div>
-@endif
+    @endif
 </x-main>

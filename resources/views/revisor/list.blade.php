@@ -7,6 +7,7 @@
                 <th scope="col">Titolo</th>
                 <th scope="col">Data creazione</th>
                 <th scope="col">Stato</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -14,8 +15,8 @@
             
                 <tr>
                     
-                    <td>{{ $article['id'] }}</td>
-                    <td>{{ $article['title'] }}</td>
+                    <td>{{ $article->id }}</td>
+                    <td>{{ $article->title}}</td>
                     <td>{{ $article->created_at->format('d/m/Y') }} </td>
                     <td>
                     @if ($article->is_accepted===1)
@@ -26,6 +27,7 @@
                         Da revisionare <i class="fa-solid fa-circle" style="color: #f0e400;"></i>
                     @endif    
                     </td>
+                    <td><a href="{{route('revisor.review',['article'=>$article])}}"><i class="fa-solid fa-eye" style="color: #06145a;"></i></a></td>
                 </tr>
 
             @empty

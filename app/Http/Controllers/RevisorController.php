@@ -17,14 +17,18 @@ class RevisorController extends Controller
         return view('revisor.index', compact('article_to_check'));
     }
 
-    public function ripensa(){
+    public function remake(){
         $article_to_check = Article::where('is_accepted', '!=' , null)->orderBy('id','DESC')->first();
-        return view('revisor.ripensa', compact('article_to_check'));
+        return view('revisor.remake', compact('article_to_check'));
+    }
+
+    public function review(Article $article) {
+        $article_to_check = $article;
+        return view('revisor.review', compact('article_to_check'));
     }
 
     public function list() {
-        
-        return view('revisor.list');
+        return view('revisor.list' );
     }
 
     public function acceptArticle(Article $article) {

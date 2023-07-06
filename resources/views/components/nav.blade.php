@@ -52,7 +52,10 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('revisor.ripensa') }}"> Ripensaci</a>
+                            <a class="dropdown-item" href="{{ route('revisor.remake') }}"> Visualizza l'ultimo articolo revisionato</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('revisor.list') }}">Lista articoli</a>
                         </li>
                     </ul>
                 </li>
