@@ -18,7 +18,7 @@ class RevisorController extends Controller
     }
 
     public function ripensa(){
-        $article_to_check = Article::where('is_accepted' ,0)->orderBy('id','DESC')->first();
+        $article_to_check = Article::where('is_accepted', '!=' , null)->orderBy('id','DESC')->first();
         return view('revisor.ripensa', compact('article_to_check'));
     }
 
@@ -30,6 +30,11 @@ class RevisorController extends Controller
     public function rejectArticle(Article $article) {
         $article->setAccepted(false);
         return redirect()->back()->with('message', 'Complimenti, hai rifiutato l\'annuncio');
+    }
+    
+    public function nullArticle(Article $article) {
+        $article->setAccepted(null);
+        return redirect()->back()->with('message', 'Hai sospeso l\'annuncio');
     }
 
     public function becomeRevisor() {

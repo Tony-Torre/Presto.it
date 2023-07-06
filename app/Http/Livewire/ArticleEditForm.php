@@ -38,7 +38,9 @@ class ArticleEditForm extends Component
             'description' => $this->description,
             'category_id' => $this->category_id,
         ]);
+        $this->article->setAccepted(null);
         session()->flash('article', 'Articolo modificato con successo');
+        
     }
 
     public function messages(){

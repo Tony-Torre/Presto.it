@@ -44,8 +44,12 @@ Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->n
 
 // Zona revisor
 Route::get('/revisor/home', [RevisorController::class, 'index'])->middleware('isRevisor')->name('revisor.index');
+Route::get('/revisor/ripensa', [RevisorController::class, 'ripensa'])->middleware('isRevisor')->name('revisor.ripensa');
+Route::get('/revisor/list', [RevisorController::class, 'list'])->middleware('isRevisor')->name('revisor.list');
 Route::patch('/accetta/article/{article}', [RevisorController::class, 'acceptArticle'])->middleware('isRevisor')->name('revisor.accept_article');
 Route::patch('/rifiuta/article/{article}', [RevisorController::class, 'rejectArticle'])->middleware('isRevisor')->name('revisor.reject_article');
+Route::patch('/sospendi/article/{article}', [RevisorController::class, 'nullArticle'])->middleware('isRevisor')->name('revisor.null_article');
+
 
 // Richiesta revisor
 Route::get('/richiesta/revisore',[RevisorController::class,'becomeRevisor'])->middleware('auth')->name('become.revisor');
@@ -58,7 +62,5 @@ Route::get('/auth/redirect', [SocialiteController::class, 'login'])->name('socia
 Route::get('/auth/callback', [SocialiteController::class, 'callback']);
 
 Route::get('/ricerca/annuncio' , [PageController::class, 'searchArticle'])->name('search.article');
-
-Route::get('/revisor/ripensa', [RevisorController::class, 'ripensa'])->middleware('isRevisor')->name('revisor.ripensa');
 
 
