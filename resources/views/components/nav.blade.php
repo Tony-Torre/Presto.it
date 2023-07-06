@@ -51,6 +51,9 @@
                                 @endif
                             </a>
                         </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('revisor.ripensa') }}"> Ripensaci</a>
+                        </li>
                     </ul>
                 </li>
                 @endif

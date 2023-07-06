@@ -17,6 +17,11 @@ class RevisorController extends Controller
         return view('revisor.index', compact('article_to_check'));
     }
 
+    public function ripensa(){
+        $article_to_check = Article::where('is_accepted' ,0)->orderBy('id','DESC')->first();
+        return view('revisor.ripensa', compact('article_to_check'));
+    }
+
     public function acceptArticle(Article $article) {
         $article->setAccepted(true);
         return redirect()->back()->with('message', 'Complimenti, hai accettato l\'annuncio');
