@@ -23,6 +23,7 @@ class RevisorController extends Controller
     }
 
     public function list() {
+        
         return view('revisor.list');
     }
 

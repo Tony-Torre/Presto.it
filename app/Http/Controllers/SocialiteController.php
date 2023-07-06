@@ -32,6 +32,7 @@ class SocialiteController extends Controller
 
     public function loginGoogle()
     {
+        
     return Socialite::driver('google')->redirect();
       //  return Socialite::buildProvider(GoogleProvider::class, config('Services.google'))->redirect();
     }
