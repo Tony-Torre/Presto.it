@@ -22,6 +22,10 @@ class RevisorController extends Controller
         return view('revisor.ripensa', compact('article_to_check'));
     }
 
+    public function list() {
+        return view('revisor.list');
+    }
+
     public function acceptArticle(Article $article) {
         $article->setAccepted(true);
         return redirect()->back()->with('message', 'Complimenti, hai accettato l\'annuncio');
