@@ -37,12 +37,9 @@ class Article extends Model
         $array = [
             'id' => $this->id,
             'title' => $this->title,
-            'body' => $this->body,
-            'category' => $category->name,
-
+            'description' => $this->description,
+            'category' => $category,
         ];
-
         return $array;
-
     }
 }
