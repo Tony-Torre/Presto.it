@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Mail;
 class RevisorController extends Controller
 {
     public function index(){
-        $article_to_check = Article::where('is_accepted', null)->first();
+        $article_to_check = Article::where('is_accepted', null)->where('user_id','!=', Auth::user()->id)->first();
         return view('revisor.index', compact('article_to_check'));
     }
 
     public function remake(){
-        $article_to_check = Article::where('is_accepted', '!=' , null)->orderBy('updated_at','DESC')->first();
+        $article_to_check = Article::where('is_accepted', '!=' , null)->orderBy('updated_at','DESC')->where('user_id','!=', Auth::user()->id)->first();
         return view('revisor.remake', compact('article_to_check'));
     }
 
@@ -28,7 +28,7 @@ class RevisorController extends Controller
     }
 
     public function list() {
-        return view('revisor.list' );
+        return view('revisor.list');
     }
 
     public function acceptArticle(Article $article) {
@@ -46,8 +46,17 @@ class RevisorController extends Controller
         return redirect()->back()->with('message', 'Hai sospeso l\'annuncio');
     }
 
-    public function becomeRevisor() {
-        Mail::to('admin@presto.it')->send(new BecomeRevisor(Auth::user()));
+    public function form(){
+        return view('revisor.form');
+    }
+
+    public function becomeRevisor(Request $request) {
+        $user= Auth::user();
+        $user->name = $request['name'];
+        $user->surname = $request['surname'];
+        $user->description = $request['description'];
+        $user->phone = $request['phone'];
+        Mail::to('admin@presto.it')->send(new BecomeRevisor($user));
         return redirect('/')->with('message', 'Complimenti! Hai richiesto di diventare revisore!');
     }
 

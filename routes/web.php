@@ -53,8 +53,9 @@ Route::patch('/sospendi/article/{article}', [RevisorController::class, 'nullArti
 
 
 // Richiesta revisor
-Route::get('/richiesta/revisore',[RevisorController::class,'becomeRevisor'])->middleware('auth')->name('become.revisor');
-Route::get('/rendi/revisore/{user}',[RevisorController::class, 'makeRevisor'])->name('make.revisor');
+Route::get('/revisor/form', [RevisorController::class, 'form'])->middleware('auth')->name('revisor.form');
+Route::POST('/richiesta/revisore',[RevisorController::class,'becomeRevisor'])->middleware('auth')->name('revisor.become');
+Route::get('/rendi/revisore/{user}',[RevisorController::class, 'makeRevisor'])->name('revisor.make');
 
 //Socialite
 Route::get('/auth/google', [SocialiteController::class, 'loginGoogle'])->name('google.login');

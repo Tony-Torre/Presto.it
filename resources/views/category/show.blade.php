@@ -2,9 +2,7 @@
     <h1 class="text-center mt-5">{{$category['name']}}</h1>
     <div class="row row-cols-1 row-cols-md-3 g-4 w-75 m-auto mt-3" >
         @forelse ($category->articles as $article)
-        @if ($article->is_accepted===1)
         <x-card_article :article="$article"/>
-        @endif 
         @empty
         <div class="text-center m-auto mt-3">
             <div>Al momento non abbiamo annunci per questa categoria.</div>

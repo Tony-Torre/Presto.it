@@ -9,7 +9,7 @@
         {{ session('message') }}
     </h5>
     @endif
-    @if ($article_to_check)
+    @if ($article_to_check && Auth::user()->id != $article_to_check->user->id)
     <div class="container rounded p-0 w-75 mt-5">
         <div class="row">
             <div id="carouselExampleIndicators" class="carousel slide col-12 col-md-6 mt-5 rounded">
@@ -75,5 +75,7 @@
             </div>
         </div>
     </div>
+    @else
+    <div>Non puoi revisionare un articolo creato da te!</div>
     @endif
 </x-main>
