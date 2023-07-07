@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
+use App\Models\Article;
+use App\Models\User;
 
 class CategoryController extends Controller
 {
@@ -38,7 +40,12 @@ class CategoryController extends Controller
      * Display the specified resource.
      */
     public function show(Category $category){
-        return view ('category.show',compact('category'));
+        $users=User::all();
+        $order_desc= Article::where('is_accepted',1)->orderBy('created_at', 'desc')->get();
+        
+        // $order_desc->paginate(6);
+
+        return view('article.index',compact('users'),['articles'=>$order_desc]);
     }
 
     /**
