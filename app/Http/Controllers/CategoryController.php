@@ -40,12 +40,14 @@ class CategoryController extends Controller
      * Display the specified resource.
      */
     public function show(Category $category){
-        $users=User::all();
+        $users=Category::all();
         $order_desc= Article::where('is_accepted',1)->orderBy('created_at', 'desc')->get();
         
         // $order_desc->paginate(6);
 
-        return view('article.index',compact('users'),['articles'=>$order_desc]);
+        return view('category.show',compact('category'),['categorys'=>$order_desc]);
+
+
     }
 
     /**
