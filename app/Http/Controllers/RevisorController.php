@@ -18,7 +18,7 @@ class RevisorController extends Controller
     }
 
     public function remake(){
-        $article_to_check = Article::where('is_accepted', '!=' , null)->orderBy('id','DESC')->first();
+        $article_to_check = Article::where('is_accepted', '!=' , null)->orderBy('updated_at','DESC')->first();
         return view('revisor.remake', compact('article_to_check'));
     }
 
