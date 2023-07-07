@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
+use App\Models\Article;
+use App\Models\User;
 
 class CategoryController extends Controller
 {
@@ -38,7 +40,6 @@ class CategoryController extends Controller
      * Display the specified resource.
      */
     public function show(Category $category){
-        hgh
         return view ('category.show',compact('category'));
     }
 
