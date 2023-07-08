@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
+use App\Models\Article;
+use App\Models\User;
 
 class CategoryController extends Controller
 {

@@ -9,7 +9,7 @@
         {{ session('message') }}
     </h5>
     @endif
-    @if ($article_to_check)
+    @if ($article_to_check && Auth::user()->id != $article_to_check->user->id)
     <div class="container rounded p-0 w-75 mt-5">
         <div class="row">
             <div id="carouselExampleIndicators" class="carousel slide col-12 col-md-6 mt-5 rounded">
@@ -42,8 +42,8 @@
                 <div>
                     <span class="background_blue rounded p-1 text-white">{{$article_to_check->category->name}}</span>
                 </div>
-                <h3 class="mt-5">Titolo: {{ $article_to_check->title }}</h3>
-                <span>Descrizione: {{ $article_to_check->body }}</span>
+                <h3 class="mt-5">{{ $article_to_check->title }}</h3>
+                <span>{{ $article_to_check->description }}</span>
                 <h2 style="color: rgb(0, 167, 0)">€{{$article_to_check->price}}</h2>
                 <hr class="w-75">
                 <h6>Creato il {{$article_to_check->created_at->format('d/m/Y')}}, dall'utente {{$article_to_check->user->name}}</h6>
@@ -75,5 +75,7 @@
             </div>
         </div>
     </div>
+    @else
+    <div>Non puoi revisionare un articolo creato da te!</div>
     @endif
 </x-main>

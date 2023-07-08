@@ -120,10 +120,10 @@ return [
         'storage'  => storage_path(),
         'fuzziness' => env('TNTSEARCH_FUZZINESS', true),
         'fuzzy' => [
-            'prefix_length' => 3,
+            'prefix_length' => 2,
             'max_expansions' => 50,
-            'distance' => 3,
-        'no_limit' => true
+            'distance' => 2,
+            'no_limit' => true
         ],
         'asYouType' => false,
         'searchBoolean' => env('TNTSEARCH_BOOLEAN', false),

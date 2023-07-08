@@ -38,7 +38,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Revisor
                         @if (app\Models\Article::toBeRevisionedCount() != 0)
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ app\Models\Article::toBeRevisionedCount() }}</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="background-color: #eb6841">{{ app\Models\Article::toBeRevisionedCount() }}</span>
                         @endif
                     </a>
                     <ul class="dropdown-menu">

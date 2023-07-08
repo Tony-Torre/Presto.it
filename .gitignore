@@ -20,6 +20,6 @@ yarn-error.log
 /storage/articles.index-shm
 /storage/articles.index-wal
 /storage/articles.index
-
+/storage/*.index
 
 

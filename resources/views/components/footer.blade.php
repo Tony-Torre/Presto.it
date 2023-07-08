@@ -4,10 +4,10 @@
         @if (Auth::user()->is_revisor)
         Lavori già per noi
         @else
-        <a href="{{route('become.revisor')}}">Diventa revisore!</a>
+        <a href="{{route('revisor.form')}}">Diventa revisore!</a>
         @endif
         @else
-        <a href="{{route('become.revisor')}}">Diventa revisore!</a>
+        <a href="{{route('revisor.form')}}">Diventa revisore!</a>
         @endauth
         
     </span>
