@@ -52,6 +52,12 @@ class RevisorController extends Controller
 
     public function becomeRevisor(Request $request) {
         $user= Auth::user();
+        $request->validate([
+            'name' => 'required|string',
+            'surname' => 'required|string',
+            'description' => 'required|string|min:100|max:255',
+            'phone' => 'integer|min:10',
+        ]);
         $user->name = $request['name'];
         $user->surname = $request['surname'];
         $user->description = $request['description'];

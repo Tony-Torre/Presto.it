@@ -35,8 +35,8 @@ class BecomeRevisor extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('Ciao@noreplay.com', 'Presto.it'),
-            subject: 'Richiesta inviata',
+            from: new Address('Presto_store@noreplay.it', 'Presto.it'),
+            subject: 'Richiesta nuove revisore',
         );
     }
 
