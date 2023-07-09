@@ -9,28 +9,28 @@
             </div>
             @endif
             <div class="mb-3">
-                <label for="title" class="form-label">Titolo</label>
+                <label for="title" class="form-label">Titolo*</label>
                 <input type="text" id="title" wire:model="title" placeholder="Titolo" value="{{old('title')}}" class="form-control @error('title') is-invalid @enderror">
                 @error('title')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="price" class="form-label">Prezzo </label>
+                <label for="price" class="form-label">Prezzo*</label>
                 <input type="number" min="0"step="0.01" id="price" value="{{old('price')}}" class="form-control @error('price') is-invalid @enderror" wire:model="price" placeholder="Prezzo 0.00">
                 @error('price')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="description" class="form-label">Inserisci una breve descrizione</label>
+                <label for="description" class="form-label">Inserisci una breve descrizione*</label>
                 <input type="text" id="description" value="{{old('description')}}" class="form-control @error('description') is-invalid @enderror" wire:model="description" placeholder="Descrizione">
                 @error('description')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="category_id" class="form-label">Categoria</label>
+                <label for="category_id" class="form-label">Categoria*</label>
                 <select class="form-select mb-3 capitalize @error('category_id') is-invalid @enderror" aria-label="Default select example" id="category_id" wire:model="category_id">
                 <option selected> Seleziona la categoria </option>
                 @foreach ($categories as $category)
