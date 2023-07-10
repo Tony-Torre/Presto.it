@@ -11,7 +11,7 @@
                 @auth
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white bold" href="#" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">Annunci</a>
+                    data-bs-toggle="dropdown" aria-expanded="false">{{__('ui.annunci_nav')}}</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('article.create') }}">Crea un annucio</a></li>
                         <li><a class="dropdown-item " href="{{ route('article.index') }}">Elenco annunci</a></li>
@@ -20,7 +20,7 @@
                 @else
                 <li class="nav-item">
                     <a class="nav-link text-white bold" aria-current="page"
-                    href="{{ route('article.index') }}">Annunci</a>
+                    href="{{ route('article.index') }}">{{__('ui.annunci_nav')}}</a>
                 </li>
                 @endauth
                 <li class="nav-item dropdown">

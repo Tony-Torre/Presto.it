@@ -11,7 +11,7 @@ class ArticleCreateForm extends Component
 {
     use WithFileUploads;
 
-    public $title, $price, $description, $category_id, $user_id, $image;
+    public $title, $price, $description, $category_id, $user_id;
     public $images = [];
     public $temporary_images;
 
@@ -21,25 +21,45 @@ class ArticleCreateForm extends Component
         'description'=> 'required|string|max:225|min:5',
         'category_id'=> 'integer',
         'user_id'=> '',
-        'temporary_images'=> 'image|max:3072',
-        'images' => 'image|max:3072',
-        'image' => 'image|max:3072',
+        'temporary_images.*'=> 'image|max:3072',
+        'images.*' => 'image|max:3072',
     ];
     
     public function updated($propertyName){
         $this->validateOnly($propertyName);
     }
     
+    public function updatedTemporaryImages(){
+        if($this->validate([
+            'temporary_images.*'=> 'image|max:3072',
+        ])) {
+            foreach ($this->temporary_images as $image){
+            $this->images[] = $image;
+            }
+        }
+    }
+
+    public function removeImages($key) {
+        if (in_array($key, array_keys($this->images))) {
+            unset($this->images[$key]);
+        }
+    }
+
     public function store(){
         $this->validate();
-        Article::create([
+        $article = Article::create([
             'title' => $this->title,
             'price' => $this->price,
             'description' => $this->description,
             'category_id' => $this->category_id,
             'user_id' => Auth::user()->id,
         ]);
-        $this->reset(['title','price','description','category_id']);
+        if(count($this->images)) {
+            foreach($this->images as $image) {
+                $article->images()->create(['path'=>$image->store('image', 'public')]);
+            }
+        }
+        $this->reset(['title','price','description','category_id','images','temporary_images']);
         session()->flash('article', 'Articolo aggiunto correttamente');
        
     }

@@ -12,12 +12,12 @@
           <div class="carousel-item active">
             <img src="https://unsplash.it/600" class="d-block w-100 rounded" alt="Immagine1">
           </div>
+          @foreach ($article->images as $image)
           <div class="carousel-item">
-            <img src="https://unsplash.it/400" class="d-block w-100 rounded" alt="Immagine2">
+            
+            <img src="{{Storage::url($image->path)}}" class="d-block w-100 rounded" alt="Immagine3">
           </div>
-          <div class="carousel-item">
-            <img src="https://unsplash.it/400" class="d-block w-100 rounded" alt="Immagine3">
-          </div>
+          @endforeach
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
