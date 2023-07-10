@@ -6,9 +6,9 @@
             </div>
             <div class="d-flex flex-column justify-content-center text-center col-xl-4 col-lg-12 p-0 background_blue">
                 <span style="font-size: 35px" class="mt-5">
-                    <p class=" text-white"> Stanco dei tuoi vecchi oggetti?</p>
+                    <p class=" text-white"> {{__('ui.stanco')}}</p>
                     <p class="fw-bold text-uppercase">presto</p>
-                    <p> Dai loro nuova vita</p>
+                    <p> {{__('ui.new_life')}}</p>
                 </span>
                 <div class="col-mb-6 d-flex justify-content-center mt-5 ">
                     <button class="btn mb-4 btn_orange">

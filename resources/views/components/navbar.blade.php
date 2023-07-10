@@ -11,7 +11,7 @@
                 @auth
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white bold" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">Annunci</a>
+                    aria-expanded="false">{{__('ui.annunci')}}</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('article.create') }}">Crea un annucio</a></li>
                         <li><a class="dropdown-item " href="{{ route('article.index') }}">Elenco annunci</a></li>
