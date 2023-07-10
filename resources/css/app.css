@@ -1,5 +1,7 @@
 @import 'bootstrap';
 @import './navbar.css';
+@import 'flag-icon-css/css/flag-icons';
+
 
 :root{
   --main-color: #06145a;
@@ -86,4 +88,14 @@ h1{
 
 .img-header {
   height: 100%;
+}
+
+.horizontal-list {
+  list-style-type: none; /* Rimuove il segnaposto predefinito */
+  padding: 0; /* Rimuove il padding predefinito */
+}
+
+.horizontal-list li {
+  display: inline-block; /* Mostra gli elementi dell'elenco in orizzontale */
+  margin-right: 10px; /* Aggiunge uno spazio tra gli elementi dell'elenco */
 }
