@@ -1,4 +1,5 @@
 <?php
 return[
-    'allArticles'=>'I nostri articoli'
+    'allArticles'=>'I nostri articoli',
+    
 ];
