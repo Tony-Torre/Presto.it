@@ -1,6 +1,6 @@
 <?php
 return[
-    'allArticles'=>'Our articles',
+    'allArticles'=>'Nosotros articolos',
     'emptyArticles'=>'Aún no tenemos artículos.',
     'createArticleFirst'=> "Tu creas el primero"
 ];

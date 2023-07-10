@@ -32,22 +32,39 @@
             <div class="mb-3">
                 <label for="category_id" class="form-label">Categoria*</label>
                 <select class="form-select mb-3 capitalize @error('category_id') is-invalid @enderror" aria-label="Default select example" id="category_id" wire:model="category_id">
-                <option selected> Seleziona la categoria </option>
-                @foreach ($categories as $category)
-                <option value="{{ $category->id }}" class="capitalize">
-                    {{ $category->name }}
-                </option>
-                @endforeach
-            </select>
-            @error('category_id')
-            <span class="text-danger">Scegliere una categoria</span>
-            @enderror
-        </div>
-        {{-- <div class="mb-3">
-            <label for="image" class="form-label">Immagine dell'articolo</label>
-            <input type="file" id="title" class="form-control" wire:model="image" placeholder="Immagine">
-        </div> --}}
-        <button type="submit" class="btn btn_orange">Crea</button>
-    </form>
-</div>
+                    <option selected> Seleziona la categoria </option>
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" class="capitalize">
+                        {{ $category->name }}
+                    </option>
+                    @endforeach
+                </select>
+                @error('category_id')
+                <span class="text-danger">Scegliere una categoria</span>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <input wire:model="temporary_images" type="file" name="images" multiple class="form-control @error('temporary_images') is-invalid @enderror" id="">
+                @error('temporary_images')
+                <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+            @if (!empty($images))
+            <div class="row">
+                <div class="col-12">
+                    <p>Preview delle foto</p>
+                    <div class="row border b-4 border-info rounded p-4">
+                        @foreach ($images as $image)
+                            <div class="col my-3">
+                                <div class="img-preview mx-auto rounded" style="background-image: url({{$image->temporaryUrl()}})"></div>
+                                <button type="button" class="btn btn_orange" wire:click="removeImages({{$image}})">Cancella</button>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            @endif
+            <button type="submit" class="btn btn_orange">Crea</button>
+        </form>
+    </div>
 </div>
