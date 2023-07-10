@@ -1,7 +1,7 @@
 <x-main>
     <div>
         <h1 class="mt-5 text-center">
-            {{ $article_to_check ? "Ecco l'ultimo annuncio revisionato" : 'Non ci sono annunci da revisionare' }}
+            {{ $article_to_check ? "Ecco l'annuncio selezionato" : 'Non ci sono annunci da revisionare' }}
         </h1>
     </div>
     @if (session()->has('message'))

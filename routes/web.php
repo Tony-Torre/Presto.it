@@ -64,6 +64,5 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'callbackGoogle
 Route::get('/auth/redirect', [SocialiteController::class, 'login'])->name('socialite.login');
 Route::get('/auth/callback', [SocialiteController::class, 'callback']);
 
-
-
-
+//languages
+Route::POST('/lingua/{lang}', [PageController::class, 'setLanguage'])->name('set_language_locale');

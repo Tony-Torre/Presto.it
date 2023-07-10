@@ -1,5 +1,6 @@
 @import 'bootstrap';
 @import './navbar.css';
+@import 'flag-icon-css/css/flag-icons';
 
 :root{
   --main-color: #06145a;
