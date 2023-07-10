@@ -5,10 +5,15 @@ namespace App\Http\Livewire;
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ArticleCreateForm extends Component
 {
-    public $title, $price, $description, $category_id, $user_id;
+    use WithFileUploads;
+
+    public $title, $price, $description, $category_id, $user_id, $image;
+    public $images = [];
+    public $temporary_images;
 
     protected $rules = [
         'title'=> 'required|string|max:225|min:5',
@@ -16,7 +21,9 @@ class ArticleCreateForm extends Component
         'description'=> 'required|string|max:225|min:5',
         'category_id'=> 'integer',
         'user_id'=> '',
-        // 'image'=> 'string',
+        'temporary_images'=> 'image|max:3072',
+        'images' => 'image|max:3072',
+        'image' => 'image|max:3072',
     ];
     
     public function updated($propertyName){
@@ -49,6 +56,8 @@ class ArticleCreateForm extends Component
             'description.required' => 'Descizione obbligatoria',
             'description.string' => 'La descrizione deve essere composta di lettere',
             'category_id.integer'=>'Seleziona una categoria',
+            'temporary_images.image'=>'Il file deve essere un\'immagine',
+            'temporary_images.max'=>'L\'immagine deve essere al massimo di 3 mb'
         ];
     }
     public function render()
