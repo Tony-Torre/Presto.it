@@ -17,4 +17,9 @@ class PageController extends Controller
     
         return view('article.index', compact('articles'));
     }
+
+    public function setLanguage($lang) {
+        session()->put('locale', $lang);
+        return redirect()->back();
+    }
 }

@@ -31,14 +31,15 @@ Route::get('/article/create', [ArticleController::class, 'create'])->middleware(
 Route::get('/article/{article}/show', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->middleware('auth')->name('article.edit');
 Route::post('/article/search', [ArticleController::class, 'search'])->name('article.search');
+Route::get('/ricerca/annuncio' , [PageController::class, 'searchArticle'])->name('search.article');
 
 Route::get('/article/my', [ArticleController::class, 'my_index'])->name('my.index');
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
-Route::get('/category/create', [CategoryController::class, 'create'])->middleware('auth')->name('category.create');
+Route::get('/category/create', [CategoryController::class, 'create'])->middleware('isRevisor')->name('category.create');
 Route::POST('/category/store', [CategoryController::class, 'store'])->name('category.store');
 Route::get('/category/{category}/show', [CategoryController::class, 'show'])->name('category.show');
-Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->middleware('auth')->name('category.edit');
+Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->middleware('isRevisor')->name('category.edit');
 Route::put('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
@@ -63,6 +64,5 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'callbackGoogle
 Route::get('/auth/redirect', [SocialiteController::class, 'login'])->name('socialite.login');
 Route::get('/auth/callback', [SocialiteController::class, 'callback']);
 
-Route::get('/ricerca/annuncio' , [PageController::class, 'searchArticle'])->name('search.article');
-
-
+//languages
+Route::POST('/lingua/{lang}', [PageController::class, 'setLanguage'])->name('set_language_locale');

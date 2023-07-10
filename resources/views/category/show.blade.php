@@ -5,7 +5,7 @@
         <x-card_article :article="$article"/>
         @empty
         <div class="text-center m-auto mt-3">
-            <div>Al momento non abbiamo annunci per questa categoria.</div>
+            <div>{{__('article.emptyArticles')}}</div>
             <div><button class="btn btn_orange" href="{{route('article.create')}}">Crea tu il primo</button></div>
         </div>
         @endforelse
