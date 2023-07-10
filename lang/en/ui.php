@@ -1,4 +1,5 @@
 <?php
 return[
-    'allArticles'=>'Our articles'
+    'allArticles'=>'Our articles' ,
+    'revisorfoot'=>'Become an auditor'
 ];
