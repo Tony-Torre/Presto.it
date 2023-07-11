@@ -13,8 +13,8 @@
                     <a class="nav-link dropdown-toggle text-white bold" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">{{__('ui.annunci_nav')}}</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('article.create') }}">Crea un annucio</a></li>
-                        <li><a class="dropdown-item " href="{{ route('article.index') }}">Elenco annunci</a></li>
+                        <li><a class="dropdown-item" href="{{ route('article.create') }}">{{__('ui.crea_annuncio')}}</a></li>
+                        <li><a class="dropdown-item " href="{{ route('article.index') }}">{{__('ui.elenco_annunci')}}</a></li>
                     </ul>
                 </li>
                 @else
@@ -24,11 +24,11 @@
                 </li>
                 @endauth
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
+                    <a class="nav-link dropdown-toggle text-white bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('ui.categorie_nav')}}</a>
                     <ul class="dropdown-menu">
                         @foreach ($categories as $category)
                         <li>             
-                            <a class="dropdown-item" href="{{ route('category.show', ['category' => $category]) }}">{{ $category->name }}</a>
+                            <a class="dropdown-item" href="{{ route('category.show', ['category' => $category]) }}">{{__('ui.Category_'.$category->id)}}</a>
                         </li>
                         @endforeach
                     </ul>
@@ -36,7 +36,7 @@
                 @auth
                 @if (Auth::user()->is_revisor)
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Revisor
+                    <a class="nav-link dropdown-toggle text-white bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('ui.Revisor')}}
                         @if (app\Models\Article::toBeRevisionedCount() != 0)
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="background-color: #eb6841">{{ app\Models\Article::toBeRevisionedCount() }}</span>
                         @endif
@@ -45,17 +45,17 @@
                         <li>
                             <a class="dropdown-item" href="{{ route('revisor.index') }}">
                                 @if (app\Models\Article::toBeRevisionedCount() != 0)
-                                Hai {{ app\Models\Article::toBeRevisionedCount() }} articoli da revisionare
+                                {{__('ui.hai')}} {{ app\Models\Article::toBeRevisionedCount() }} {{__('ui.da_revisionare')}}
                                 @else
-                                Non ci sono articoli da revisionare
+                                {{__('ui.no_articoli_revisor')}}
                                 @endif
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('revisor.remake') }}"> Visualizza l'ultimo articolo revisionato</a>
+                            <a class="dropdown-item" href="{{ route('revisor.remake') }}"> {{__('ui.ultimo_revisor')}}</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('revisor.list') }}">Lista articoli</a>
+                            <a class="dropdown-item" href="{{ route('revisor.list') }}">{{__('ui.lista_annunci_revisor')}}</a>
                         </li>
                     </ul>
                 </li>
@@ -63,7 +63,7 @@
                 @endauth
                 <li class="nav-item dropdown mx-3" style="list-style-type: none">
                     <form action="{{ route('search.article') }}" method='GET' class="d-flex align-item-center justify-content-center">
-                        <input name="searched" type="search" placeholder="Ricerca" id="searched" class="form-control me-1">
+                        <input name="searched" type="search" placeholder="{{__('ui.button_search')}}" id="searched" class="form-control me-1">
                         <button class="btn btn_orange" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </li>
@@ -73,12 +73,12 @@
                     @auth
                     <li class="nav-item dropdown" style="list-style-type: none">
                         <a class="nav-link dropdown-toggle text-white bold" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">Benvenuto {{ Auth::user()->name }}</a>
+                        data-bs-toggle="dropdown" aria-expanded="false">{{__('ui.benvenuto_2')}} {{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu">
                             
-                            <li><a class="dropdown-item" href="{{ route('my.index') }}">Miei annunci</a></li>
+                            <li><a class="dropdown-item" href="{{ route('my.index') }}">{{__('ui.miei_annunci')}}</a></li>
                             <li><a class="dropdown-item"
-                                href="{{ route('logout') }}"onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
+                                href="{{ route('logout') }}"onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">{{__('ui.esci')}}</a>
                             </li>
                             <form id="form-logout" method="POST" action="{{ route('logout') }}" class="d-none">
                                 @csrf
@@ -88,10 +88,10 @@
                     @else
                     <li class="nav-item dropdown" style="list-style-type: none">
                         <a class="nav-link dropdown-toggle text-white bold" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">Benvenuto utente</a>
+                        data-bs-toggle="dropdown" aria-expanded="false">{{__('ui.benvenuto')}}</a>
                         <ul class="dropdown-menu ul ">
-                            <li><a class="dropdown-item" href="{{ route('register') }}">Registrati</a></li>
-                            <li><a class="dropdown-item" href="{{ route('login') }}">Accedi</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}">{{__('ui.registrati')}}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('login') }}">{{__('ui.accedi')}}</a></li>
                         </ul>
                     </li>
                     @endauth

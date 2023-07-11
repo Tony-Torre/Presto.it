@@ -4,7 +4,7 @@
             <span id="year">
                 @auth
                     @if (Auth::user()->is_revisor)
-                        Lavori già per noi
+                        {{__('ui.Lavori_gia')}}
                     @else
                         <a href="{{ route('revisor.form') }}">{{ __('ui.revisorfoot') }}</a>
                     @endif

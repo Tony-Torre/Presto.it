@@ -12,7 +12,7 @@
                 </span>
                 <div class="col-mb-6 d-flex justify-content-center mt-5 ">
                     <button class="btn mb-4 btn_orange">
-                        <a href="{{route('article.create')}}" class="color_white">Inserisci annuncio</a>
+                        <a href="{{route('article.create')}}" class="color_white">{{__('ui.inserisci_annuncio')}}</a>
                     </button>
                 </div>
             </div>
