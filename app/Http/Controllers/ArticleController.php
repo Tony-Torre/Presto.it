@@ -50,13 +50,5 @@ class ArticleController extends Controller
         return view('article.edit', ['article'=>$article]);
     }
     
-    public function my_index(){
-        if(Auth::user()){
-            $articles = Article::where('user_id',Auth::user()->id)->get();
-        }else{
-            $articles = Article::all();
-        }
-        return view('my.index',['articles'=>$articles]);
-    }
 
 }

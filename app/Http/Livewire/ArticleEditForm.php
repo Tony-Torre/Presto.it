@@ -4,31 +4,31 @@ namespace App\Http\Livewire;
 
 use App\Models\Article;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ArticleEditForm extends Component
 {
-    
+    use WithFileUploads;
+
     public $title, $price, $description, $category_id;
     public $images = [];
     public $temporary_images;
     public Article $article;
     
     protected $rules = [
-        'title'=> 'required|string|max:225|min:5',
-        'price'=> 'required|decimal:2',
-        'description'=> 'required|string|max:225|min:5',
-        'category_id'=> 'integer',
-        'temporary_images.*'=> 'image|max:3072',
+        'title' => 'required|string|max:225|min:5',
+        'price' => 'required|decimal:2',
+        'description' => 'required|string|max:225|min:5',
+        'category_id' => 'integer',
+        'temporary_images.*' => 'image|max:3072',
         'images.*' => 'image|max:3072',
     ];
     
     public function mount(){
-        $this->title=$this->article->title;
-        $this->price=$this->article->price;
-        $this->description=$this->article->description;
-        $this->category_id=$this->article->category_id;
-        $this->temporary_images=$this->article->temporary_images;
-        $this->images=$this->article->images;
+        $this->title = $this->article->title;
+        $this->price = $this->article->price;
+        $this->description = $this->article->description;
+        $this->category_id = $this->article->category_id;
     }
 
     public function updatedTemporaryImages(){
@@ -46,6 +46,15 @@ class ArticleEditForm extends Component
             unset($this->images[$key]);
         }
     }
+
+    // public function removeImagesStored($key) {
+    //     // if (in_array($key, array_keys($this->imagesStored))) {
+    //     //     unset($this->imagesStored[$key]);
+    //     // }
+    //     if ($this->imagesStored->contains($key)) {
+    //         $this->imagesStored->forget($key);
+    //     }
+    // }
     
     public function updated($propertyName){
         $this->validateOnly($propertyName);
@@ -53,15 +62,19 @@ class ArticleEditForm extends Component
     
     public function update(){
         $this->validate();
+        foreach($this->article->images()->get() as $image) {
+            $image->delete();
+        }
         $this->article->update([
             'title' => $this->title,
             'price' => $this->price,
             'description' => $this->description,
             'category_id' => $this->category_id,
         ]);
+        
         if(count($this->images)) {
             foreach($this->images as $image) {
-                $this->article->images()->update(['path'=>$image->store('image', 'public')]);
+                $this->article->images()->create(['path'=>$image->store('image', 'public')]);
             }
         }
         $this->article->setAccepted(null);

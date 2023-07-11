@@ -58,6 +58,7 @@
             </div>
         </div>
         @endif
-        <button type="submit" class="btn btn_red">Modifica</button>
+        <button type="submit" class="btn btn_red" wire:loading.remove>Modifica</button>
+        <button class="btn btn_red"wire:loading wire:target="temporary_images" disabled>Uploading...</button>
     </form>
 </div>

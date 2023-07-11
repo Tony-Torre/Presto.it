@@ -1,4 +1,4 @@
-<div class="footer mt-5 ">&copy;
+<div class="footer mt-5">&copy;
     <div class="row">
         <div class="col">
             <span id="year">

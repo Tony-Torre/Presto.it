@@ -9,7 +9,7 @@
                         <label for="search_article" class="form-label text-center font_size_big">{{__('ui.header_search')}}</label>
                     </div>
                     <div class="col-12 d-flex align-items-center justify-content-center">
-                        <input type="search" placeholder="{{__('ui.search_placeholder')}}" id="searched" name="searched" class="rounded">
+                        <input type="search" placeholder="{{__('ui.search_placeholder')}}" id="search_article" name="search_article" class="rounded">
                     </div>
                 </div>
                 <div class="col-md-4 col-12">
