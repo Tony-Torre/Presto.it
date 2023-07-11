@@ -4,20 +4,24 @@
     <div class="row">
       <div id="carouselExampleIndicators" class="carousel slide col-12 col-md-6 mt-5 rounded">
         <div class="carousel-indicators rounded">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          @if ($article->images())
+          @foreach ($article->images as $image)
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$loop->index}}" class="@if ($loop->first) active @endif" aria-current="true" aria-label="Slide 1"></button>  
+          @endforeach
+          @endif
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://unsplash.it/600" class="d-block w-100 rounded" alt="Immagine1">
-          </div>
+          @if ($article->images())
           @foreach ($article->images as $image)
-          <div class="carousel-item">
-            
+          <div class="carousel-item @if ($loop->first) active @endif">
             <img src="{{Storage::url($image->path)}}" class="d-block w-100 rounded" alt="Immagine3">
-          </div>
+          </div>  
           @endforeach
+          @else
+          <div class="carousel-item active">
+            <img src="\img\no-image.jpg" class="d-block w-100 rounded" alt="Immagine3">
+          </div>
+          @endif
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

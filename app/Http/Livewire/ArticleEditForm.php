@@ -7,29 +7,50 @@ use Livewire\Component;
 
 class ArticleEditForm extends Component
 {
-
+    
     public $title, $price, $description, $category_id;
+    public $images = [];
+    public $temporary_images;
     public Article $article;
-
+    
     protected $rules = [
         'title'=> 'required|string|max:225|min:5',
         'price'=> 'required|decimal:2',
         'description'=> 'required|string|max:225|min:5',
         'category_id'=> 'integer',
-        // 'image'=> 'string',
+        'temporary_images.*'=> 'image|max:3072',
+        'images.*' => 'image|max:3072',
     ];
-
+    
     public function mount(){
         $this->title=$this->article->title;
         $this->price=$this->article->price;
         $this->description=$this->article->description;
         $this->category_id=$this->article->category_id;
+        $this->temporary_images=$this->article->temporary_images;
+        $this->images=$this->article->images;
     }
 
-   // public function updated($propertyName){
-   //     $this->validateOnly($propertyName);
-   // }
+    public function updatedTemporaryImages(){
+        if($this->validate([
+            'temporary_images.*'=> 'image|max:3072',
+        ])) {
+            foreach ($this->temporary_images as $image){
+            $this->images[] = $image;
+            }
+        }
+    }
 
+    public function removeImages($key) {
+        if (in_array($key, array_keys($this->images))) {
+            unset($this->images[$key]);
+        }
+    }
+    
+    public function updated($propertyName){
+        $this->validateOnly($propertyName);
+    }
+    
     public function update(){
         $this->validate();
         $this->article->update([
@@ -38,11 +59,16 @@ class ArticleEditForm extends Component
             'description' => $this->description,
             'category_id' => $this->category_id,
         ]);
+        if(count($this->images)) {
+            foreach($this->images as $image) {
+                $this->article->images()->update(['path'=>$image->store('image', 'public')]);
+            }
+        }
         $this->article->setAccepted(null);
         session()->flash('article', 'Articolo modificato con successo');
         
     }
-
+    
     public function messages(){
         return [
             'title.max' => 'Inserisci massimo 255 caratteri',
@@ -55,9 +81,11 @@ class ArticleEditForm extends Component
             'description.required' => 'Descizione obbligatoria',
             'description.string' => 'La descrizione deve essere composta di lettere',
             'category_id.integer'=>'Seleziona una categoria',
+            'temporary_images.image'=>'Il file deve essere un\'immagine',
+            'temporary_images.max'=>'L\'immagine deve essere al massimo di 3 mb'
         ];
     }
-
+    
     public function render()
     {
         return view('livewire.article-edit-form');

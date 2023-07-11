@@ -28,7 +28,8 @@ class RevisorController extends Controller
     }
 
     public function list() {
-        return view('revisor.list');
+        $articles = Article::where('user_id', '!=', Auth::user()->id)->get();
+        return view('revisor.list',compact('articles'));
     }
 
     public function acceptArticle(Article $article) {

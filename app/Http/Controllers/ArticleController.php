@@ -58,11 +58,5 @@ class ArticleController extends Controller
         }
         return view('my.index',['articles'=>$articles]);
     }
-    
-    public function search(Request $request){
-        $search_article = Article::where('category_id','like','%' . $request->search_category .'%')
-        ->where('title','like','%' . $request->search_article .'%')->get();
-        return view('article.index',['articles'=>$search_article]);
-        
-    }
+
 }

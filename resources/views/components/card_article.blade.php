@@ -1,6 +1,6 @@
 <div class="col">
   <div class="card background_white shadow_color">
-    <img src="https://unsplash.it/400" class="card-img-top " alt="immagine">
+    <img src="{{!$article->images()->get()->isEmpty() ? Storage::url($article->images()->first()->path) : '\img\no-image.jpg'}}" class="card-img-top " alt="immagine">
     <div class="card-body ">
       <h5 class="card-title">{{$article['title']}}</h5>
       <div class="d-flex justify-content-between mb-2">
@@ -8,7 +8,7 @@
         <span style="color: rgb(0, 167, 0)" class="rounded p-1 ">€{{$article->price}}</span>
       </div>
       @if (Auth::user()==$article->user)
-        <a href="{{route('article.edit',['article'=>$article])}}">
+      <a href="{{route('article.edit',['article'=>$article])}}">
         <button class="btn btn_red">Modifica</button>
       </a>
       @endif
