@@ -76,7 +76,8 @@
                         data-bs-toggle="dropdown" aria-expanded="false">{{__('ui.benvenuto_2')}} {{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu">
                             
-                            <li><a class="dropdown-item" href="{{ route('my.index') }}">{{__('ui.miei_annunci')}}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('user.index') }}">{{__('ui.miei_annunci')}}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('user.show', ['user'=>Auth::user()] )}}">Il mio profilo</a></li>
                             <li><a class="dropdown-item"
                                 href="{{ route('logout') }}"onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">{{__('ui.esci')}}</a>
                             </li>

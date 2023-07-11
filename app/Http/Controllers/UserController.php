@@ -15,11 +15,12 @@ class UserController extends Controller
         }else{
             $articles = Article::all();
         }
-        return view('my.index',['articles'=>$articles]);
+        return view('user.index',['articles'=>$articles]);
     }
 
     public function show(User $user) {
         $articles = Article::where('is_accepted', true)->where('user_id', $user->id)->get();
-        return view('user.show', compact('user','articles'));
+        $articleCount = Article::where('is_accepted', true)->where('user_id', $user->id)->count();
+        return view('user.show', compact('user','articles','articleCount'));
     }
 }
