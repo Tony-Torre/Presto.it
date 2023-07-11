@@ -10,6 +10,7 @@ use App\Http\Controllers\SocialiteController;
 use App\Models\Article;
 use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\Google;
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,6 +27,7 @@ use Illuminate\Support\Facades\Hash;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 
+// Article
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/article/create', [ArticleController::class, 'create'])->middleware('auth')->name('article.create');
 Route::get('/article/{article}/show', [ArticleController::class, 'show'])->name('article.show');
@@ -33,8 +35,11 @@ Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->middl
 Route::post('/article/search', [PageController::class, 'search'])->name('article.search');
 Route::get('/ricerca/annuncio' , [PageController::class, 'searchArticle'])->name('search.article');
 
-Route::get('/article/my', [ArticleController::class, 'my_index'])->name('my.index');
+//User
+Route::get('/article/my', [UserController::class, 'my_index'])->name('my.index');
+Route::get('/user/{user}', [UserController::class, 'show'])->middleware('auth')->name('user.show');
 
+// Category
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/create', [CategoryController::class, 'create'])->middleware('isRevisor')->name('category.create');
 Route::POST('/category/store', [CategoryController::class, 'store'])->name('category.store');
@@ -58,11 +63,11 @@ Route::get('/revisor/form', [RevisorController::class, 'form'])->middleware('aut
 Route::POST('/richiesta/revisore',[RevisorController::class,'becomeRevisor'])->middleware('auth')->name('revisor.become');
 Route::get('/rendi/revisore/{user}',[RevisorController::class, 'makeRevisor'])->name('revisor.make');
 
-//Socialite
+// Socialite
 Route::get('/auth/google', [SocialiteController::class, 'loginGoogle'])->name('google.login');
 Route::get('/auth/google/callback', [SocialiteController::class, 'callbackGoogle']);
 Route::get('/auth/redirect', [SocialiteController::class, 'login'])->name('socialite.login');
 Route::get('/auth/callback', [SocialiteController::class, 'callback']);
 
-//languages
+// Languages
 Route::POST('/lingua/{lang}', [PageController::class, 'setLanguage'])->name('set_language_locale');
