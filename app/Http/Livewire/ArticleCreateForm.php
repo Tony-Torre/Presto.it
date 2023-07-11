@@ -4,7 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Jobs\ResizeImage;
 use App\Models\Article;
+
+
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -15,6 +18,7 @@ class ArticleCreateForm extends Component
     public $title, $price, $description, $category_id, $user_id;
     public $images = [];
     public $temporary_images;
+    public $article;
 
     protected $rules = [
         'title' => 'required|string|max:225|min:5',
