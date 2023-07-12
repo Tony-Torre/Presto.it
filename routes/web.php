@@ -32,6 +32,8 @@ Route::get('/article/index', [ArticleController::class, 'index'])->name('article
 Route::get('/article/create', [ArticleController::class, 'create'])->middleware('auth')->name('article.create');
 Route::get('/article/{article}/show', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->middleware('auth')->name('article.edit');
+
+// Search
 Route::post('/article/search', [PageController::class, 'search'])->name('article.search');
 Route::get('/ricerca/annuncio' , [PageController::class, 'searchArticle'])->name('search.article');
 

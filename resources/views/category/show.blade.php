@@ -5,8 +5,12 @@
         <x-card_article :article="$article"/>
         @empty
         <div class="text-center m-auto mt-3">
-            <div>{{__('article.emptyArticles')}}</div>
-            <div><button class="btn btn_orange" href="{{route('article.create')}}">Crea tu il primo</button></div>
+            <h5 class="mt-2 mb-4">{{__('article.emptyArticles')}}</h5>
+            <div>
+                <a href="{{route('article.create')}}">
+                    <button class="btn btn_orange">Crea tu il primo</button>
+                </a>
+            </div>
         </div>
         @endforelse
     </div>
