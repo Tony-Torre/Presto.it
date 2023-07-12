@@ -21,9 +21,10 @@ class SetLocaleMiddleware
         if (Session::has('locale')) {
             $locale = Session::get('locale', Config::get('app.locale'));
         } else {
-            $locale = substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2);
-
-            if ($locale != 'es' && $locale != 'en' && $locale != 'en') {
+            // $locale = substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2);
+            $locale = substr(session('locale', $request->getPreferredLanguage()),0,2);
+            
+            if ($locale != 'es' && $locale != 'en' && $locale != 'it') {
                 $locale = 'en';
             }
         }
