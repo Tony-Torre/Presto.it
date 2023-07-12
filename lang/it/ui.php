@@ -43,4 +43,6 @@ return[
      'mio_profile'=>'Il mio profilo',
      'modifica'=>'Modifica',
      'dettagli'=>'Dettagli',
+     'visualizza'=>'Visualizza',
+     'elimina'=>'Elimina',
 ];

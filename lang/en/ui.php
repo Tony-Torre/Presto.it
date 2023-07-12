@@ -42,4 +42,7 @@ return[
     'prezzo_max'=>'Max price',
     'mio_profile'=>'My Profile',
     'modifica'=>'Edit',
+    'dettagli'=>'Details',
+    'visualizza'=>'View',
+    'elimina'=>'Delete',
 ];
