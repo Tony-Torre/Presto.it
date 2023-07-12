@@ -26,7 +26,7 @@ return[
     'Category_9'=>'Interior design',
     'Category_10'=>'Outdoor furniture',
     'benvenuto_2'=>'Welcome',
-    'miei_annunci'=>'My announcements',
+    'miei_annunci'=>'My articles',
     'esci'=>'Logout',
     'crea_annuncio'=>'Create an announcement',
     'elenco_annunci'=>'List of announcements',
@@ -36,5 +36,10 @@ return[
     'lista_annunci_revisor'=>'List of announcements',
     'hai'=>'you have',
     'da_revisionare'=>'announcement to be reviewed',
-    'Lavori_gia'=>'You already work for us'
+    'Lavori_gia'=>'You already work for us',
+    'prezzo'=>'Price',
+    'prezzo_min'=>'Min price',
+    'prezzo_max'=>'Max price',
+    'mio_profile'=>'My Profile',
+    'modifica'=>'Edit',
 ];
