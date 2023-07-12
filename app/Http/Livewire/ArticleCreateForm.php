@@ -69,15 +69,18 @@ class ArticleCreateForm extends Component
 
 
                 $this->reset(['title', 'price', 'description', 'category_id', 'images', 'temporary_images']);
-                $newFileName = "articles/{$this->article->id}";
-                $newImage = $this->articles->images()->create(['path' => $image->store('$newFileName')]);
+                $newFileName = "articles/{$article->id}";
+                $newImage = $article->images()->create(['path' => $image->store($newFileName, 'public')]);
 
                 dispatch(new ResizeImage($newImage->path , 400 , 300));
-                session()->flash('article', 'Articolo aggiunto correttamente');
+                
             }
+
+            session()->flash('article', 'Articolo aggiunto correttamente');
 
             File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
+
     }
 
     public function messages()
