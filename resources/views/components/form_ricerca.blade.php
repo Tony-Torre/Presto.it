@@ -27,11 +27,11 @@
                 </div>
                 <div class="col-md-4 col-12">
                     <div class="col-12 text-center">
-                        <label for="search_article" class="form-label text-center font_size_big">Prezzo</label>
+                        <label for="search_article" class="form-label text-center font_size_big">{{__('ui.prezzo')}}</label>
                     </div>
                     <div class="col-12 d-flex align-items-center justify-content-center">
-                        <input type="number" placeholder="Prezzo min." id="price-min" name="price_min" class="rounded form-control form-control-sm col-12 col-md-5 w-50 me-2">
-                        <input type="number" placeholder="Prezzo max." id="price-max" name="price_max" class="rounded form-control form-control-sm col-12 col-md-5 w-50">
+                        <input type="number" placeholder="{{__('ui.prezzo_min')}}" id="price-min" name="price_min" class="rounded form-control form-control-sm col-12 col-md-5 w-50 me-2">
+                        <input type="number" placeholder="{{__('ui.prezzo_max')}}" id="price-max" name="price_max" class="rounded form-control form-control-sm col-12 col-md-5 w-50">
                     </div>
                 </div>
                 <div class=" d-flex align-items-center justify-content-center mt-2">

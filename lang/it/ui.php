@@ -36,5 +36,11 @@ return[
      'lista_annunci_revisor'=>'Lista annunci',
      'hai'=>'Hai',
      'da_revisionare'=>'articoli da revisionare',
-     'Lavori_gia'=>'Lavori già per noi'
+     'Lavori_gia'=>'Lavori già per noi',
+     'prezzo'=>'Prezzo',
+     'prezzo_min'=>'Prezzo min',
+     'prezzo_max'=>'Prezzo max',
+     'mio_profile'=>'Il mio profilo',
+     'modifica'=>'Modifica',
+     'dettagli'=>'Dettagli',
 ];

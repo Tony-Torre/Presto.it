@@ -77,7 +77,7 @@
                         <ul class="dropdown-menu">
                             
                             <li><a class="dropdown-item" href="{{ route('user.index') }}">{{__('ui.miei_annunci')}}</a></li>
-                            <li><a class="dropdown-item" href="{{ route('user.show', ['user'=>Auth::user()] )}}">Il mio profilo</a></li>
+                            <li><a class="dropdown-item" href="{{ route('user.show', ['user'=>Auth::user()] )}}">{{__('ui.mio_profile')}}</a></li>
                             <li><a class="dropdown-item"
                                 href="{{ route('logout') }}"onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">{{__('ui.esci')}}</a>
                             </li>

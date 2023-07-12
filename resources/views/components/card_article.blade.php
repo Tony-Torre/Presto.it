@@ -9,7 +9,7 @@
       </div>
       @if (Auth::user()==$article->user)
       <a href="{{route('article.edit',['article'=>$article])}}">
-        <button class="btn btn_red">Modifica</button>
+        <button class="btn btn_red">{{__('ui.modifica')}}</button>
       </a>
       @endif
       <a href="{{route('article.show',['article'=>$article])}}">

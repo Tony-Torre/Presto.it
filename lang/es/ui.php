@@ -36,5 +36,10 @@ return[
     'lista_annunci_revisor'=>'Lista de anuncios',
     'hai'=>'Tienes',
     'da_revisionare'=>'anuncios que deben revisarse',
-    'Lavori_gia'=>'Tú ya trabajas para nosotros'
+    'Lavori_gia'=>'Tú ya trabajas para nosotros',
+    'prezzo'=>'Precio',
+    'prezzo_min'=>'Precio mín',
+    'prezzo_max'=>'Precio máx',
+    'mio_profile'=>'Mi perfil',
+    'modifica'=>'Editar',
 ];

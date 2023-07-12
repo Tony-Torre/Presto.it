@@ -7,7 +7,7 @@
       </div>
       @auth
       <div class="row">
-        <a href="{{ route('category.edit', ['category' => $category['id']]) }}" class="btn btn-warning" >Modifica</a>
+        <a href="{{ route('category.edit', ['category' => $category['id']]) }}" class="btn btn-warning" >{{__('ui.modifica')}}</a>
       </div>
       <div class="row">
         <form action="{{route('category.destroy',['category'=>$category['id']])}}" method="POST">
