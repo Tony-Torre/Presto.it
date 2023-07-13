@@ -43,11 +43,17 @@
             <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
-        @if (!empty($images))
+        @if (!empty($images) || !empty($oldImages))
         <div class="row">
             <div class="col-12">
                 <p>Preview delle foto</p>
                 <div class="row">
+                    @foreach ($oldImages as $key => $oldImage)
+                    <div class="col my-3">
+                        <div class="mx-auto rounded img-preview" style="background-image: url({{$oldImage->getUrl()}})"></div>
+                        <button type="button" class="btn btn_orange" wire:click="removeOldImages({{$key}})">Cancella</button>
+                    </div>
+                    @endforeach
                     @foreach ($images as $key => $image)
                     <div class="col my-3">
                         <div class="mx-auto rounded img-preview" style="background-image: url({{$image->temporaryUrl()}})"></div>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Jobs\ResizeImage;
 use App\Models\Article;
+use Illuminate\Support\Facades\File;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -14,7 +16,9 @@ class ArticleEditForm extends Component
     public $images = [];
     public $temporary_images;
     public Article $article;
-    
+    public $oldImages= [];
+
+
     protected $rules = [
         'title' => 'required|string|max:225|min:5',
         'price' => 'required|decimal:2',
@@ -31,12 +35,13 @@ class ArticleEditForm extends Component
         $this->category_id = $this->article->category_id;
     }
 
-    public function updatedTemporaryImages(){
-        if($this->validate([
-            'temporary_images.*'=> 'image|max:3072',
+    public function updatedTemporaryImages()
+    {
+        if ($this->validate([
+            'temporary_images.*' => 'image|max:3072',
         ])) {
-            foreach ($this->temporary_images as $image){
-            $this->images[] = $image;
+            foreach ($this->temporary_images as $image) {
+                $this->images[] = $image;
             }
         }
     }
@@ -47,14 +52,12 @@ class ArticleEditForm extends Component
         }
     }
 
-    // public function removeImagesStored($key) {
-    //     // if (in_array($key, array_keys($this->imagesStored))) {
-    //     //     unset($this->imagesStored[$key]);
-    //     // }
-    //     if ($this->imagesStored->contains($key)) {
-    //         $this->imagesStored->forget($key);
-    //     }
-    // }
+    public function removeOldImages($key) {
+        if ($this->oldImages[$key]) {
+            $this->oldImages[$key]->delete();
+            $this->oldImages[$key];
+        }
+    }
     
     public function updated($propertyName){
         $this->validateOnly($propertyName);
@@ -62,9 +65,6 @@ class ArticleEditForm extends Component
     
     public function update(){
         $this->validate();
-        foreach($this->article->images()->get() as $image) {
-            $image->delete();
-        }
         $this->article->update([
             'title' => $this->title,
             'price' => $this->price,
@@ -74,8 +74,12 @@ class ArticleEditForm extends Component
         
         if(count($this->images)) {
             foreach($this->images as $image) {
-                $this->article->images()->create(['path'=>$image->store('image', 'public')]);
+                $newFileName = "articles/{$this->article->id}";
+                $newImage = $this->article->images()->create(['path' => $image->store($newFileName, 'public')]);
+
+                dispatch(new ResizeImage($newImage->path, 400, 300));
             }
+            File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
         $this->article->setAccepted(null);
         session()->flash('article', 'Articolo modificato con successo');
@@ -100,7 +104,9 @@ class ArticleEditForm extends Component
     }
     
     public function render()
-    {
+    {   
+        
+        $this->oldImages= $this->article->images;
         return view('livewire.article-edit-form');
     }
 }

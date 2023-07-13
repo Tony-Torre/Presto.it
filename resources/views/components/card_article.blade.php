@@ -22,8 +22,8 @@
           <div>
             @if (Auth::user()==$article->user)
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#{{$article->title ."_" . $article->id}}">
-              <i class="fa-solid fa-trash" style="color: #06145a;"></i>
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#{{$article->title ."_" . $article->id}}">
+              <i class="fa-solid fa-trash" style="color: #222b39;"></i>
             </button>
             @endif
         </div>
