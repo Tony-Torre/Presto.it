@@ -17,10 +17,11 @@ class ContactMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public $informazione;
-    public function __construct($informazione)
+    public $article,$user;
+    public function __construct($article,$user)
     {
-        $this->informazione=$informazione;
+        $this->article=$article;
+        $this->user=$user;
     }
 
     /**
@@ -29,8 +30,8 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from:new Address('contatto@presto.it','Contatto Presto.it'),
-            subject: 'Richiesta di contatto',
+            from:new Address('noreplycontatto@presto.it','Presto.it'),
+            subject: 'Possibile vendita',
         );
     }
 

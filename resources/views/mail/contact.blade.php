@@ -7,12 +7,11 @@
   </head>
   <body>
     <div class="text-center m-3">
-        <h1>Nuova richiesta contatto</h1>
-        <p>L'utente {{$user->name}} {{$user->surname}}  
-        <p>Telefono : +39 {{$user->phone}}</p> 
+        <h1>Ciao {{$article->user->name}}uova richiesta contatto</h1>
+        <p>L'utente {{$user->name}}
         <p>Email : {{$user->email}}</p>
-        <p>Ha richiesto di entrare in contatto con te.</p>
-        <p>Ecco una sua breve descrizione: {{$user->description}}</p> 
+        <p>È interessato all'articolo {{$article->title}}.</p>
+        <p>Ti invitiamo a contattarlo appena possibile.</p>
     </div>
   </body>
 </html>

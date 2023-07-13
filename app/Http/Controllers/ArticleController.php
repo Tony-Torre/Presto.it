@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
+use App\Mail\ContactMail;
 use App\Models\Article;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ArticleController extends Controller
 {
@@ -60,5 +62,12 @@ class ArticleController extends Controller
         }
         
         return redirect()->back()->with('article', 'Annuncio eliminato con successo');
+    }
+
+    public function articleContact(Article $article,User $user)
+    {
+        dd($user);
+        Mail::to($article->user->email)->send(new ContactMail($article,$user));
+        return redirect()->back()->with('message', "L'utente {{$article->user->name}} è stato informato, ti contatterà lui al più presto.");
     }
 }
