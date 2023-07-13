@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,5 +31,7 @@ class AppServiceProvider extends ServiceProvider
         if(Schema::hasTable('categories')){
             view()->share('categories', Category::all());
         }
+
+        Paginator::useBootstrap();
     }
 }

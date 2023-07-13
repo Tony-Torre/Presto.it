@@ -22,7 +22,7 @@
           <div>
             @if (Auth::user()==$article->user)
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#{{$article->title ."_" . $article->id}}">
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#{{"model_" . $article->id}}">
               <i class="fa-solid fa-trash" style="color: #222b39;"></i>
             </button>
             @endif
@@ -35,7 +35,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="{{$article->title ."_" . $article->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="{{"model_" . $article->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

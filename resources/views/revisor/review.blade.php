@@ -11,7 +11,7 @@
     @endif
     @if ($article_to_check && Auth::user()->id != $article_to_check->user->id)
     
-            <x-carousel :article="$article_to_check" />
+            <x-carouselRevisor :article="$article_to_check" />
             
     <div class="container">
         <div class="row">

@@ -19,7 +19,7 @@
               <div class="row g-0">
                 <div class="col-md-4">
                   <a href="{{route('article.show', ['article'=>$article])}}">
-                    <img src="{{$article->images()->get()->isEmpty() ? '\img\no-image.jpg' : Storage::url($article->images->first()->path)}}" class="img-fluid rounded-start" alt="article-photo">
+                    <img src="{{$article->images()->get()->isEmpty() ? '\img\no-image.jpg' : $article->images()->first()->getUrl(400, 300)}}" class="img-fluid rounded-start" alt="article-photo">
                   </a>
                 </div>
                 <div class="col-md-8">

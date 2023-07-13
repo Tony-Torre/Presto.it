@@ -18,7 +18,7 @@ class ArticleController extends Controller
     public function index()
     {   
         $users=User::all();
-        $order_desc= Article::where('is_accepted',1)->orderBy('created_at', 'desc')->cursorPaginate(6);
+        $order_desc= Article::where('is_accepted',1)->orderBy('created_at', 'desc')->paginate(6);
         
         // $order_desc->paginate(6);
         
@@ -67,6 +67,6 @@ class ArticleController extends Controller
     public function articleContact(Article $article,User $user)
     {
         Mail::to($article->user->email)->send(new ContactMail($article,$user));
-        return redirect()->back()->with('message', "L'utente {$article->user->name} è stato informato, ti contatterà lui al più presto.");
+        return redirect()->back()->with('article', "L'utente {$article->user->name} è stato informato, ti contatterà lui al più presto.");
     }
 }

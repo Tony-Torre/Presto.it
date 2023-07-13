@@ -9,5 +9,5 @@
     <h3>{{__('article.emptyArticles')}}</h3>
     @endforelse
     </div>
-    <div class="text-center m-5">{{ $articles->links() }}</div>
+    <div class="text-center m-5 d-flex justify-content-center">{{ $articles->links()}}</div>
 </x-main>

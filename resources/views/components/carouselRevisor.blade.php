@@ -44,40 +44,7 @@
             <span>{{ $article->description }}</span>
             <h2 style="color: rgb(0, 167, 0)">€{{$article->price}}</h2>
             <hr class="w-75">
-            <h6>Creato il {{$article->created_at->format('d/m/Y')}}, dall'utente {{$article->user->name}}</h6>
-            <!-- Button trigger modal -->
-            @if ($article->user!=Auth::user() && $article->is_accepted === 1)
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Contattami
-            </button>
-            @endif
-            
-        </div>
-    </div>
-</div>
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center">
-                Verrà inviata una mail a {{$article->user->name}} con i tuoi dati. <br>Verrai contattato direttamente dall'utente tramite email 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                <form action="{{route('article.contact',[$article,Auth::user()])}}" method="POST">
-                    @method('POST')
-                    @csrf
-                    <button type="submit" class="btn btn-outline-success">Contattami</button>
-                </form> 
-            </div>
+            <h6>Creato il {{$article->created_at->format('d/m/Y')}}, dall'utente {{$article->user->name}}</h6>            
         </div>
     </div>
 </div>

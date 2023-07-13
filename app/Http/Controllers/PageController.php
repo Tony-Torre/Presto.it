@@ -15,7 +15,7 @@ class PageController extends Controller
     
     public function searchArticle (Request $request) {
         
-        $articles = Article::search($request->searched)->where('is_accepted', true)->get();
+        $articles = Article::search($request->searched)->where('is_accepted', true)->paginate(6);
         
         return view('article.index', compact('articles'));
     }
@@ -30,7 +30,7 @@ class PageController extends Controller
         ->where('price', '>=', $priceMin)
         ->where('price', '<=', $priceMax)
         ->where('is_accepted', true)
-        ->get();
+        ->paginate(6);
         
         
         return view('article.index',['articles'=>$articles]);
