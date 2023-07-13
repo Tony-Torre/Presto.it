@@ -44,19 +44,20 @@
                 @enderror
             </div>
             <div class="mb-3">
+                <label for="category_id" class="form-label">Inserisci delle foto dell'articolo</label>
                 <input wire:model="temporary_images" type="file" name="images" multiple class="form-control @error('temporary_images') is-invalid @enderror" id="temporary_images" placeholder="Img">
                 @error('temporary_images')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             @if (!empty($images))
-            <div class="row">
+            <div class="row my-5">
                 <div class="col-12">
-                    <p>Preview delle foto</p>
+                    <p>Anteprima delle foto</p>
                     <div class="row">
                         @foreach ($images as $key => $image)
-                        <div class="col my-3">
-                            <div class="mx-auto rounded img-preview" style="background-image: url({{$image->temporaryUrl()}})"></div>
+                        <div class="col my-2">
+                            <div class="mx-auto my-2 rounded img-preview" style="background-image: url({{$image->temporaryUrl()}})"></div>
                             <button type="button" class="btn btn_orange" wire:click="removeImages({{$key}})">Cancella</button>
                         </div>
                         @endforeach
@@ -64,7 +65,8 @@
                 </div>
             </div>
             @endif
-            <button type="submit" class="btn btn_orange">Crea</button>
+            <button type="submit" class="btn btn_orange" wire:loading.remove>Crea</button>
+            <button class="btn btn_red"wire:loading wire:target="temporary_images" disabled>Uploading...</button>
         </form>
     </div>
 </div>
