@@ -58,7 +58,6 @@ class ArticleEditForm extends Component
             $this->oldImages[$key];
         }
     }
-    
     public function updated($propertyName){
         $this->validateOnly($propertyName);
     }
