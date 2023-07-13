@@ -19,7 +19,7 @@ class ArticleController extends Controller
         $order_desc= Article::where('is_accepted',1)->orderBy('created_at', 'desc')->cursorPaginate(6);
         
         // $order_desc->paginate(6);
-
+        
         return view('article.index',compact('users'),['articles'=>$order_desc]);
     }
     
@@ -45,10 +45,20 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {   
         if(Auth::user()->id!=$article->user_id ?? null){
-           return abort(401);
+            return abort(401);
         }
         return view('article.edit', ['article'=>$article]);
     }
     
-
+    
+    public function destroy(Article $article)
+    {
+        if(Auth::user()->id=== $article->user->id){
+            $article->delete(); 
+        }else{
+            abort(401);
+        }
+        
+        return redirect()->back()->with('article', 'Annuncio eliminato con successo');
+    }
 }
