@@ -83,9 +83,9 @@ class ArticleCreateForm extends Component
     public function messages()
     {
         return [
-            'title.max' => 'Inserisci massimo 255 caratteri',
-            'title.min' => 'Inserisci almeno 5 caratteri',
-            'title.required' => 'Nome articolo obbligatorio',
+            'title.max' => __('ui.title.max'),
+            'title.min' => __('ui.title.min'),
+            'title.required' => __('ui.title.required'),
             'price.decimal' => 'Inserire il prezzo con i centesimi',
             'price.required' => 'Prezzo obbligatorio',
             'description.min' => 'Inserisci almeno 5 caratteri',

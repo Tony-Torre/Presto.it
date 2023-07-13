@@ -1,5 +1,5 @@
 <div>
-    <h1 class="text-center mt-5">Inserisci il tuo articolo!</h1>
+    <h1 class="text-center mt-5">{{__('article.titolo_crea_annunci')}}</h1>
     <div class="p-5 container mt-5 shadow_color w-75 text-center">
         <form wire:submit.prevent="store">
             @csrf
@@ -9,33 +9,33 @@
             </div>
             @endif
             <div class="mb-3">
-                <label for="title" class="form-label">Titolo*</label>
-                <input type="text" id="title" wire:model="title" placeholder="Titolo" value="{{old('title')}}" class="form-control @error('title') is-invalid @enderror">
+                <label for="title" class="form-label">{{__('ui.titolo_annuncio')}}</label>
+                <input type="text" id="title" wire:model="title" placeholder={{__('ui.titolo_annuncio_place_older')}} value="{{old('title')}}" class="form-control @error('title') is-invalid @enderror">
                 @error('title')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="price" class="form-label">Prezzo*</label>
-                <input type="number" min="0"step="0.01" id="price" value="{{old('price')}}" class="form-control @error('price') is-invalid @enderror" wire:model="price" placeholder="Prezzo 0.00">
+                <label for="price" class="form-label">{{__('ui.prezzo_annuncio')}}</label>
+                <input type="number" min="0"step="0.01" id="price" value="{{old('price')}}" class="form-control @error('price') is-invalid @enderror" wire:model="price" placeholder="€ 0.00">
                 @error('price')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="description" class="form-label">Inserisci una breve descrizione*</label>
-                <input type="text" id="description" value="{{old('description')}}" class="form-control @error('description') is-invalid @enderror" wire:model="description" placeholder="Descrizione">
+                <label for="description" class="form-label">{{__('ui.descrizione_annuncio')}}</label>
+                <input type="text" id="description" value="{{old('description')}}" class="form-control @error('description') is-invalid @enderror" wire:model="description" placeholder={{__('ui.descrizione_annuncio_place_older')}}>
                 @error('description')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="category_id" class="form-label">Categoria*</label>
+                <label for="category_id" class="form-label">{{__('ui.categoria_annuncio')}}</label>
                 <select class="form-select mb-3 capitalize @error('category_id') is-invalid @enderror" aria-label="Default select example" id="category_id" wire:model="category_id">
-                    <option selected> Seleziona la categoria </option>
+                    <option selected>{{__('ui.seleziona_categoria_annuncio')}}</option>
                     @foreach ($categories as $category)
                     <option value="{{ $category->id }}" class="capitalize">
-                        {{ $category->name }}
+                        {{__('ui.Category_'.$category->id)}}
                     </option>
                     @endforeach
                 </select>

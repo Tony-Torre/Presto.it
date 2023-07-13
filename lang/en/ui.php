@@ -42,4 +42,15 @@ return[
     'prezzo_max'=>'Max price',
     'mio_profile'=>'My Profile',
     'modifica'=>'Edit',
-];
+    'titolo_annuncio'=>'Title*',
+    'titolo_annuncio_place_older'=>'Title',
+    'prezzo_annuncio'=>'Price*',
+    'prezzo_annuncio_place_older'=>'Price ciao',
+    'descrizione_annuncio'=>'Enter a short description*',
+    'descrizione_annuncio_place_older'=>'Description',
+    'categoria_annuncio'=>'Category',
+    'seleziona_categoria_annuncio'=>'Select the category',
+    'title.min'=>'Enter at least 5 characters',
+    'title.max'=>'Enter up to 255 characters',
+    'title.required'=>'Item name required',
+];  

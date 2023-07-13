@@ -104,3 +104,7 @@ h1{
   width: 100%;
 
 }
+
+.img-profile {
+  max-width: max-content;
+}
