@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="text-center m-3">
-        <h1>Ciao {{$article->user->name}}uova richiesta contatto</h1>
+        <h1>Ciao {{$article->user->name}} nuova richiesta contatto</h1>
         <p>L'utente {{$user->name}}
         <p>Email : {{$user->email}}</p>
         <p>È interessato all'articolo {{$article->title}}.</p>

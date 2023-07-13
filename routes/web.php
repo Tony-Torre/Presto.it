@@ -76,4 +76,4 @@ Route::get('/auth/callback', [SocialiteController::class, 'callback']);
 Route::POST('/lingua/{lang}', [PageController::class, 'setLanguage'])->name('set_language_locale');
 
 //Contattami
-Route::POST('/richiesta/contatto',[ArticleController::class,'articleContact'])->middleware('auth')->name('article.contact');
+Route::POST('/richiesta/contatto/{article}/{user}',[ArticleController::class,'articleContact'])->middleware('auth')->name('article.contact');

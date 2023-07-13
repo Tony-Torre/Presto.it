@@ -66,8 +66,7 @@ class ArticleController extends Controller
 
     public function articleContact(Article $article,User $user)
     {
-        dd($user);
         Mail::to($article->user->email)->send(new ContactMail($article,$user));
-        return redirect()->back()->with('message', "L'utente {{$article->user->name}} è stato informato, ti contatterà lui al più presto.");
+        return redirect()->back()->with('message', "L'utente {$article->user->name} è stato informato, ti contatterà lui al più presto.");
     }
 }

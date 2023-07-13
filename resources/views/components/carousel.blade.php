@@ -1,3 +1,8 @@
+@if (session()->has('message'))
+        <div class="alert alert-success text-center mt-3">
+            {{ session('message') }}
+        </div>
+    @endif
 <div class="container rounded p-0 w-75 mt-5">
     <div class="row">
         <div id="carouselExampleIndicators" class="carousel slide col-12 col-md-6 mt-5 rounded">
@@ -40,7 +45,7 @@
             <h2 style="color: rgb(0, 167, 0)">€{{$article->price}}</h2>
             <hr class="w-75">
             <h6>Creato il {{$article->created_at->format('d/m/Y')}}, dall'utente {{$article->user->name}}</h6>
-            <form action="{{route('article.contact')}}" method="POST">
+            <form action="{{route('article.contact',[$article,Auth::user()])}}" method="POST">
                 @method('POST')
                 @csrf
             <button type="submit" class="btn btn-primary btn-lg p-2">Contattami</button>
