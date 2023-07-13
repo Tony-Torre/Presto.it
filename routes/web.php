@@ -32,6 +32,7 @@ Route::get('/article/index', [ArticleController::class, 'index'])->name('article
 Route::get('/article/create', [ArticleController::class, 'create'])->middleware('auth')->name('article.create');
 Route::get('/article/{article}/show', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->middleware('auth')->name('article.edit');
+Route::DELETE('/article/{article}/delete', [ArticleController::class, 'destroy'])->middleware('auth')->name('article.destroy');
 
 // Search
 Route::post('/article/search', [PageController::class, 'search'])->name('article.search');
@@ -73,3 +74,6 @@ Route::get('/auth/callback', [SocialiteController::class, 'callback']);
 
 // Languages
 Route::POST('/lingua/{lang}', [PageController::class, 'setLanguage'])->name('set_language_locale');
+
+//Contattami
+Route::POST('/richiesta/contatto/{article}/{user}',[ArticleController::class,'articleContact'])->middleware('auth')->name('article.contact');

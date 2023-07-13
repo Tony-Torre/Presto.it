@@ -53,4 +53,8 @@ return[
     'title.min'=>'Enter at least 5 characters',
     'title.max'=>'Enter up to 255 characters',
     'title.required'=>'Item name required',
-];  
+  
+    'dettagli'=>'Details',
+    'visualizza'=>'View',
+    'elimina'=>'Delete',
+];

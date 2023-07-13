@@ -54,4 +54,6 @@ return[
      'title.min'=>'Inserisci almeno 5 caratteri',
      'title.max'=>'Inserisci massimo 255 caratteri',
      'title.required'=>'Nome articolo obbligatorio',
+     'visualizza'=>'Visualizza',
+     'elimina'=>'Elimina',
 ];

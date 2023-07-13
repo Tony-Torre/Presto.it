@@ -53,4 +53,7 @@ return[
     'title.min'=>'Introduzca al menos 5 caracteres',
     'title.max'=>'Introduzca hasta 255 caracteres',
     'title.required'=>'Nombre del artículo requerido',
+    'dettagli'=>'Detalles',
+    'visualizza'=>'Ver',
+    'elimina'=>'Borrar',
 ];

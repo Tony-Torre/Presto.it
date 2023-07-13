@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md nav_color shadow_color" style="width:100%">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{route('home')}}"><img src="/Presto.it.jpg" alt=""height="40rem"></a> 
+        <a class="navbar-brand" href="{{route('home')}}"><img src="/Presto.it_2.jpg" alt=""height="40rem"></a> 
         <a class="navbar-brand text-white bold" href="{{route('home')}}">Presto.it</a>
         <button class="navbar-toggler collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
             <div class="navbar-toggler-icon bg-light">

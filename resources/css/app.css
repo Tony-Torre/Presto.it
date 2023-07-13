@@ -40,71 +40,68 @@ h1{
 
 .cash_cursor{
   cursor: url("http://127.0.0.1:8000/img/coin.png"),pointer;}
-
-.btn_red{
-  background-color: var(--third-color) !important;
-  color: white !important;
-  border: 1px solid var(--third-color) !important;
-}
-.btn_red:hover{
-  background-color: white !important;
-  color: var(--third-color) !important;
-}
-
-.sticky_nav{
-  background-color: var(--main-color);
-  color: var(--second-color);
-}
-
-.background_blue{
-  background-color: var(--main-color);
-  color: var(--second-color);
-}
-
-.font_size_big{
-  font-size: large;
-}
-
-.shadow_color{
-  box-shadow: 5px 5px 15px 5px var(--shadow-color);
-}
-
-
-.footer {
-  height: 50px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem;
-  background-color: var(--main-color);
-  color: white;
-  font-weight: 500;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 0px;
-  align-items: center;
-  gap: 0.2rem;
-}
-
-.img-header {
-  height: 100%;
-}
-
-.horizontal-list {
-  list-style-type: none; 
-  padding: 0; 
-}
-
-.horizontal-list li {
-  display: inline-block; 
-  margin-right: 10px; 
-}
-.img-preview {
-  height: 100%;
-  width: 100%;
-
-}
-
-.img-profile {
-  max-width: max-content;
-}
+  
+  .btn_red{
+    background-color: var(--third-color) !important;
+    color: white !important;
+    border: 1px solid var(--third-color) !important;
+  }
+  .btn_red:hover{
+    background-color: white !important;
+    color: var(--third-color) !important;
+  }
+  
+  .sticky_nav{
+    background-color: var(--main-color);
+    color: var(--second-color);
+  }
+  
+  .background_blue{
+    background-color: var(--main-color);
+    color: var(--second-color);
+  }
+  
+  .font_size_big{
+    font-size: large;
+  }
+  
+  .shadow_color{
+    box-shadow: 5px 5px 15px 5px var(--shadow-color);
+  }
+  
+  
+  .footer {
+    height: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background-color: var(--main-color);
+    color: white;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+    align-items: center;
+    gap: 0.2rem;
+  }
+  
+  .img-header {
+    height: 100%;
+  }
+  
+  .horizontal-list {
+    list-style-type: none; 
+    padding: 0; 
+  }
+  
+  .horizontal-list li {
+    display: inline-block; 
+    margin-right: 10px; 
+  }
+  .img-preview {
+    height: 200px;
+    width: 300px;
+    background-position: center;
+    background-size: cover;
+  }
