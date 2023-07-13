@@ -33,6 +33,8 @@ class ArticleEditForm extends Component
         $this->price = $this->article->price;
         $this->description = $this->article->description;
         $this->category_id = $this->article->category_id;
+        $this->oldImages= $this->article->images;
+
     }
 
     public function updatedTemporaryImages()
@@ -53,11 +55,12 @@ class ArticleEditForm extends Component
     }
 
     public function removeOldImages($key) {
-        if ($this->oldImages[$key]) {
-            $this->oldImages[$key]->delete();
-            $this->oldImages[$key];
+        if ($this->oldImages->hasAny($key)) {
+            $this->oldImages->get($key)->delete();
+            $this->oldImages->forget($key);
         }
     }
+    
     public function updated($propertyName){
         $this->validateOnly($propertyName);
     }
@@ -81,7 +84,10 @@ class ArticleEditForm extends Component
             File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
         $this->article->setAccepted(null);
-        session()->flash('article', 'Articolo modificato con successo');
+        $this->images=[];
+        // session()->flash('article', 'Articolo modificato con successo');
+        return redirect(route('article.edit',['article'=>$this->article]))->with('article', 'Articolo modificato con successo');
+        
         
     }
     
@@ -104,8 +110,7 @@ class ArticleEditForm extends Component
     
     public function render()
     {   
-        
-        $this->oldImages= $this->article->images;
+
         return view('livewire.article-edit-form');
     }
 }
