@@ -13,12 +13,7 @@
                     <p><strong>Cognome:</strong> {{ $user->surname }}</p>
                     <p><strong>Età:</strong> {{ $user->eta }}</p>
 
-                    <form action="/profile" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <label for="foto">Foto profilo:</label>
-                        <input type="file" name="foto" id="foto">
-                        <button type="submit">Aggiorna</button>
-                    </form>
+                    <a href="{{route('user.edit', ['user'=>$user])}}"><button class="btn btn_orange" >Modifica</button></a>
                     <h3 class="mt-2" style="color: #06145a">{{ $user->name }}</h3>
                     <span class="">Membro dal {{ $user->created_at->format('m/Y') }}</span>
                     <hr class="">

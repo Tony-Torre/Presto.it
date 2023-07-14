@@ -42,7 +42,9 @@ Route::get('/ricerca/annuncio' , [PageController::class, 'searchArticle'])->name
 //User
 Route::get('/article/my', [UserController::class, 'my_index'])->name('user.index');
 Route::get('/user/{user}', [UserController::class, 'show'])->middleware('auth')->name('user.show');
+Route::get('/user/edit/{user}', [UserController::class, 'edit'])->middleware('auth')->name('user.edit');
 Route::post('/profile', [UserController::class, 'update'])->middleware('auth')->name('profile.update');
+
 
 // Category
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
