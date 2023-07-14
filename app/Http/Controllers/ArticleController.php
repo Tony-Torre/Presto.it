@@ -71,7 +71,12 @@ class ArticleController extends Controller
     }
 
     public function sellArticle(Article $article) {
-        $article->setAccepted(2);
+        if(Auth::user()->id=== $article->user->id){
+            $article->setAccepted(2); 
+        }else{
+            abort(401);
+        }
+        
         return redirect()->back()->with('message', 'Complimenti, hai venduto l\'annuncio');
     }
 }

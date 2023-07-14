@@ -21,7 +21,9 @@ class UserController extends Controller
     public function show(User $user) {
         $articles = Article::where('is_accepted', true)->where('user_id', $user->id)->get();
         $articleCount = Article::where('is_accepted', true)->where('user_id', $user->id)->count();
-        return view('user.show', compact('user','articles','articleCount'));
+        $articleSell = Article::where('is_accepted', 2)->where('user_id', $user->id)->count();
+        $totalArticles = $articleCount + $articleSell;
+        return view('user.show', compact('user','articles','articleCount','totalArticles'));
     }
 
     public function update(Request $request)
