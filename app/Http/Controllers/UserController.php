@@ -23,4 +23,24 @@ class UserController extends Controller
         $articleCount = Article::where('is_accepted', true)->where('user_id', $user->id)->count();
         return view('user.show', compact('user','articles','articleCount'));
     }
+
+    public function update(Request $request)
+{
+    $user = auth()->user()->profile;
+    $user->name = $request->input('name');
+    $user->surname = $request->input('cognome');
+    $user->eta = $request->input('eta');
+
+    if ($user->hasFile('foto')) {
+        $image = $request->file('foto');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $imageName);
+        $user->foto = $imageName;
+    }
+
+    $user->save();
+
+    return redirect('/profile')->with('success', 'Profilo aggiornato con successo.');
+}
+
 }
