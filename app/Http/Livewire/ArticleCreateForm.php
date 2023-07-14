@@ -22,7 +22,7 @@ class ArticleCreateForm extends Component
 
     protected $rules = [
         'title' => 'required|string|max:225|min:5',
-        'price' => 'required|decimal:2',
+        'price' => 'required',
         'description' => 'required|string|max:225|min:5',
         'category_id' => 'integer',
         'user_id' => '',

@@ -44,7 +44,7 @@
             <span>{{ $article->description }}</span>
             <h2 style="color: rgb(0, 167, 0)">€{{$article->price}}</h2>
             <hr class="w-75">
-            <h6>Creato il {{$article->created_at->format('d/m/Y')}}, dall'utente {{$article->user->name}}</h6>
+            <h6>Creato il {{$article->created_at->format('d/m/Y')}}, dall'utente <a href="{{route('user.show',['user'=>$article->user])}}">{{$article->user->name}}</a></h6>
             <!-- Button trigger modal -->
             @if ($article->user!=Auth::user() && $article->is_accepted === 1)
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->decimal('price',8,2); //decimal = munero decimale, 8= numeri, 2 di questi decimali 
+            $table->decimal('price',30,2); //decimal = munero decimale, 8= numeri, 2 di questi decimali 
             $table->string('description');
             $table->timestamps();
         });
