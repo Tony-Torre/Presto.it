@@ -13,14 +13,14 @@
             <a href="{{route('article.show',['article'=>$article])}}">
               <button class="btn btn_orange">Dettagli</button>
             </a>
-            @if (Auth::user()==$article->user)
+            @if (Auth::user()==$article->user && $article->is_accepted!== 2)
             <a href="{{route('article.edit',['article'=>$article])}}">
               <button class="btn btn_red">{{__('ui.modifica')}}</button>
             </a>
             @endif
           </div>
           <div>
-            @if (Auth::user()==$article->user)
+            @if (Auth::user()==$article->user && $article->is_accepted!== 2)
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#{{"model_" . $article->id}}">
               <i class="fa-solid fa-trash" style="color: #222b39;"></i>
