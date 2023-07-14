@@ -18,7 +18,7 @@
                     <span class="">Membro dal {{ $user->created_at->format('m/Y') }}</span>
                     <hr class="">
                     <div class="mt-2">Al momento ha <b>{{ $articleCount }}</b> annunci online</div>
-                    <div class="mt-3 mb-3">Ha pubblicato <b>{{ $user->articles->count() }}</b> annunci in totale</div>
+                    <div class="mt-3 mb-3">Ha pubblicato <b>{{ $totalArticles }}</b> annunci in totale</div>
                 </div>
             </section>
             <div class="col-md-1 col-12"></div>
