@@ -69,7 +69,7 @@
                 </li>
             </ul>
             <div class="d-flex ms-auto">
-                <div class="input-group">
+                <div class="input-group me-3">
                     @auth
                     <li class="nav-item dropdown" style="list-style-type: none">
                         <a class="nav-link dropdown-toggle text-white bold" href="#" role="button"

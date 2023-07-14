@@ -38,6 +38,7 @@
                 </select>
             </div>
             <div class="mb-3">
+                <label for="category_id" class="form-label">Inserisci delle foto dell'articolo</label>
                 <input wire:model="temporary_images" type="file" name="images" multiple class="form-control @error('temporary_images') is-invalid @enderror" id="temporary_images" placeholder="Img">
                 @error('temporary_images')
                 <span class="text-danger">{{$message}}</span>
