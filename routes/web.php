@@ -33,6 +33,7 @@ Route::get('/article/create', [ArticleController::class, 'create'])->middleware(
 Route::get('/article/{article}/show', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->middleware('auth')->name('article.edit');
 Route::DELETE('/article/{article}/delete', [ArticleController::class, 'destroy'])->middleware('auth')->name('article.destroy');
+Route::patch('/sell/article/{article}', [ArticleController::class, 'sellArticle'])->middleware('auth')->name('article.sell');
 
 // Search
 Route::post('/article/search', [PageController::class, 'search'])->name('article.search');

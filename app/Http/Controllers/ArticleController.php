@@ -69,4 +69,9 @@ class ArticleController extends Controller
         Mail::to($article->user->email)->send(new ContactMail($article,$user));
         return redirect()->back()->with('article', "L'utente {$article->user->name} è stato informato, ti contatterà lui al più presto.");
     }
+
+    public function sellArticle(Article $article) {
+        $article->setAccepted(2);
+        return redirect()->back()->with('message', 'Complimenti, hai venduto l\'annuncio');
+    }
 }

@@ -21,7 +21,7 @@ class ArticleEditForm extends Component
 
     protected $rules = [
         'title' => 'required|string|max:225|min:5',
-        'price' => 'required|decimal:2',
+        'price' => 'required',
         'description' => 'required|string|max:225|min:5',
         'category_id' => 'integer',
         'temporary_images.*' => 'image|max:3072',
