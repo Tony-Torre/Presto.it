@@ -4,11 +4,6 @@
         @foreach($articles as $article)
         @if ($article->is_accepted===1)
         <x-card_article :$article/>
-        <form action="{{ route('article.sell', ['article' => $article]) }}" method="POST">
-            @csrf
-            @method('PATCH')
-            <button type="submit" class="btn btn-danger shadow"> <i class="fa-solid fa-xmark" style="color: #ffffff;"></i> Venduto</button>
-        </form>
         @endif 
         @endforeach
     </div>

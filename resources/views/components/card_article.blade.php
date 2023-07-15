@@ -9,23 +9,30 @@
         <span style="color: rgb(0, 167, 0)" class="rounded p-1 ">€{{$article->price}}</span>
       </div>
       <div class="d-flex justify-content-between">
-          <div>
-            <a href="{{route('article.show',['article'=>$article])}}">
-              <button class="btn btn_orange">Dettagli</button>
-            </a>
-            @if (Auth::user()==$article->user && $article->is_accepted!== 2)
-            <a href="{{route('article.edit',['article'=>$article])}}">
-              <button class="btn btn_red">{{__('ui.modifica')}}</button>
-            </a>
-            @endif
-          </div>
-          <div>
-            @if (Auth::user()==$article->user && $article->is_accepted!== 2)
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#{{"model_" . $article->id}}">
-              <i class="fa-solid fa-trash" style="color: #222b39;"></i>
-            </button>
-            @endif
+        <div>
+          <a href="{{route('article.show',['article'=>$article])}}">
+            <button class="btn btn_orange">Dettagli</button>
+          </a>
+          @if (Auth::user()==$article->user && $article->is_accepted!== 2)
+          <a href="{{route('article.edit',['article'=>$article])}}">
+            <button class="btn btn_red">{{__('ui.modifica')}}</button>
+          </a>
+          @endif
+        </div>
+        <div class="d-flex">
+          @if ($article->is_accepted === 1)
+          <form action="{{ route('article.sell', ['article' => $article]) }}" method="POST" class="me-1">
+            @csrf
+            @method('PATCH')
+            <button type="submit" class="btn btn_green"><i class="fa-solid fa-sack-dollar"></i></button>
+          </form>
+          @endif
+          @if (Auth::user()==$article->user && $article->is_accepted!== 2)
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#{{"model_" . $article->id}}">
+            <i class="fa-solid fa-trash" style="color: #222b39;"></i>
+          </button>
+          @endif
         </div>
       </div>
     </div>

@@ -66,7 +66,7 @@ Route::patch('/sospendi/article/{article}', [RevisorController::class, 'nullArti
 
 
 // Richiesta revisor
-Route::get('/revisor/form', [RevisorController::class, 'form'])->middleware('auth')->name('revisor.form');
+Route::get('/revisor/form', [RevisorController::class, 'formRevisor'])->middleware('auth')->name('revisor.form');
 Route::POST('/richiesta/revisore',[RevisorController::class,'becomeRevisor'])->middleware('auth')->name('revisor.become');
 Route::get('/rendi/revisore/{user}',[RevisorController::class, 'makeRevisor'])->name('revisor.make');
 

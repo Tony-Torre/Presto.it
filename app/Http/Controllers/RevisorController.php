@@ -47,7 +47,7 @@ class RevisorController extends Controller
         return redirect()->back()->with('message', 'Hai sospeso l\'annuncio');
     }
 
-    public function form(){
+    public function formRevisor(){
         return view('revisor.form');
     }
 
