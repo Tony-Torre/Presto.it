@@ -30,23 +30,27 @@ class UserController extends Controller
         return view('user.edit',['user'=>$user]);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, User $user)
 {
-    $user = auth()->user()->profile;
-    $user->name = $request->input('name');
-    $user->surname = $request->input('cognome');
-    $user->eta = $request->input('eta');
+    $user->update([
+   // $user = auth()->user()->profile;
+    'name' => $request->input('name'),
+    'surname' => $request->input('surname'),
+    'eta' => $request->input('eta')
+    ]);
 
-    if ($user->hasFile('foto')) {
-        $image = $request->file('foto');
-        $imageName = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('images'), $imageName);
-        $user->foto = $imageName;
-    }
+    
 
-    $user->save();
+    // if ($user->hasFile('foto')) {
+    //     $image = $request->file('foto');
+    //     $imageName = time() . '.' . $image->getClientOriginalExtension();
+    //     $image->move(public_path('images'), $imageName);
+    //     $user->foto = $imageName;
+    // }
 
-    return redirect('/profile')->with('success', 'Profilo aggiornato con successo.');
+    
+
+    return redirect()->route('profile.update')->with('success', 'Profilo aggiornato con successo.');
 }
 
 }
