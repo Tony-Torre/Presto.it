@@ -18,7 +18,10 @@ class ArticleController extends Controller
     public function index()
     {   
         $users=User::all();
-        $order_desc= Article::where('is_accepted',1)->orderBy('created_at', 'desc')->paginate(6);
+        $order_desc= Article::where('is_accepted',1)
+        ->where('user_id', '!=', Auth::user()->id)
+        ->orderBy('created_at', 'desc')
+        ->paginate(6);
         
         // $order_desc->paginate(6);
         

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use function PHPSTORM_META\type;
 
@@ -31,12 +32,14 @@ class PageController extends Controller
             ->where('price', '>=', $priceMin)
             ->where('price', '<=', $priceMax)
             ->where('is_accepted', true)
+            ->where('user_id', '!=', Auth::user()->id)
             ->paginate(6);
         }  else {
             $articles = Article::where('title','like','%' . $request->search_article .'%')
             ->where('price', '>=', $priceMin)
             ->where('price', '<=', $priceMax)
             ->where('is_accepted', true)
+            ->where('user_id', '!=', Auth::user()->id)
             ->paginate(6);
         }
         

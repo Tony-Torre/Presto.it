@@ -27,7 +27,12 @@ class UserController extends Controller
     }
 
     public function edit(User $user) {
-        return view('user.edit',['user'=>$user]);
+        if(Auth::user()->id=== $user->id) {
+           return view('user.edit',['user'=>$user]); 
+        } else {
+            abort(401);
+        }
+        
     }
 
     public function update(Request $request)
