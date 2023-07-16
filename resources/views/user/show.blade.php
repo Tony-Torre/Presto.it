@@ -3,8 +3,13 @@
         <div class="row">
             <section class="col-12 col-md-4">
                 <div class="shadow_color m-md-5 mb-3 p-3 w-100">
+                @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
                     @if ($user->foto)
-                    <img src="{{ asset('img/' . $user->foto) }}" alt="Foto profilo">
+                    <img class="card-img-top " src="{{ asset('images/' . $user->foto) }}" alt="Foto profilo">
                     @else
                     <img class="img-fluid" src="{{ asset('img/place_holder_.png') }}" alt="Foto profilo">
                     @endif

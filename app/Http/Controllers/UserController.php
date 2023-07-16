@@ -35,27 +35,25 @@ class UserController extends Controller
         
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request, $user)
 {
-    $user->update([
-   // $user = auth()->user()->profile;
-    'name' => $request->input('name'),
-    'surname' => $request->input('surname'),
-    'eta' => $request->input('eta')
-    ]);
+    $user = User::findOrFail($user); // Recupera l'utente dal database in base all'ID
 
-    
+    $user->name = $request->input('name');
+    //$user->surname = $request->input('surname');
+   // $user->eta = $request->input('eta');
 
-    // if ($user->hasFile('foto')) {
-    //     $image = $request->file('foto');
-    //     $imageName = time() . '.' . $image->getClientOriginalExtension();
-    //     $image->move(public_path('images'), $imageName);
-    //     $user->foto = $imageName;
-    // }
+    // Se desideri anche aggiornare la foto dell'utente
+    if ($request->hasFile('photo')) {
+        $image = $request->file('photo');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $imageName);
+        $user->foto = $imageName;
+    }
 
-    
+    $user->save(); // Salva le modifiche nel database
 
-    return redirect()->route('profile.update')->with('success', 'Profilo aggiornato con successo.');
+    return redirect()->route('user.show', ['user' => $user->id])->with('success', 'Profilo aggiornato con successo.');
+
 }
-
 }
