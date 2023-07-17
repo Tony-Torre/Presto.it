@@ -21,5 +21,6 @@ yarn-error.log
 /storage/articles.index-wal
 /storage/articles.index
 /storage/*.index
+google_credential.json
 
 

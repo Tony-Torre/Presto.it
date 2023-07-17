@@ -18,7 +18,7 @@
                 @foreach ($article->images as $image)
                 <div class="carousel-item @if ($loop->first) active @endif">
                     <img src="{{$image->getUrl(400, 300)}}" class="d-block w-100 rounded" alt="Immagine3">
-                </div>  
+                </div>
                 @endforeach
                 @else
                 
@@ -46,5 +46,29 @@
             <hr class="w-75">
             <h6>Creato il {{$article->created_at->format('d/m/Y')}}, dall'utente <a href="{{route('user.show',['user'=>$article->user])}}">{{$article->user->name}}</a></h6>            
         </div>
+        @if (!$article->images->isEmpty())
+        @foreach ($article->images as $image)
+        <div>
+            <h5>Tags</h5>
+            <div>
+                @if ($image->labels)
+                    @foreach ($image->labels as $label)
+                        <p>{{$label}}</p>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+        <div>
+            <div class="card-body">
+                <h5 class="tc-accent">Revisione immagini</h5>
+                <p>Adulti: <span class="{{$image->adult}}"></span></p>
+                <p>Satira: <span class="{{$image->spoof}}"></span></p>
+                <p>Medicina: <span class="{{$image->medical}}"></span></p>
+                <p>Violenza: <span class="{{$image->violence}}"></span></p>
+                <p>Contenuto osè: <span class="{{$image->racy}}"></span></p>
+            </div>
+        </div>
+        @endforeach
+        @endif
     </div>
 </div>
