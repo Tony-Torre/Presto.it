@@ -20,7 +20,7 @@
           @endif
         </div>
         <div class="d-flex">
-          @if ($article->is_accepted === 1)
+          @if (Auth::user()==$article->user && $article->is_accepted === 1)
           <form action="{{ route('article.sell', ['article' => $article]) }}" method="POST" class="me-1">
             @csrf
             @method('PATCH')

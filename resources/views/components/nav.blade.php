@@ -73,7 +73,7 @@
                     @auth
                     <li class="nav-item dropdown" style="list-style-type: none">
                         <a class="nav-link dropdown-toggle text-white bold" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">{{__('ui.benvenuto_2')}} {{ Auth::user()->name }}</a>
+                        data-bs-toggle="dropdown" aria-expanded="false">{{__('ui.benvenuto_2')}} {{ Auth::user()->name.' '. Auth::user()->surname }}</a>
                         <ul class="dropdown-menu">
                             
                             <li><a class="dropdown-item" href="{{ route('user.index') }}">{{__('ui.miei_annunci')}}</a></li>

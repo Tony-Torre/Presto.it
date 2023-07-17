@@ -13,7 +13,7 @@
                 </span>
                 @enderror
             </div>
-            {{-- <div class="mb-3">
+            <div class="mb-3">
                 <label for="surname" class="form-label">Cognome utente</label>
                 <input type="text" name="surname" class="form-control" id="surname" value="{{ old('surname') }}"placeholder="Inserisci cognome utente">
                 @error('name')
@@ -21,7 +21,7 @@
                     Cognome obbligatorio!
                 </span>
                 @enderror
-            </div> --}}
+            </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email utente</label>
                 <input type="email" name="email" class="form-control" id="email" required value="{{ old('email') }}"
@@ -29,6 +29,15 @@
                 @error('email')
                 <span class="text-danger">
                     Email obbligatoria!
+                </span>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="birthday" class="form-label">Inserisci la tua data di nascita</label>
+                <input type="date" name="birthday" class="form-control" id="birthday" value="{{ old('birthday') }}" placeholder="Inserisci la data di nascita">
+                @error('birthday')
+                <span class="text-danger">
+                    {{$message}}
                 </span>
                 @enderror
             </div>

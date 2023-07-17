@@ -10,7 +10,7 @@
     </h5>
     @endif
     @if ($article_to_check)
-    <x-carousel :article="$article_to_check" />
+    <x-carouselRevisor :article="$article_to_check" />
     <div class="container">
         <div class="row">
             <div class="col-md-6 mt-5 d-flex align-item-center justify-content-center">
