@@ -20,11 +20,16 @@ class UserController extends Controller
     }
 
     public function show(User $user) {
+        
         $articles = Article::where('is_accepted', true)->where('user_id', $user->id)->get();
         $articleCount = Article::where('is_accepted', true)->where('user_id', $user->id)->count();
         $articleSell = Article::where('is_accepted', 2)->where('user_id', $user->id)->count();
         $totalArticles = $articleCount + $articleSell;
-        return view('user.show', compact('user','articles','articleCount','totalArticles'));
+        $birthday = Carbon::parse($user->eta);
+        $age = $birthday->diffInYears(Carbon::now());
+
+        
+        return view('user.show', compact('user','articles','articleCount','totalArticles', 'age'));
     }
 
     public function edit(User $user) {
@@ -43,9 +48,9 @@ class UserController extends Controller
     $user->name = $request->input('name');
     $user->surname = $request->input('surname');
    // $user->eta = $request->input('eta');
-   $birthday = Carbon::parse($request->input('birthday'));
-    $user->eta = $birthday->diffInYears(Carbon::now());
-
+//    $birthday = Carbon::parse($request->input('birthday'));
+//     $user->eta = $birthday->diffInYears(Carbon::now());
+        $user->eta = $request->input('birthday');
     // Se desideri anche aggiornare la foto dell'utente
     if ($request->hasFile('photo')) {
         $image = $request->file('photo');

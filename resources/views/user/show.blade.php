@@ -16,7 +16,7 @@
                     
                     <p><strong>Nome:</strong> {{ $user->name }}</p>
                     <p><strong>Cognome:</strong> {{ $user->surname }}</p>
-                    <p><strong>Età:</strong> {{ $user->eta }}</p>
+                    <p><strong>Età:</strong> {{ $age }}</p>
                     @if ($user->id === Auth::user()->id)
                     <a href="{{route('user.edit', ['user'=>$user])}}"><button class="btn btn_orange" >Modifica</button></a>
                     @endif

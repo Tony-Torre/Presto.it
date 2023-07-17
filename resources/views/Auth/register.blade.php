@@ -33,9 +33,9 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="eta" class="form-label">Inserisci la tua data di nascita</label>
-                <input type="date" name="eta" class="form-control" id="eta" value="{{ old('eta') }}" placeholder="Inserisci la data di nascita">
-                @error('eta')
+                <label for="birthday" class="form-label">Inserisci la tua data di nascita</label>
+                <input type="date" name="birthday" class="form-control" id="birthday" value="{{ old('birthday') }}" placeholder="Inserisci la data di nascita">
+                @error('birthday')
                 <span class="text-danger">
                     {{$message}}
                 </span>

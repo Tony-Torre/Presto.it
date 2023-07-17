@@ -33,7 +33,8 @@
         </div>
         <div class="mb-3">
             <label for="birthday" class="form-label">Inserisci la tua data di nascita</label>
-            <input type="date" name="birthday" class="form-control" id="birthday" value="{{ old('birthday') }}"placeholder="Inserisci la tua data di nascita">
+            
+            <input type="date" name="birthday" class="form-control" id="birthday" value="{{$user->eta}}"placeholder="Inserisci la tua data di nascita">
             @error('birthday')
             <span class="text-danger">
                 {{$message}}
