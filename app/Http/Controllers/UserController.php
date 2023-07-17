@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,8 +41,10 @@ class UserController extends Controller
     $user = User::findOrFail($user); // Recupera l'utente dal database in base all'ID
 
     $user->name = $request->input('name');
-    //$user->surname = $request->input('surname');
+    $user->surname = $request->input('surname');
    // $user->eta = $request->input('eta');
+   $birthday = Carbon::parse($request->input('birthday'));
+    $user->eta = $birthday->diffInYears(Carbon::now());
 
     // Se desideri anche aggiornare la foto dell'utente
     if ($request->hasFile('photo')) {

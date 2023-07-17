@@ -13,6 +13,15 @@
                 </span>
                 @enderror
             </div>
+            {{-- <div class="mb-3">
+                <label for="surname" class="form-label">Cognome utente</label>
+                <input type="text" name="surname" class="form-control" id="surname" value="{{ old('surname') }}"placeholder="Inserisci cognome utente">
+                @error('name')
+                <span class="text-danger">
+                    Cognome obbligatorio!
+                </span>
+                @enderror
+            </div> --}}
             <div class="mb-3">
                 <label for="email" class="form-label">Email utente</label>
                 <input type="email" name="email" class="form-control" id="email" required value="{{ old('email') }}"

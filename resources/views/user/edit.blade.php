@@ -15,7 +15,7 @@
         </div>
         <div class="mb-3">
             <label for="surname" class="form-label">Modifica il tuo cognome</label>
-            <input type="form-control" name="surname" class="form-control" id="surname" value="{{ old('surname') }}"placeholder="Modifica il tuo cognome">
+            <input type="form-control" name="surname" class="form-control" required id="surname" value="{{$user->surname}}"placeholder="Modifica il tuo cognome">
             @error('surname')
             <span class="text-danger">
                 {{$message}}
@@ -33,7 +33,7 @@
         </div>
         <div class="mb-3">
             <label for="birthday" class="form-label">Inserisci la tua data di nascita</label>
-            <input type="date" name="birthday" class="form-control" id="birthday" value="{{ old('birthday') }}"placeholder="Inserisci la tua data di nascita">
+            <input type="date" name="birthday" class="form-control" id="birthday" required value="{{$user->eta}}"placeholder="Inserisci la tua data di nascita">
             @error('birthday')
             <span class="text-danger">
                 {{$message}}
