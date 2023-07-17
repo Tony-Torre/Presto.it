@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('surname');
-            $table->string('eta');
-            $table->string('birthday');
+            $table->string('eta')->nullable()->default(null);
+            $table->date('birthday')->nullable()->default(null);
         });
     }
 
@@ -24,9 +24,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('surname');
-            $table->string('eta');
-            $table->string('birthday');
+            $table->dropColumn('surname');
+            $table->dropColumn('eta');
+            $table->dropColumn('birthday');
         });
     }
 };
