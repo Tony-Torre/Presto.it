@@ -22,6 +22,7 @@ class SocialiteController extends Controller
         'email' => $githubUser->email,
         ], [
         'name' => empty($githubUser->name) ? 'user' : $githubUser->name,
+        'surname' => empty($githubUser->surname) ? '' : $githubUser->surname,
         'email' => $githubUser->email,
         'password' => Hash::make($githubUser->token),
         ]);
@@ -44,6 +45,7 @@ class SocialiteController extends Controller
         'email' => $googlehubUser->email,
         ], [
         'name' => $googlehubUser->name,
+        'surname' => empty($googlehubUser->surname) ? '' : $googlehubUser->surname,
         'email' => $googlehubUser->email,
         'password' => Hash::make($googlehubUser->token),
         ]);
