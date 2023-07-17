@@ -9,6 +9,26 @@
         {{ session('message') }}
     </h5>
     @endif
+    <div>
+        <h5>Tags</h5>
+        <div>
+            @if ($image->labels)
+                @foreach ($image->labels as $label)
+                    <p>{{$label}},</p>
+                @endforeach
+            @endif
+        </div>
+    </div>
+    <div>
+        <div class="card-body">
+            <h5 class="tc-accent">Revisione immagini</h5>
+            <p>Adulti: <span class="{{$image->adult}}"></span></p>
+            <p>Satira: <span class="{{$image->spoof}}"></span></p>
+            <p>Medicina: <span class="{{$image->medicine}}"></span></p>
+            <p>Violenza: <span class="{{$image->violence}}"></span></p>
+            <p>Contenuto osè: <span class="{{$image->racy}}"></span></p>
+        </div>
+    </div>
     @if ($article_to_check)
     <x-carousel :article="$article_to_check" />
     <div class="container">
