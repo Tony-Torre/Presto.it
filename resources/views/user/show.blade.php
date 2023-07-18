@@ -3,26 +3,25 @@
         <div class="row">
             <section class="col-12 col-md-4">
                 <div class="shadow_color m-md-5 mb-3 p-3 w-100">
-                @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
                     @if ($user->foto)
                     <img class="card-img-top " src="{{ asset('images/' . $user->foto) }}" alt="Foto profilo">
                     @else
                     <img class="img-fluid" src="{{ asset('img/place_holder_.png') }}" alt="Foto profilo">
                     @endif
                     
-                    <p><strong>Nome:</strong> {{ $user->name }}</p>
-                    <p><strong>Cognome:</strong> {{ $user->surname }}</p>
+                    <h3 class="mt-2" style="color: #06145a">{{ $user->name }} {{$user->surname}}</h3>
                     <p><strong>Età:</strong> {{ $age }}</p>
                     @if ($user->id === Auth::user()->id)
                     <a href="{{route('user.edit', ['user'=>$user])}}"><button class="btn btn_orange" >Modifica</button></a>
                     @endif
                     
-                    <h3 class="mt-2" style="color: #06145a">{{ $user->name }}</h3>
-                    <span class="">Membro dal {{ $user->created_at->format('m/Y') }}</span>
+                    
+                    <div class="">Membro dal {{ $user->created_at->format('m/Y') }}</div>
                     <hr class="">
                     <div class="mt-2">Al momento ha <b>{{ $articleCount }}</b> annunci online</div>
                     <div class="mt-3 mb-3">Ha pubblicato <b>{{ $totalArticles }}</b> annunci in totale</div>

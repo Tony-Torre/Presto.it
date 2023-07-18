@@ -113,4 +113,7 @@ h1{
     background-position: center;
     background-size: cover;
   }
-  
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #06145a92;
+    
+}
