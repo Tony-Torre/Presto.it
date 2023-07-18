@@ -18,10 +18,17 @@ class ArticleController extends Controller
     public function index()
     {   
         $users=User::all();
-        $order_desc= Article::where('is_accepted',1)
+        if(Auth::user()){
+           $order_desc= Article::where('is_accepted',1)
         ->where('user_id', '!=', Auth::user()->id)
         ->orderBy('created_at', 'desc')
-        ->paginate(6);
+        ->paginate(6); 
+        } else {
+            $order_desc= Article::where('is_accepted',1)
+        ->orderBy('created_at', 'desc')
+        ->paginate(6); 
+        }
+        
         
         // $order_desc->paginate(6);
         
@@ -49,7 +56,7 @@ class ArticleController extends Controller
     */
     public function edit(Article $article)
     {   
-        if(Auth::user()->id!=$article->user_id ?? null){
+        if(Auth::user()->id != $article->user_id ?? null){
             return abort(401);
         }
         return view('article.edit', ['article'=>$article]);
@@ -59,7 +66,9 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         if(Auth::user()->id=== $article->user->id){
-            $article->delete(); 
+            $article->delete();
+            $article->images();
+
         }else{
             abort(401);
         }
