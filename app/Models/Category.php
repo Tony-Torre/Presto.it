@@ -10,9 +10,14 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable=['name'];
-
+    
     public function articles()
     {
-        return $this->hasMany(Article::class)->where('is_accepted', 1)->where('user_id', '!=', Auth::user()->id);
+        if(Auth::user()) {
+            return $this->hasMany(Article::class)->where('is_accepted', 1)->where('user_id', '!=', Auth::user()->id);  
+        } else {
+            return $this->hasMany(Article::class)->where('is_accepted', 1);  
+        }
+        
     }
 }
