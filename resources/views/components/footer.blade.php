@@ -24,7 +24,11 @@
                 <ul class="list-group list-group-flush text-center">
                     <li style="list-style-type: none"><a href="{{route('article.create')}}">Inserisci annuncio</a></li>
                     <li style="list-style-type: none"><a href="{{route('user.index')}}">Controlla i tuoi annunci</a></li>
-                    <li style="list-style-type: none"><a href="{{route('user.show',['user'=>Auth::user()])}}">Guarda il tuo profilo</a></li>
+                    @if (Auth::user())
+                    <li style="list-style-type: none"><a href="{{route('user.show',['user'=>Auth::user()])}}">Guarda il tuo profilo</a></li> 
+                    @else
+                    <li style="list-style-type: none"><a href="{{route('login')}}">Entra su Presto</a></li>
+                    @endif
                 </ul>
             </div>
             <div class="col-3">
