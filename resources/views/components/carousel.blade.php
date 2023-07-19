@@ -23,7 +23,7 @@
                 @else
                 
                 <div class="carousel-item active">
-                    <img src="\img\no-image.jpg" class="d-block w-100 rounded" alt="Immagine3">
+                    <img src="\img\no-image_2.jpg" class="d-block w-100 rounded" alt="Immagine3">
                 </div>
                 @endif
             </div>
