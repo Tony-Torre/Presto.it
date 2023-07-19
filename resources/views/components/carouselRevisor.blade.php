@@ -54,7 +54,7 @@
                 @else
                 
                 <div class="carousel-item active d-flex justify-content-center">
-                    <img src="\img\no-image.jpg" class="d-block w-25 rounded" alt="Immagine3">
+                    <img src="\img\no-image_2.jpg" class="d-block w-25 rounded" alt="Immagine3">
                 </div>
                 @endif
                 
