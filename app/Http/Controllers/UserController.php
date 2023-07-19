@@ -52,16 +52,17 @@ class UserController extends Controller
 //     $user->eta = $birthday->diffInYears(Carbon::now());
         $user->eta = $request->input('birthday');
     // Se desideri anche aggiornare la foto dell'utente
-    if ($request->hasFile('photo')) {
-        $image = $request->file('photo');
-        $imageName = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('images'), $imageName);
-        $user->foto = $imageName;
+    
+    if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
+        $path_name = $request->file('photo')->getClientOriginalName();
+        $path_image = $request->file('photo')->storeAs('public/profile', $path_name);
+        
+        $user->foto = $path_image;
     }
 
     $user->save(); // Salva le modifiche nel database
 
-    return redirect()->route('user.show', ['user' => $user->id])->with('success', 'Profilo aggiornato con successo.');
+    return redirect()->route('user.show', ['user' => $user->id])->with('success', 'Profilo aggiornato con successo');
 
 }
 }
