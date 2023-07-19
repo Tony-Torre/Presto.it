@@ -1,4 +1,4 @@
-<div class="w-50 m-auto shadow_color rounded sticky_nav position_sticky mb-5">
+<div class="w-50 m-auto shadow_color rounded sticky_nav position_sticky mb-5 z-3">
     <form action="{{route('article.search')}}" method="POST" class="mt-5 ">
         @method('POST')
         @csrf

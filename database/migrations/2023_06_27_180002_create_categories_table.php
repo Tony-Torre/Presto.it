@@ -14,12 +14,63 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->string('icon');
+            $table->string('image');
             $table->timestamps();
-            $table->string('name');
+            
         });
-        $categories = ['Motori','Giochi','Libri','Sport','Informatica','Telefoni','Immobili','Elettrodomestici','Arredamento interno','Arredamento esterno'];
+        $categories = [
+            [
+                'name ' => 'Motori',
+                'icon' => 'category_img\category_motori.png',
+                'image' => 'category_banner\category_motori_banner.jpeg',
+            ],[
+                'name ' => 'Giochi',
+                'icon' => 'category_img\category_giochi.png',
+                'image' => 'category_banner\category_giochi_banner.jpeg',
+            ],[
+                'name ' => 'Libri',
+                'icon' => 'category_img\category_libri.png',
+                'image' => 'category_banner\category_libri_banner.jpeg',
+            ],[
+                'name ' => 'Sport',
+                'icon' => 'category_img\category_sport.png',
+                'image' => 'category_banner\category_sport_banner.jpeg',
+            ],[
+                'name ' => 'Informatica',
+                'icon' => 'category_img\category_informatica.png',
+                'image' => 'category_banner\category_informatica_banner.jpg',
+            ],[
+                'name ' => 'Telefoni',
+                'icon' => 'category_img\category_telefoni.png',
+                'image' => 'category_banner\category_telefoni_banner.jpg',
+            ],[
+                'name ' => 'Immobili',
+                'icon' => 'category_img\category_immobili.png',
+                'image' => 'category_banner\category_immobili_banner.jpeg',
+            ],[
+                'name ' => 'Elettrodomestici',
+                'icon' => 'category_img\category_elettrodomestici.png',
+                'image' => 'category_banner\category_elettrodomestici_banner.jpeg',
+            ],[
+                'name ' => 'Arredamento interno',
+                'icon' => 'category_img\category_arredamento_interno.png',
+                'image' => 'category_banner\category_arredamento_interno_banner.jpg',
+            ],[
+                'name ' => 'Arredamento esterno',
+                'icon' => 'category_img\category_arredamento_esterno.png',
+                'image' => 'category_banner\category_arredamento_esterno_banner.jpg',
+            ]
+            
+        ];
         foreach($categories as $category){
-            Category::create(['name' => $category]);
+            Category::create([
+                // 'name' => $category['name'],
+                'icon' => $category['icon'],
+                'image' => $category['image']
+                ]
+            );
         }
     }
 

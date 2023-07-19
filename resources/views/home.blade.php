@@ -1,20 +1,30 @@
 <x-main>
     
     @if (session()->has('access.denied'))
-        <div class="alert alert-danger text-center mt-3">
-            {{ session('access.denied') }}
-        </div>
+    <div class="alert alert-danger text-center mt-3">
+        {{ session('access.denied') }}
+    </div>
     @endif
-
+    
     @if (session()->has('message'))
-        <div class="alert alert-success text-center mt-3">
-            {{ session('message') }}
-        </div>
+    <div class="alert alert-success text-center mt-3">
+        {{ session('message') }}
+    </div>
     @endif
     
     <x-form_ricerca />
     
     <x-header />
+    
+    <div class="container">
+        <div class="row">
+            @foreach ($categories as $category)
+            <x-card_home_category :category="$category" /> 
+            @endforeach 
+        </div>
+    </div>
+    
+    
     
     <section class="w-75 m-auto my-5">
         <div class="row">
@@ -22,5 +32,5 @@
             <div class="col-4">Telefona chi ti piace</div>
         </div>
     </section>
-
+    
 </x-main>
