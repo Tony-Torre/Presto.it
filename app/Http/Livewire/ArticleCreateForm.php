@@ -6,6 +6,7 @@ use App\Jobs\GoogleVisionLabelImage;
 use App\Jobs\GoogleVisionSafeSearch;
 use App\Jobs\RemoveFaces;
 use App\Jobs\ResizeImage;
+use App\Jobs\WaterMark;
 use App\Models\Article;
 
 
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Spatie\Image\Manipulations;
 
 class ArticleCreateForm extends Component
 {
@@ -70,7 +72,7 @@ class ArticleCreateForm extends Component
             foreach ($this->images as $image) {
                 // $article->images()->create(['path' => $image->store('image', 'public')]);
 
-
+                
 
                 $newFileName = "articles/{$article->id}";
                 $newImage = $article->images()->create(['path' => $image->store($newFileName, 'public')]);
@@ -78,7 +80,8 @@ class ArticleCreateForm extends Component
                 RemoveFaces::withChain([
                     new ResizeImage($newImage->path, 400, 400),
                     new GoogleVisionSafeSearch($newImage->id),
-                    new GoogleVisionLabelImage($newImage->id)
+                    new GoogleVisionLabelImage($newImage->id),
+                    new WaterMark($newImage->id)
 
                 ])->dispatch($newImage->id);
             }
