@@ -21,11 +21,9 @@
         </div>
         <div class="d-flex">
           @if (Auth::user()==$article->user && $article->is_accepted === 1)
-          <form action="{{ route('article.sell', ['article' => $article]) }}" method="POST" class="me-1">
-            @csrf
-            @method('PATCH')
-            <button type="submit" class="btn btn_green"><i class="fa-solid fa-sack-dollar"></i></button>
-          </form>
+          
+            <button class="btn btn_green me-1" data-bs-toggle="modal" data-bs-target="#{{"model_sell" . $article->id}}"><i class="fa-solid fa-sack-dollar"></i></button>
+          
           @endif
           @if (Auth::user()==$article->user && $article->is_accepted!== 2)
           <!-- Button trigger modal -->
@@ -39,14 +37,36 @@
   </div>
 </div>
 
+<!-- Modal sell -->
+<div class="modal fade" id="{{"model_sell" . $article->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Annuncio venduto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Sei riuscito a vendere l'articolo {{$article->title}}?
+        <p class="text-danger">Attenzione, non potrai annullare l'azione!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+        <form action="{{ route('article.sell', ['article' => $article]) }}" method="POST" class="me-1">
+          @csrf
+          @method('PATCH')
+          <button type="submit" class="btn btn_green">Confermo!</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-
-<!-- Modal -->
+<!-- Modal delete -->
 <div class="modal fade" id="{{"model_" . $article->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina annuncio</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

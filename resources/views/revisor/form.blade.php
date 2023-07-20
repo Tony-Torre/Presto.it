@@ -36,7 +36,7 @@
                 <label for="phone" class="form-label">Numero di telefono*</label>
                 <div class="input-group">
                     <span class="input-group-text" id="phone">+39</span>
-                    <input type="number" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" placeholder="Numero di telefono">
+                    <input type="number" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{old('phone')}}" placeholder="Numero di telefono">
                 </div>
                 @error('phone')
                 <span class="text-danger">{{$message}}</span>

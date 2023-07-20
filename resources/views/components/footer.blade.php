@@ -35,7 +35,7 @@
                 <h5 class="text-center mt-2">Contattaci</h5>
                 <ul class="list-group list-group-flush text-center">
                     <li style="list-style-type: none"><a href="https://www.linkedin.com/in/marco-signorile/" target="_blank"><i class="fa-brands fa-linkedin"></i> Signorile Marco</a></li>
-                    <li style="list-style-type: none"><a href="https://www.linkedin.com/in/gianclaudio-tarantini-882325176/" target="_blank"><i class="fa-brands fa-linkedin"></i> Tarantini Gianclaudio</a></li>
+                    <li style="list-style-type: none"><a href="https://www.linkedin.com/in/gianclaudio-tarantini/" target="_blank"><i class="fa-brands fa-linkedin"></i> Tarantini Gianclaudio</a></li>
                     <li style="list-style-type: none"><a href="https://www.linkedin.com/in/antonino-torre-dev/" target="_blank"><i class="fa-brands fa-linkedin"></i> Torre Antonino</a></li>
                 </ul>
             </div>

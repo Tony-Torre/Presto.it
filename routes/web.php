@@ -40,7 +40,7 @@ Route::post('/article/search', [PageController::class, 'search'])->name('article
 Route::get('/ricerca/annuncio' , [PageController::class, 'searchArticle'])->name('search.article');
 
 //User
-Route::get('/article/my', [UserController::class, 'my_index'])->name('user.index');
+Route::get('/article/my', [UserController::class, 'my_index'])->middleware('auth')->name('user.index');
 Route::get('/user/{user}', [UserController::class, 'show'])->middleware('auth')->name('user.show');
 Route::get('/profile/edit/{user}', [UserController::class, 'edit'])->middleware('auth')->name('user.edit');
 Route::post('/profile/{user}', [UserController::class, 'update'])->middleware('auth')->name('profile.update');

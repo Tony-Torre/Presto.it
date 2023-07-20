@@ -5,7 +5,7 @@
         @method('POST')
         @csrf
         <div class="mb-3">
-            
+            <label for="surname" class="form-label">Modifica il tuo nome</label>
             <input type="form-control" name="name" class="form-control" required type="text" id="name" value="{{$user->name}}"placeholder="Modifica il tuo nome">
             @error('name')
             <span class="text-danger">
