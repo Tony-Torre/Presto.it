@@ -35,25 +35,6 @@
             <section class="col-12 col-md-7">
                 <ul class="list-group">
                     @foreach ($articles as $article)
-<<<<<<< HEAD
-                        <li style="list-style-type: none">
-                            <div class="card mb-3" style="max-width: 540px;">
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <a href="{{ route('article.show', ['article' => $article]) }}">
-                                            <img src="{{ $article->images()->get()->isEmpty()? '\img\no-image.jpg': $article->images()->first()->getUrl(400, 300) }}"
-                                                class="img-fluid rounded-start" alt="article-photo">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body h-100 d-flex flex-column justify-content-between">
-                                            <div>
-                                                <a href="{{ route('article.show', ['article' => $article]) }}">
-                                                    <h4 class="card-title mb-3">{{ $article->title }}</h4>
-                                                </a>
-                                                <p class="card-text" style="color: rgb(0, 167, 0)">
-                                                    €{{ $article->price }}</p>
-=======
                     <li style="list-style-type: none">
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
@@ -71,7 +52,6 @@
                                             </a>
                                             <p class="card-text" style="color: rgb(0, 167, 0)">
                                                 €{{ $article->price }}</p>
->>>>>>> 723069c51ff51e3c9d2ce380280988eea27325c5
                                             </div>
                                             <p class="card-text"><small class="text-body-secondary">Aggiunto il
                                                     {{ $article->created_at->format('d/m/Y') }}</small></p>

@@ -12,7 +12,11 @@ use function PHPSTORM_META\type;
 class PageController extends Controller
 {
     public function home(){
-        return view('home');
+        $hobbies= Category::take(4)->get();
+        $houses= Category::orderBy('id', 'desc')->take(4)->get();
+        $telephone= Category::where('name', 'Telefoni')->get();
+        $computer= Category::where('name', 'Informatica')->get();
+        return view('home', compact('hobbies', 'houses', 'telephone', 'computer'));
     }
     
     public function searchArticle (Request $request) {
