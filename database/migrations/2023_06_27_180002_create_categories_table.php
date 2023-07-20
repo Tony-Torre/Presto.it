@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->string('name');
             $table->string('icon');
             $table->string('image');
             $table->timestamps();
@@ -22,44 +22,44 @@ return new class extends Migration
         });
         $categories = [
             [
-                'name ' => 'Motori',
+                'name' => 'Motori',
                 'icon' => 'category_img\category_motori.png',
                 'image' => 'category_banner\category_motori_banner.jpeg'
             ],[
-                'name ' => 'Giochi',
+                'name' => 'Giochi',
                 'icon' => 'category_img\category_giochi.png',
                 'image' => 'category_banner\category_giochi_banner.jpeg'
             ],[
-                'name ' => 'Libri',
+                'name' => 'Libri',
                 'icon' => 'category_img\category_libri.png',
                 'image' => 'category_banner\category_libri_banner.jpeg'
             ],[
-                'name ' => 'Sport',
+                'name' => 'Sport',
                 'icon' => 'category_img\category_sport.png',
                 'image' => 'category_banner\category_sport_banner.jpeg'
             ],[
-                'name ' => 'Informatica',
+                'name' => 'Informatica',
                 'icon' => 'category_img\category_informatica.png',
                 'image' => 'category_banner\category_informatica_banner.jpg'
             ],[
-                'name ' => 'Telefoni',
+                'name' => 'Telefoni',
                 'icon' => 'category_img\category_telefoni.png',
                 'image' => 'category_banner\category_telefoni_banner.jpg'
             ],[
-                'name ' => 'Arredamento esterno',
+                'name' => 'Arredamento esterno',
                 'icon' => 'category_img\category_arredamento_esterno.png',
                 'image' => 'category_banner\category_arredamento_esterno_banner.jpg' 
             ],[
-                'name ' => 'Arredamento interno',
+                'name' => 'Arredamento interno',
                 'icon' => 'category_img\category_arredamento_interno.png',
                 'image' => 'category_banner\category_arredamento_interno_banner.jpg'
                 
             ],[
-                'name ' => 'Elettrodomestici',
+                'name' => 'Elettrodomestici',
                 'icon' => 'category_img\category_elettrodomestici.png',
                 'image' => 'category_banner\category_elettrodomestici_banner.jpeg'
             ],[
-                'name ' => 'Immobili',
+                'name' => 'Immobili',
                 'icon' => 'category_img\category_immobili.png',
                 'image' => 'category_banner\category_immobili_banner.jpeg'
             ]
@@ -67,7 +67,7 @@ return new class extends Migration
         ];
         foreach($categories as $category){
             Category::create([
-                // 'name' => $category['name'],
+                'name' => $category['name'],
                 'icon' => $category['icon'],
                 'image' => $category['image']
                 ]

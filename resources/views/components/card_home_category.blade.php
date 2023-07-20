@@ -3,5 +3,5 @@
         <img src={{$category->image}} class="img-fluid hofame" alt="">
     </div>
     
-    <figcaption class="bold fame"><h3>{{$category->name ?? "Macchina"}}</h3></figcaption>
+    <figcaption class="bold fame"><h4>{{$category->name}}</h4></figcaption>
 </figure>
