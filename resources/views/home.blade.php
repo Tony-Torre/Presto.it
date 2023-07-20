@@ -26,19 +26,28 @@
     
     
     @foreach ($telephone as $telephone)
-    <section class="w-75 m-auto my-5">
+    <section class="w-75 m-auto my-5 border shadow_color">
         <div class="row">
-            <div class="col-8"><img src={{$telephone->image ?? 'ciao'}} alt="Telefonia" class="img-fluid"></div>
-            <div class="col-4">Telefona chi ti piace</div>
+            <div class="col-12 col-md-8"><img src={{$telephone->image ?? 'ciao'}} alt="Telefonia" class="img-fluid"></div>
+            <div class="col-12 col-md-4 d-flex flex-column justify-content-center text-center fs-4">
+                <p>Dai nuova vita alla tecnologia</p>
+                <p>Acquista i nostri telefoni usati,</p>
+                <p>qualità senza compromessi!</p>
+                <a href="{{route('category.show',['category'=>$telephone])}}"><button class="btn btn_orange mb-2">Vai</button></a> 
+            </div>
         </div>
     </section>  
     @endforeach
     
     @foreach ($computer as $computer)
-    <section class="w-75 m-auto my-5">
+    <section class="w-75 m-auto my-5 border shadow_color">
         <div class="row">
-            <div class="col-4">Telefona chi ti piace</div>
-            <div class="col-8"><img src={{$computer->image}} alt="Telefonia" class="img-fluid"></div>
+            <div class="col-12 col-md-4 d-flex flex-column justify-content-center text-center fs-4">
+                <p>Per gli appassionati di gaming,</p>
+                <p>guarda i nostri articoli in infomatica</p>
+                <a href="{{route('category.show',['category'=>$computer])}}"><button class="btn btn_orange mb-2">Vai</button></a> 
+            </div>
+            <div class="col-12 col-md-8"><img src={{$computer->image}} alt="Telefonia" class="img-fluid"></div>
         </div>
     </section>  
     @endforeach

@@ -72,11 +72,16 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                <form action="{{route('article.contact',[$article,Auth::user()])}}" method="POST">
+                @auth
+                    <form action="{{route('article.contact',[$article,Auth::user()])}}" method="POST">
                     @method('POST')
                     @csrf
                     <button type="submit" class="btn btn-outline-success">Contattami</button>
-                </form> 
+                </form>
+                @else
+                <a href="{{route('login')}}"><button class="btn btn-outline-success">Accedi</button></a>
+                @endauth
+                
             </div>
         </div>
     </div>
