@@ -54,10 +54,29 @@
                 <label for="password_confirmation" class="form-label">Conferma password</label>
                 <input type="password" class="form-control @error('password') is-invalid @enderror" id="password_confirmation" name="password_confirmation" placeholder="Conferma la password">
             </div>
+            <div class="mb-3">
+                <label for="region" class="form-label">Regione</label>
+                <select class="form-select mb-3 capitalize @error('region') is-invalid @enderror" aria-label="Default select example" id="region" name="region" required>
+                    <option selected value="">Seleziona la tua regione</option>
+                    @foreach ($regions as $region)
+                    <option value="{{$region}}" class="capitalize">
+                        {{$region}}
+                    </option>
+                    @endforeach
+                </select>
+                @error('region')
+                <span class="text-danger">Scegliere una categoria</span>
+                @enderror
+            </div>
+            <div class="mb-3" id="provinces">
+            </div>
             <button type="submit" class="btn btn_orange">Registrati</button>
         </form>
         <p>Hai già un account? 
             <a href="{{route('login')}}">Accedi qui</a>
         </p>
     </div>
+    <script>
+        var provinces = <?php echo json_encode($provinces); ?>;
+    </script>
 </x-main>

@@ -26,7 +26,8 @@ class User extends Authenticatable
         'foto',
         'surname',
         'eta',
-        'birthday'
+        'birthday',
+        'province_id'
     ];
 
     /**
@@ -53,5 +54,10 @@ class User extends Authenticatable
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+
+    public function province() 
+    {
+        return $this->belongsTo(Province::class);
     }
 }

@@ -20,7 +20,7 @@ class ArticleCreateForm extends Component
 {
     use WithFileUploads;
 
-    public $title, $price, $description, $category_id, $user_id;
+    public $title, $price, $description, $category_id, $user_id, $province_id;
     public $images = [];
     public $temporary_images;
     public $article;
@@ -67,6 +67,8 @@ class ArticleCreateForm extends Component
             'description' => $this->description,
             'category_id' => $this->category_id,
             'user_id' => Auth::user()->id,
+            'province_id' => Auth::user()->province['id'],
+
         ]);
         if (count($this->images)) {
             foreach ($this->images as $image) {

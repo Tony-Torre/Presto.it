@@ -12,7 +12,7 @@ class Article extends Model
 {
     use HasFactory, Searchable;
 
-    protected $fillable = ['title','price','description','category_id','user_id'];
+    protected $fillable = ['title','price','description','category_id','user_id','province_id'];
 
     public function category(){
         return $this->belongsTo(Category::class);
@@ -24,6 +24,10 @@ class Article extends Model
 
     public function images() {
         return $this->hasMany(Image::class);
+    }
+
+    public function province() {
+        return $this->belongsTo(Province::class);
     }
 
     public function setAccepted ($value) {

@@ -46,7 +46,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Sei riuscito a vendere l'articolo {{$article->title}}?
+        Sei riuscito a vendere l'articolo " {{$article->title}} " ?
         <p class="text-danger">Attenzione, non potrai annullare l'azione!</p>
       </div>
       <div class="modal-footer">
@@ -70,7 +70,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Vuoi veramente eliminare l'annuncio {{$article->title}}
+        Vuoi veramente eliminare l'annuncio " {{$article->title}} " ?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>

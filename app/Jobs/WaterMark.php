@@ -44,7 +44,7 @@ class WaterMark implements ShouldQueue
         $image = SpatieImage::load($srcPath);
 
         $image->watermark(base_path('resources/img/Presto.it_watermarks.png'))
-            ->watermarkOpacity(30)
+            ->watermarkOpacity(40)
             ->watermarkPosition(Manipulations::POSITION_CENTER)
             ->watermarkPadding(10, 10, Manipulations::UNIT_PERCENT)
             ->watermarkHeight(50, Manipulations::UNIT_PERCENT)
